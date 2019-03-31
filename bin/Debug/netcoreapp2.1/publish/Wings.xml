@@ -1,0 +1,3944 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Wings</name>
+    </assembly>
+    <members>
+        <member name="T:Cucr.CucrSaas.App.Controllers.AuthController">
+            <summary>
+            App登录注册授权接口
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.AuthController.oaContext">
+            <summary>
+            OA数据访问对象
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.AuthController.sysContext">
+            <summary>
+            系统数据库访问
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.AuthController.userService">
+            <summary>
+            用户接口
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.AuthController.#ctor(Cucr.CucrSaas.App.DataAccess.OAContext,Cucr.CucrSaas.App.DataAccess.SysContext,Cucr.CucrSaas.App.Service.ICommonService,Cucr.CucrSaas.App.Service.IUserService)">
+            <summary>
+            
+            </summary>
+            <param name="_oaContext"></param>
+            <param name="_sysContext"></param>
+            <param name="_commonService"></param>
+            <param name="_userService"></param>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.AuthController.appLogin(Cucr.CucrSaas.App.DTO.AppUserLoginInput)">
+            <summary>
+            app登录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.AuthController.signup(Cucr.CucrSaas.App.DTO.SignupInput)">
+            <summary>
+            注册
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.AuthController.getUserInfo(Cucr.CucrSaas.App.DTO.UserInfoInput)">
+            <summary>
+            获取用户信息
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Controllers.IncardController">
+            <summary>
+            出勤
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.IncardController.oaContext">
+            <summary>
+            OA数据访问对象
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.IncardController.sysContext">
+            <summary>
+            系统数据库访问
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.IncardController.userService">
+            <summary>
+            用户接口
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.IncardController.#ctor(Cucr.CucrSaas.App.DataAccess.OAContext,Cucr.CucrSaas.App.DataAccess.SysContext,Cucr.CucrSaas.App.Service.ICommonService,Cucr.CucrSaas.App.Service.IUserService)">
+            <summary>
+            
+            </summary>
+            <param name="_oaContext"></param>
+            <param name="_sysContext"></param>
+            <param name="_commonService"></param>
+            <param name="_userService"></param>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.IncardController.getIncardDayInfo(DevExtreme.AspNet.Mvc.DataSourceLoadOptions)">
+            <summary>
+            
+            获取出勤记录列表
+            可以设置日期
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Controllers.WagesController">
+            <summary>
+            工资条
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.WagesController.oaContext">
+            <summary>
+            OA数据访问对象
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.WagesController.sysContext">
+            <summary>
+            系统数据库访问
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.WagesController.userService">
+            <summary>
+            用户接口
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.WagesController.#ctor(Cucr.CucrSaas.App.DataAccess.OAContext,Cucr.CucrSaas.App.DataAccess.SysContext,Cucr.CucrSaas.App.Service.ICommonService,Cucr.CucrSaas.App.Service.IUserService)">
+            <summary>
+            
+            </summary>
+            <param name="_oaContext"></param>
+            <param name="_sysContext"></param>
+            <param name="_commonService"></param>
+            <param name="_userService"></param>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.WagesController.getUserWages(DevExtreme.AspNet.Mvc.DataSourceLoadOptions)">
+            <summary>
+            
+            获取出勤记录列表
+            可以设置日期
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Controllers.WorkReportController">
+            <summary>
+            App登录注册授权接口
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.WorkReportController.oaContext">
+            <summary>
+            OA数据访问对象
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.WorkReportController.sysContext">
+            <summary>
+            系统数据库访问
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.WorkReportController.userService">
+            <summary>
+            用户接口
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.WorkReportController.#ctor(Cucr.CucrSaas.App.DataAccess.OAContext,Cucr.CucrSaas.App.DataAccess.SysContext,Cucr.CucrSaas.App.Service.ICommonService,Cucr.CucrSaas.App.Service.IUserService)">
+            <summary>
+            
+            </summary>
+            <param name="_oaContext"></param>
+            <param name="_sysContext"></param>
+            <param name="_commonService"></param>
+            <param name="_userService"></param>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.WorkReportController.searchWorkReport(DevExtreme.AspNet.Mvc.DataSourceLoadOptions)">
+            <summary>
+            搜索OA工作报告
+            </summary>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.WorkReportController.getWorkReportInfo(Cucr.CucrSaas.App.DTO.GetWorkReportInput)">
+            <summary>
+            
+            获取报告详情
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.WorkReportController.addOaWorkReportInfo(Cucr.CucrSaas.App.Entity.OA.WorkReport)">
+            <summary>
+            添加工作报告
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.WorkReportController.deleteWorkReportInfo(System.String)">
+            <summary>
+            删除工作报告
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.DataAccess.OAContext">
+            <summary>
+            OA数据访问
+            </summary>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.DataAccess.OAContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{Cucr.CucrSaas.App.DataAccess.OAContext})">
+            <summary>
+            
+            </summary>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DataAccess.OAContext.anwsers">
+            <summary>
+            问卷调查
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DataAccess.OAContext.workreports">
+            <summary>
+            工作报告
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DataAccess.OAContext.incards">
+            <summary>
+            出勤记录
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DataAccess.OAContext.wageses">
+            <summary>
+            工资条
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.DataAccess.SysContext">
+            <summary>
+            OA数据访问
+            </summary>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.DataAccess.SysContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{Cucr.CucrSaas.App.DataAccess.SysContext})">
+            <summary>
+            
+            </summary>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DataAccess.SysContext.users">
+            <summary>
+            问卷调查
+            </summary>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.DTO.TokenInstance">
+            <summary>
+            token信息
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DTO.TokenInstance.mechineId">
+            <summary>
+            设备id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DTO.TokenInstance.LoginPassword">
+            <summary>
+            登陆密码
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DTO.TokenInstance.phone">
+            <summary>
+            登录的手机号
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.DTO.AppTokenOutput">
+            <summary>
+            token实体
+            前端使用token可以获得token实体信息
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DTO.AppTokenOutput.user">
+            <summary>
+            用户信息
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.DTO.AppUserLoginInput">
+            <summary>
+            app用户登录实体
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DTO.AppUserLoginInput.phone">
+            <summary>
+            用户手机号
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DTO.AppUserLoginInput.loginPassword">
+            <summary>
+            登录密码
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DTO.AppUserLoginInput.mechineId">
+            <summary>
+            登录的设备Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.DTO.CommonRtn">
+            <summary>
+            通用响应体
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DTO.CommonRtn.message">
+            <summary>
+            消息
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DTO.CommonRtn.success">
+            <summary>
+            是否成功
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DTO.CommonRtn.resData">
+            <summary>
+            返回给前端的数据
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.DTO.GetWorkReportInput">
+            <summary>
+            app用户登录实体
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DTO.GetWorkReportInput.workReportId">
+            <summary>
+            工作报告Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DTO.GetWorkReportInput.mechineId">
+            <summary>
+            设备id
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.DTO.SignupInput">
+            <summary>
+            注册输入
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DTO.SignupInput.phone">
+            <summary>
+            手机号
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DTO.SignupInput.loginPassword">
+            <summary>
+            登录密码
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DTO.SignupInput.invitationCode">
+            <summary>
+            邀请码
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.DTO.UserInfoInput">
+            <summary>
+            获取用户token
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DTO.UserInfoInput.token">
+            <summary>
+            验证token
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DTO.UserInfoInput.mechineId">
+            <summary>
+            设备id
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.Anwser">
+            <summary>
+            问传调查
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Anwser.Id">
+            <summary>
+            id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Anwser.OA_QuestionnaireSubjectId">
+            <summary>
+               问传调查关联id
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.BankCard">
+            <summary>
+            银行卡
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BankCard.id">
+            <summary>
+            ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BankCard.userId">
+            <summary>
+            用户id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BankCard.bankName">
+            <summary>
+            银行名称
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BankCard.openBankName">
+            <summary>
+            开户行
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BankCard.no">
+            <summary>
+            卡号
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BankCard.name">
+            <summary>
+            姓名
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BankCard.inputPerson">
+            <summary>
+            录入人
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BankCard.inputTime">
+            <summary>
+            录入时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BankCard.orderBy">
+            <summary>
+            录入时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BankCard.reservedSpace1">
+            <summary>
+            保留字段1
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BankCard.reservedSpace2">
+            <summary>
+            保留字段2
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BankCard.reservedSpace3">
+            <summary>
+            保留字段3
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.BaseEntity">
+            <summary>
+            基本参数实体
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BaseEntity.id">
+            <summary>
+            主键
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BaseEntity.inputPerson">
+            <summary>
+            录入人
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BaseEntity.inputTime">
+            <summary>
+            录入时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BaseEntity.orderBy">
+            <summary>
+            排序
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BaseEntity.reservedSpace1">
+            <summary>
+            保留字段1
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BaseEntity.reservedSpace2">
+            <summary>
+            保留字段2
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BaseEntity.reservedSpace3">
+            <summary>
+            保留字段3
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.BookConference">
+            <summary>
+            订阅会议
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BookConference.id">
+            <summary>
+            ID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BookConference.companyId">
+            <summary>
+            公司ID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BookConference.conferenceRoomId">
+            <summary>
+            订阅房间Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BookConference.conferenceRoomName">
+            <summary>
+            订阅会议名称
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BookConference.date">
+            <summary>
+            日期
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BookConference.beginTime">
+            <summary>
+            开始时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BookConference.endTime">
+            <summary>
+            结束时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BookConference.title">
+            <summary>
+            标题
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BookConference.project">
+            <summary>
+            所属项目
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BookConference.content">
+            <summary>
+            会议内容
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BookConference.department">
+            <summary>
+            部门
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BookConference.fqrId">
+            <summary>
+            发起人Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BookConference.userIds">
+            <summary>
+            参与人
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BookConference.userNames">
+            <summary>
+            参与人姓名
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BookConference.headPortrait">
+            <summary>
+            参与人头像集合
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BookConference.enclosure">
+            <summary>
+            附件
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BookConference.noticePerson">
+            <summary>
+            通知对象（用户id集合）
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BookConference.subPerson">
+            <summary>
+            提交人
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BookConference.push">
+            <summary>
+            是否推送(0：不推送；1：推送；)
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BookConference.inputPerson">
+            <summary>
+            录入人
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BookConference.inputTime">
+            <summary>
+            录入时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BookConference.orderBy">
+            <summary>
+            排序
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BookConference.reservedSpace1">
+            <summary>
+            保留字段1
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BookConference.reservedSpace2">
+            <summary>
+            保留字段2
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.BookConference.reservedSpace3">
+            <summary>
+            保留字段3
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.Comment">
+            <summary>
+            评论表
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.Comment.id">
+            <summary>
+            id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Comment.dyId">
+            <summary>
+            对应主键
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Comment.personid">
+            <summary>
+            用户id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Comment.content">
+            <summary>
+            内容
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Comment.commentTime">
+            <summary>
+            评论时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.Commute">
+            <summary>
+            打表规则卡
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Commute.id">
+            <summary>
+            Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Commute.companyId">
+            <summary>
+            
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Commute.morningWorkTime">
+            <summary>
+            上午上班时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Commute.morningGoOffWork">
+            <summary>
+            上午下班时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Commute.afternoonWorkTime">
+            <summary>
+            下午上班时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Commute.afternoonGoOffWork">
+            <summary>
+            下午下班时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Commute.beginPunchInterval1">
+            <summary>
+            第一次打卡时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Commute.endPunchInterval1">
+            <summary>
+            第一次打卡结束时间
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Commute.beginPunchInterval2">
+            <summary>
+            第二次打卡开始时间
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Commute.endPunchInterval2">
+            <summary>
+            第二次打卡结束时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Commute.beginPunchInterval3">
+            <summary>
+            第三次打卡时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Commute.endPunchInterval3">
+            <summary>
+            第三次打卡开始结束时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Commute.beginPunchInterval4">
+            <summary>
+            第四次打卡结束时间
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Commute.endPunchInterval4">
+            <summary>
+            第四次打卡开始结束时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Commute.putCardNumber">
+            <summary>
+            今日应打卡次数(2次或者4次)
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Commute.enactingPerson">
+            <summary>
+            制定人
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Commute.beginImplementTime">
+            <summary>
+            开始执行日期
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Commute.endImplementTime">
+            <summary>
+            结束执行日期
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Commute.inputPerson">
+            <summary>
+            录入人
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Commute.inputTime">
+            <summary>
+            录入时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Commute.orderBy">
+            <summary>
+            排序
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Commute.reservedSpace1">
+            <summary>
+            保留字段1
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Commute.reservedSpace2">
+            <summary>
+            保留字段2
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Commute.reservedSpace3">
+            <summary>
+            保留字段3
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.CommuteCopy">
+            <summary>
+            打卡记录表备份
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.CommuteCopy.id">
+            <summary>
+            Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.CommuteCopy.companyId">
+            <summary>
+            
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.CommuteCopy.morningWorkTime">
+            <summary>
+            上午上班时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.CommuteCopy.morningGoOffWork">
+            <summary>
+            上午下班时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.CommuteCopy.afternoonWorkTime">
+            <summary>
+            下午上班时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.CommuteCopy.afternoonGoOffWork">
+            <summary>
+            下午下班时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.CommuteCopy.beginPunchInterval1">
+            <summary>
+            第一次打卡时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.CommuteCopy.endPunchInterval1">
+            <summary>
+            第一次打卡结束时间
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.CommuteCopy.beginPunchInterval2">
+            <summary>
+            第二次打卡开始时间
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.CommuteCopy.endPunchInterval2">
+            <summary>
+            第二次打卡结束时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.CommuteCopy.beginPunchInterval3">
+            <summary>
+            第三次打卡时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.CommuteCopy.endPunchInterval3">
+            <summary>
+            第三次打卡开始结束时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.CommuteCopy.beginPunchInterval4">
+            <summary>
+            第四次打卡结束时间
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.CommuteCopy.endPunchInterval4">
+            <summary>
+            第四次打卡开始结束时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.CommuteCopy.putCardNumber">
+            <summary>
+            今日应打卡次数(2次或者4次)
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.CommuteCopy.enactingPerson">
+            <summary>
+            制定人
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.CommuteCopy.datatime">
+            <summary>
+            日期
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.ConferenceRoom">
+            <summary>
+            会议室维护
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.ConferenceRoom.id">
+            <summary>
+            ID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.ConferenceRoom.companyId">
+            <summary>
+            公司ID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.ConferenceRoom.conferenceName">
+            <summary>
+            会议室名字
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.ConferenceRoom.conferenceAddress">
+            <summary>
+            会议室地址
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.ConferenceRoom.facilities">
+            <summary>
+            会议室设施
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.ConferenceRoom.maxNumber">
+            <summary>
+            最大参与人数
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.ConferenceRoom.open">
+            <summary>
+            是否开放
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.ConferenceRoom.inputPerson">
+            <summary>
+            
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.ConferenceRoom.inputTime">
+            <summary>
+            录入时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.ConferenceRoom.orderBy">
+            <summary>
+            排序
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.ConferenceRoom.reservedSpace1">
+            <summary>
+            保留字段1
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.ConferenceRoom.reservedSpace2">
+            <summary>
+            保留字段2
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.ConferenceRoom.reservedSpace3">
+            <summary>
+            保留字段3
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.Education">
+            <summary>
+            教育经历表
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Education.userId">
+            <summary>
+            用户ID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Education.courtyard">
+            <summary>
+            院系
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Education.major">
+            <summary>
+            专业
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Education.schoolName">
+            <summary>
+            学校名称
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Education.beginDate">
+            <summary>
+            开始时间
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Education.endDate">
+            <summary>
+            结束时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Education.heihgtEducation">
+            <summary>
+            最高教育
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.HeightEducationType">
+            <summary>
+            最高学历(0：小学；1：初中；2：高中；3：大专；4：本科；5：硕士；6：博士；)
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.HeightEducationType.Primary">
+             <summary>
+             小学；
+             </summary>
+            
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.HeightEducationType.Junior">
+            <summary>
+            小学；
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.HeightEducationType.High">
+            <summary>
+            高中
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.HeightEducationType.College">
+            <summary>
+            本科
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.HeightEducationType.Bachelor">
+            <summary>
+            高中
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.HeightEducationType.Master">
+            <summary>
+            硕士
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.HeightEducationType.Doctor">
+            <summary>
+            硕士
+            </summary>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.Enclosure">
+            <summary>
+            附件
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.Enclosure.id">
+            <summary>
+            主键
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Enclosure.fjId">
+            <summary>
+            附件ID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Enclosure.fjName">
+            <summary>
+            附件名字
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Enclosure.fjAddress">
+            <summary>
+            附件地址
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Enclosure.fjType">
+            <summary>
+            附件类型
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Enclosure.businessname">
+            <summary>
+            附件对应业务类型
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.Equipment">
+            <summary>
+            附件
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.Equipment.id">
+            <summary>
+            主键
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Equipment.fjId">
+            <summary>
+            附件ID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Equipment.fjName">
+            <summary>
+            附件名字
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Equipment.fjAddress">
+            <summary>
+            附件地址
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Equipment.fjType">
+            <summary>
+            附件类型
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Equipment.businessname">
+            <summary>
+            附件对应业务类型
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.Incard">
+            <summary>
+            出勤记录
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Incard.id">
+            <summary>
+            id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Incard.companyId">
+            <summary>
+            公司id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Incard.userId">
+            <summary>
+            用户id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Incard.cardType">
+            <summary>
+            打卡类型
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Incard.time">
+            <summary>
+            打卡时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Incard.cardTimeType">
+            <summary>
+            打卡时间类型,
+            0:一次,1:二次,2:三次,3:四次
+            
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Incard.result">
+            <summary>
+            打卡结果
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Incard.serialNumber">
+            <summary>
+            流失号
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Incard.inputPerson">
+            <summary>
+            录入人
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Incard.inputTime">
+            <summary>
+            录入时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Incard.orderBy">
+            <summary>
+            排序
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Incard.reservedSpace1">
+            <summary>
+            保留字段1
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Incard.reservedSpace2">
+            <summary>
+            保留字段2
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Incard.reservedSpace3">
+            <summary>
+            保留字段3
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Incard.createTime">
+            <summary>
+            创建时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.IncardType">
+            <summary>
+            打卡类型(0：上下班打卡；1：补打卡)
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.IncardType.Normal">
+            <summary>
+            上下班打卡
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.IncardType.FixedCard">
+            <summary>
+            补卡
+            </summary>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.InCardTimeType">
+            <summary>
+            打卡时段(0：第一次打卡；1：第二次打卡；2：第三次打卡；3：第四次打卡)
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.InCardTimeType.First">
+            <summary>
+            第一次打卡；
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.InCardTimeType.Second">
+            <summary>
+            第一次打卡；
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.InCardTimeType.Third">
+            <summary>
+            第三次打卡；
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.InCardTimeType.Fourth">
+            <summary>
+            第四次打卡；
+            </summary>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.IncardTimeResult">
+            <summary>
+            出勤结果
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.IncardTimeResult.Normal">
+            <summary>
+            正常
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.IncardTimeResult.Late">
+            <summary>
+            迟到
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.IncardTimeResult.Early">
+            <summary>
+            早退
+            </summary>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.IncardSerialNumber">
+            <summary>
+            序列号
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.IncardSerialNumber.Id">
+            <summary>
+            ID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.IncardSerialNumber.inCardId">
+            <summary>
+            出勤卡id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.IncardSerialNumber.UserId">
+            <summary>
+            用户id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.IncardSerialNumber.type">
+            <summary>
+            出勤序列号时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.IncardSerialNumber.time">
+            <summary>
+            时间
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.IncardSerialNumber.timeSlot">
+            <summary>
+            打卡时间段
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.IncardSerialNumber.inputPerson">
+            <summary>
+            录入人
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.IncardSerialNumber.inputTime">
+            <summary>
+            录入时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.IncardSerialNumber.orderBy">
+            <summary>
+            排序
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.IncardSerialNumber.reservedSpace1">
+            <summary>
+            保留字段1
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.IncardSerialNumber.reservedSpace2">
+            <summary>
+            保留字段2
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.IncardSerialNumber.reservedSpace3">
+            <summary>
+            保留字段3
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.IncardSerialNumberType">
+            <summary>
+            打卡类型
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.IncardSerialNumberType.Normal">
+            <summary>
+            正常打卡
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.IncardSerialNumberType.Fixed">
+            <summary>
+            补卡
+            </summary>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.Integral">
+            <summary>
+            积分表
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Integral.userId">
+            <summary>
+            考勤项
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Integral.attendanceItems">
+            <summary>
+            考勤项
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Integral.score">
+            <summary>
+            得分
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.Notify">
+            <summary>
+            消息
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.Notify.id">
+            <summary>
+            主键
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Notify.companyId">
+            <summary>
+            公司ID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Notify.PersonId">
+            <summary>
+            发布人Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Notify.title">
+            <summary>
+            标题
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Notify.content">
+            <summary>
+            内容
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Notify.type">
+            <summary>
+            类型
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Notify.noticePerson">
+            <summary>
+            通知人(用户GUID集合)
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Notify.datetime">
+            <summary>
+            发布时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Notify.push">
+            <summary>
+            是否推送(0:不推送；1：推送)
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Notify.inputTime">
+            <summary>
+            录入时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Notify.orderBy">
+            <summary>
+            排序
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.Outcard">
+            <summary>
+            出勤表,出差表
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Outcard.id">
+            <summary>
+            id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Outcard.companyId">
+            <summary>
+            公司Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Outcard.userId">
+            <summary>
+            用户Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Outcard.kqType">
+            <summary>
+            出勤类型
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Outcard.cardType">
+            <summary>
+            打卡类型
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Outcard.title">
+            <summary>
+            标题
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Outcard.content">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Outcard.enclosure">
+            <summary>
+            附件
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Outcard.customer">
+            <summary>
+            客户
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Outcard.region">
+            <summary>
+            区域
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Outcard.address">
+            <summary>
+            地址
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Outcard.time">
+            <summary>
+            打卡时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Outcard.imgUrl">
+            <summary>
+             图片
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Outcard.noticePerson">
+            <summary>
+            通知对象ID集合
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Outcard.ccPerson">
+            <summary>
+            抄送人ID集合
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Outcard.serialNumber">
+            <summary>
+            流水号
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Outcard.inputPerson">
+            <summary>
+            录入人
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Outcard.inputTime">
+            <summary>
+            录入时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Outcard.orderBy">
+            <summary>
+            排序
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.KqType">
+            <summary>
+            考勤类型(0：外勤打卡；1：出差打卡)
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.KqType.Field">
+            <summary>
+            外勤打卡
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.KqType.Trip">
+            <summary>
+            出差打卡
+            </summary>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.CardType">
+            <summary>
+            打卡类型(0：签入；1：签出)
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.CardType.CheckIn">
+            <summary>
+            签入
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.CardType.Checkout">
+            <summary>
+            签出
+            </summary>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.ProjectReport">
+            <summary>
+            项目汇报
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.ProjectReport.companyId">
+            <summary>
+            公司Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.ProjectReport.projectId">
+            <summary>
+            项目Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.ProjectReport.subPersonId">
+            <summary>
+            
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.ProjectReport.title">
+            <summary>
+            标题
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.ProjectReport.content">
+            <summary>
+            内容
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.ProjectReport.enclosure">
+            <summary>
+            附件地址
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.ProjectReport.noticePersonIds">
+            <summary>
+            消息推送人集合
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.ProjectReport.subTime">
+            <summary>
+            提交时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.ProjectReport.WorkorderDetailedId">
+            <summary>
+            工单明细Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.ProjectReport.completedHouse">
+            <summary>
+            已完成工时
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.Question">
+            <summary>
+            选择题答案表
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Question.qa_QuestionnaireSubjectId">
+            <summary>
+            题目表ID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Question.context">
+            <summary>
+            答案内容（例：A：1212；B:1212;）
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.QuestionNaire">
+            <summary>
+            问卷调查表
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.QuestionNaire.companyId">
+            <summary>
+            所属公司id
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.QuestionNaire.userId">
+            <summary>
+            发布人id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.QuestionNaire.title">
+            <summary>
+            标题
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.QuestionNaire.serialNumber">
+            <summary>
+            流水号
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.QuestionNaire.department">
+            <summary>
+            部门
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.QuestionNaire.beginTime">
+            <summary>
+            问卷开始时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.QuestionNaire.endTime">
+            <summary>
+            问卷结束时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.QuestionSubject">
+            <summary>
+            问卷调查题目表
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.QuestionSubject.oa_QuestionnaireId">
+            <summary>
+            问卷调查ID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.QuestionSubject.type">
+            <summary>
+            问卷调查类型
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.QuestionSubject.question">
+            <summary>
+            问题
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.QuestionSubjectType">
+            <summary>
+            题目类型（0：选择题；1：填空题）
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.QuestionSubjectType.Choose">
+            <summary>
+            选择题
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.QuestionSubjectType.Fill">
+            <summary>
+            填空题
+            </summary>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.SkillInfomation">
+            <summary>
+            技能信息表
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.SkillInfomation.userId">
+            <summary>
+            用户Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.SkillInfomation.skillName">
+            <summary>
+            技能名称
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.SkillInfomation.explain">
+            <summary>
+            技能说明
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.SkillInfomation.proficiency">
+            <summary>
+            熟练程度
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.SkillInfomation.serviceLlife">
+            <summary>
+            使用年限
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.TrainExperience">
+            <summary>
+            培训经历表
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.TrainExperience.userId">
+            <summary>
+            用户Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.TrainExperience.schoolName">
+            <summary>
+            学校名称
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.TrainExperience.beginDate">
+            <summary>
+            开始时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.TrainExperience.endDate">
+            <summary>
+            结束时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.TrainExperience.content">
+            <summary>
+            内容
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.TrainExperience.major">
+            <summary>
+            专业
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.Urgentperson">
+            <summary>
+            紧急联系人表
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Urgentperson.userId">
+            <summary>
+            用户ID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Urgentperson.name">
+            <summary>
+            姓名
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Urgentperson.relationship">
+            <summary>
+            与本人关系
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Urgentperson.phone">
+            <summary>
+            手机号
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.UseEquipment">
+            <summary>
+            设备领取表
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.UseEquipment.userId">
+            <summary>
+            用户id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.UseEquipment.deviceManagementID">
+            <summary>
+            设备管理表Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.UseEquipment.leadTime">
+            <summary>
+            领取时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.UserContract">
+            <summary>
+            设备领取表
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.UserContract.userId">
+            <summary>
+            员工ID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.UserContract.no">
+            <summary>
+            合同编号
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.UserContract.beginTime">
+            <summary>
+            合同开始时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.UserContract.endTime">
+            <summary>
+            合同结束时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.UserContract.enclosure">
+            <summary>
+            合同附件
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.Wages">
+            <summary>
+            工资条
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.id">
+            <summary>
+            主键
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.companyId">
+            <summary>
+            公司id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.userId">
+            <summary>
+            用户id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.name">
+            <summary>
+            姓名
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.department">
+            <summary>
+            部门
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.position">
+            <summary>
+            职位
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.workDay">
+            <summary>
+            工作天数
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.basicWage">
+            <summary>
+            基本薪资
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.positionMoney">
+            <summary>
+            职位薪资
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.overtimeMoney">
+            <summary>
+            加班薪资
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.meritpaystandard">
+            <summary>
+            绩效工资标准
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.meritpayscore">
+            <summary>
+            绩效评分
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.paymentMeritpay">
+            <summary>
+            实发绩效工资
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.computersubsidy">
+            <summary>
+            电脑补贴
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.reissueOther">
+            <summary>
+            其他补发
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.royalty">
+            <summary>
+            提成
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.totalpayablewages">
+            <summary>
+            应付工资合计
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.late">
+            <summary>
+            迟到
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.absenteeism">
+            <summary>
+            旷工
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.nopunchcard">
+            <summary>
+            未打卡
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.infringementnotice">
+            <summary>
+             罚单
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.unionfee">
+            <summary>
+            工会费
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.socialSecurityPayment">
+            <summary>
+            社保代缴（个人）
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.providentFundPayment">
+            <summary>
+            公积金代缴（个人）
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.fullAttendanceMoney">
+            <summary>
+            全勤奖
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.total">
+            <summary>
+            合计
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.grantTime">
+            <summary>
+            发放时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.grantMonth">
+            <summary>
+            发放月份
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.inputPerson">
+            <summary>
+            录入人
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.inputTime">
+            <summary>
+            录入时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.orderBy">
+            <summary>
+            排序
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.reservedSpace1">
+            <summary>
+            保留字段1
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.reservedSpace2">
+            <summary>
+            保留字段2
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Wages.reservedSpace3">
+            <summary>
+            保留字段3
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.Work">
+            <summary>
+            工资条
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Work.userId">
+            <summary>
+            用户Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Work.companyName">
+            <summary>
+            公司名称
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Work.beginDate">
+            <summary>
+            开始时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Work.endDate">
+            <summary>
+            结束时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Work.department">
+            <summary>
+            部门
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Work.position">
+            <summary>
+            职位
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.WorkOrder">
+            <summary>
+            工资条
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.userId">
+            <summary>
+            用户Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.companyName">
+            <summary>
+            公司名称
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.beginDate">
+            <summary>
+            开始时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.endDate">
+            <summary>
+            结束时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.department">
+            <summary>
+            部门
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.position">
+            <summary>
+            职位
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.WorkOrderDistribution">
+            <summary>
+            工单流水表
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrderDistribution.workorderId">
+            <summary>
+            任务工单ID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrderDistribution.userId">
+            <summary>
+            用户ID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrderDistribution.completedHouse">
+            <summary>
+            完成工时
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.WorkReport">
+            <summary>
+            工作报告
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkReport.id">
+            <summary>
+            主键
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkReport.companyId">
+            <summary>
+            公司id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkReport.projectId">
+            <summary>
+            项目id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkReport.subPersonId">
+            <summary>
+            提交人ID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkReport.type">
+            <summary>
+            工作报告
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkReport.title">
+            <summary>
+            标题
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkReport.content">
+            <summary>
+            内容
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkReport.enclosure">
+            <summary>
+            附件(附件地址)
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkReport.noticePersonIds">
+            <summary>
+            通知对象ID(用户ID集合)
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkReport.ccPersonIds">
+            <summary>
+            抄送人ID(用户Id集合)
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkReport.subTime">
+            <summary>
+            发送时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkReport.workorderDetailedId">
+            <summary>
+            工单明细Id（工单明细ID集合）
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkReport.completedHouse">
+            
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkReport.inputPerson">
+            <summary>
+            录入人
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkReport.inputTime">
+            <summary>
+            录入时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkReport.orderBy">
+            <summary>
+            排序
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkReport.reservedSpace1">
+            <summary>
+            
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkReport.reservedSpace2">
+            <summary>
+            
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkReport.reservedSpace3">
+            <summary>
+            
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkReport.createTime">
+            <summary>
+            数据创建时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.WorkReportType">
+            <summary>
+            汇报类型（0：日报；1：周报；2：月报；3：年中总结；4：年终总结；5：项目汇报）
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.WorkReportType.Day">
+             <summary>
+            日报
+             </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.WorkReportType.Week">
+             <summary>
+            周报
+             </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.WorkReportType.Month">
+             <summary>
+            月报
+             </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.WorkReportType.SixMonth">
+             <summary>
+            年中
+             </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.WorkReportType.Year">
+             <summary>
+            年终
+             </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.WorkReportType.Project">
+             <summary>
+            项目
+             </summary>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.Flow">
+            <summary>
+            流程表
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Flow.flowId">
+            <summary>
+            id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Flow.flowName">
+            <summary>
+            流程名称
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Flow.flowType">
+            <summary>
+            流程类型
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Flow.createTime">
+            <summary>
+            创建时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.Flow.createUserId">
+            <summary>
+            创建人
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.FlowBak">
+            <summary>
+            流程表备份表
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.FlowBak.flowBakId">
+            <summary>
+            id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.FlowBak.flowId">
+            <summary>
+            流程id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.FlowBak.flowName">
+            <summary>
+            流程名称
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.FlowBak.flowType">
+            <summary>
+            流程类型
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.FlowBak.createTime">
+            <summary>
+            创建时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.FlowBak.createUserId">
+            <summary>
+            创建人
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.FlowExeStep">
+             <summary>
+            流程步骤执行表
+             </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.FlowExeStep.exeStepId">
+            <summary>
+            ID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.FlowExeStep.flowBakId">
+            <summary>
+            备份流程id
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.FlowExeStep.stepName">
+            <summary>
+            步骤名称
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.FlowExeStep.executeState">
+            <summary>
+            执行状态
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.FlowExeStep.executeType">
+            <summary>
+            执行类型
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.FlowExeStep.sort">
+            <summary>
+            排序
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.ExecuteState">
+            <summary>
+            执行状态1通过,2驳回,3待审核
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.ExecuteState.Pass">
+            <summary>
+            通过
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.ExecuteState.Reject">
+            <summary>
+            拒绝
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.ExecuteState.WaitApprove">
+            <summary>
+            待审核
+            </summary>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.ExecuteType">
+            <summary>
+            执行类型1并签 2会签
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.ExecuteType.AndSign">
+            <summary>
+            并签
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.ExecuteType.Sign">
+            <summary>
+            会签
+            </summary>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.Sass.BreakoffApply">
+            <summary>
+            调休申请
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.BreakoffApply.flowBakId">
+            <summary>
+            流程id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.BreakoffApply.code">
+            <summary>
+            流水号
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.BreakoffApply.applyUserId">
+            <summary>
+            申请人Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.BreakoffApply.applyUserName">
+            <summary>
+            申请人名称
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.BreakoffApply.applyDeptId">
+            <summary>
+            申请人部门
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.BreakoffApply.applyDeptName">
+            <summary>
+            申请人部门名称
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.BreakoffApply.applyTime">
+            <summary>
+            申请时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.BreakoffApply.startTime">
+            <summary>
+            调休开始时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.BreakoffApply.endTime">
+            <summary>
+            调休结束时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.BreakoffApply.durationDay">
+            <summary>
+            调休天数
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.BreakoffApply.durationHour">
+            <summary>
+            调休小时数
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.BreakoffApply.noticeUserId">
+            <summary>
+            通知对象
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.BreakoffApply.explain">
+            <summary>
+            调休说明
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.Sass.FlowStep">
+            <summary>
+            流程步骤
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStep.stepId">
+            <summary>
+            步骤Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStep.flowId">
+            <summary>
+            流程id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStep.stepName">
+            <summary>
+            步骤名称
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStep.executeType">
+            <summary>
+            执行类型
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStep.executeRoleId">
+            <summary>
+            执行角色Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStep.executeUserId">
+            <summary>
+            执行人
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStep.executeDeptId">
+            <summary>
+            执行部门
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStep.sendRoleId">
+            <summary>
+            抄送角色
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStep.sendUserId">
+            <summary>
+            抄送人
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStep.sendDeptId">
+            <summary>
+            抄送部门
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStep.sort">
+            <summary>
+            排序
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.Sass.FlowStepBak">
+            <summary>
+            流程步骤备份
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStepBak.stepId">
+            <summary>
+            步骤Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStepBak.flowBakId">
+            <summary>
+            备份流程Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStepBak.flowId">
+            <summary>
+            流程id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStepBak.stepName">
+            <summary>
+            步骤名称
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStepBak.executeType">
+            <summary>
+            执行类型
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStepBak.executeRoleId">
+            <summary>
+            执行角色Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStepBak.executeUserId">
+            <summary>
+            执行人
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStepBak.executeDeptId">
+            <summary>
+            执行部门
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStepBak.sendRoleId">
+            <summary>
+            抄送角色
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStepBak.sendUserId">
+            <summary>
+            抄送人
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStepBak.sendDeptId">
+            <summary>
+            抄送部门
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStepBak.sort">
+            <summary>
+            排序
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.Sass.FlowStepExeuser">
+            <summary>
+            流程步骤执行人表
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.Sass.FlowStepExeuser.exeUserId">
+            <summary>
+            ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStepExeuser.exeStepId">
+            <summary>
+            流程执行步骤id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStepExeuser.userId">
+            <summary>
+            执行人
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStepExeuser.userName">
+            <summary>
+            执行人名称
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStepExeuser.deptId">
+            <summary>
+            执行人部门
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStepExeuser.deptName">
+            <summary>
+            执行人部门名称
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStepExeuser.roleId">
+            <summary>
+            执行人角色
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStepExeuser.roleName">
+            <summary>
+            执行人角色名称
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStepExeuser.exeState">
+            <summary>
+            执行状态
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStepExeuser.flowRole">
+            <summary>
+            执行角色
+            1执行者，2抄送接收者
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStepExeuser.opinion">
+            <summary>
+            意见
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStepExeuser.isRead">
+            <summary>
+            是否易读
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sass.FlowStepExeuser.exeTime">
+            <summary>
+            执行时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.Sass.ExeState">
+            <summary>
+            执行状态 1通过 2驳回 3待审核
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.Sass.ExeState.Pass">
+            <summary>
+            通过 
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.Sass.ExeState.Reject">
+            <summary>
+            拒绝 
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.Sass.ExeState.WaitApprove">
+            <summary>
+            待审核
+            </summary>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.Sys.Company">
+            <summary>
+            公司表
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.Company.companyName">
+            <summary>
+            公司名称
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.Company.companyTelephone">
+            <summary>
+            公司座机
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.Company.mail">
+            <summary>
+            邮箱
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.Company.address">
+            <summary>
+            地址
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.Company.introduce">
+            <summary>
+            间接
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.Company.type">
+            <summary>
+            企业类型
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.Company.website">
+            <summary>
+            网址
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.Company.industry">
+            <summary>
+            行业
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.Company.headPerson">
+            <summary>
+            负责人
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.Company.headPhone">
+            <summary>
+            负责人电话
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.Sys.CompanyFcunctionAddress">
+            <summary>
+            公司功能权限表
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.CompanyFcunctionAddress.companyId">
+            <summary>
+            公司ID(所属公司ID)
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.CompanyFcunctionAddress.fcunctionAddressId">
+            <summary>
+            功能定义表ID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.CompanyFcunctionAddress.address">
+            <summary>
+            功能地址(程序相对路径)
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.CompanyFcunctionAddress.enable">
+            <summary>
+            是否启用
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.Sys.CompanyFramework">
+            <summary>
+            公司组织架构
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.CompanyFramework.companyId">
+            <summary>
+            公司ID(所属公司ID)
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.CompanyFramework.department">
+            <summary>
+            部门
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.CompanyFramework.parentId">
+            <summary>
+            功能地址(程序相对路径)
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.CompanyFramework.level">
+            <summary>
+            组织级别(例：一级部门 001，二级部门001.1，001.2，001.3，三级部门001.1.1，001.1.2)
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.Sys.CompanyFrameworkData">
+            <summary>
+            组织机构数据权限表
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.CompanyFrameworkData.companyFrameworkId">
+            <summary>
+            组织机构GUID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.CompanyFrameworkData.projectId">
+            <summary>
+            项目表GUID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.CompanyFrameworkData.enable">
+            <summary>
+            是否启用
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.Sys.CompanyFrameworkJurisdiction">
+            <summary>
+            组织机构数据权限表
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.CompanyFrameworkJurisdiction.companyFrameworkId">
+            <summary>
+            组织机构GUID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.CompanyFrameworkJurisdiction.fcunctionAddressId">
+            <summary>
+            公司功能权限表GUID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.CompanyFrameworkJurisdiction.enable">
+            <summary>
+            是否启用
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.Sys.DeviceManagement">
+            <summary>
+            设备管理表
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.DeviceManagement.deviceName">
+            <summary>
+            设备名称
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.DeviceManagement.explain">
+            <summary>
+            设备说明
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.DeviceManagement.fzr">
+            <summary>
+            负责人
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.Sys.FunctionAddress">
+            <summary>
+            公司组织架构
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.FunctionAddress.functionName">
+            <summary>
+            功能名称
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.FunctionAddress.module">
+            <summary>
+            所属模块
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.FunctionAddress.address">
+            <summary>
+            功能地址(程序相对路径)
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.Sys.Post">
+            <summary>
+            岗位表
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.Post.companyId">
+            <summary>
+            公司ID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.Post.jobPostId">
+            <summary>
+            组织架构Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.Post.position">
+            <summary>
+            职位
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.Sys.Project">
+            <summary>
+            项目表
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.Project.companyId">
+            <summary>
+            公司
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.Project.projectName">
+            <summary>
+            项目名称
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.Sys.Role">
+            <summary>
+            项目表
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.Role.companyId">
+            <summary>
+            公司ID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.Role.roleName">
+            <summary>
+            角色名
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.Role.explain">
+            <summary>
+            说明
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.Role.superAdministrator">
+            <summary>
+            是否超级管理员
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.Sys.RoleDistribution">
+            <summary>
+            角色分配表
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.RoleDistribution.id">
+            <summary>
+            ID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.RoleDistribution.roleId">
+            <summary>
+            角色
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.RoleDistribution.userId">
+            <summary>
+            用户Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.Sys.RoleJurisdiction">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.RoleJurisdiction.roleId">
+            <summary>
+            角色ID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.RoleJurisdiction.fcunctionAddressId">
+            <summary>
+            功能ID或者数据ID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.RoleJurisdiction.type">
+            <summary>
+            数据类型(1:功能权限，2：数据权限)
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.RoleJurisdiction.enable">
+            <summary>
+            是否启用(0：不启用；1：启用)
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.Sys.User">
+            <summary>
+            系统用户
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.id">
+            <summary>
+            id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.companyId">
+            <summary>
+            公司Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.jobPostId">
+            <summary>
+            组织架构ID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.postId">
+            <summary>
+            岗位ID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.name">
+            <summary>
+            姓名
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.loginAccount">
+            <summary>
+            登录账号
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.loginPassword">
+            <summary>
+            登录密码
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.sex">
+            <summary>
+            性别
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.phone">
+            <summary>
+            手机号
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.telephone">
+            <summary>
+            座机
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.mail">
+            <summary>
+            邮箱地址
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.documentType">
+            <summary>
+            证件类型
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.documentNumber">
+            <summary>
+            证件号码
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.birth">
+            <summary>
+            出生日期
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.qqNumber">
+            <summary>
+            QQ账号
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.weiXinNumber">
+            <summary>
+            微信账号
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.hyStatus">
+            <summary>
+            婚姻状况
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.address">
+            <summary>
+            地址
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.autograph">
+            <summary>
+            签名
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.companyName">
+            <summary>
+            公司
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.jobNumber">
+            <summary>
+            工号
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.department">
+            <summary>
+            部门
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.position">
+            <summary>
+            职位
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.rzDate">
+            <summary>
+            入职日期
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.zzDate">
+            <summary>
+            转正日期
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.lzDate">
+            <summary>
+            离职日期
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.txDate">
+            <summary>
+            退休日期
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.inworkType">
+            <summary>
+            在职状态
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.workDate">
+            <summary>
+            参加工作日期
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.photo">
+            <summary>
+            照片
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.urgentPerson1">
+            <summary>
+            紧急联系人1
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.urgentPerson2">
+            <summary>
+            紧急联系人2
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.headPortrait">
+            <summary>
+            头像
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.skill">
+            <summary>
+            技能信息
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.totleScore">
+            <summary>
+            总积分
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.contract">
+            <summary>
+            合同附件
+             </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.token">
+            <summary>
+            token加密
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.loginIP">
+            <summary>
+            登录Ip
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.loginNumber">
+            <summary>
+            登陆次数
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.superUser">
+            <summary>
+            是否超级用户
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.enable">
+            <summary>
+            启用(0：不启用;1：启用
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.inputPerson">
+            <summary>
+            录入人
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.inputTime">
+            <summary>
+            录入时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.orderBy">
+            <summary>
+            排序
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.reservedSpace1">
+            <summary>
+            预留字段1
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.reservedSpace2">
+            <summary>
+            预留字段2
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.reservedSpace3">
+            <summary>
+            预留字段3
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.mechineId">
+            <summary>
+            设备id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.createTime">
+            <summary>
+            数据的创建时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.Sys.DocumentType">
+            <summary>
+             证件类型(0:身份证；1：护照；2：军官证；3：其他；)
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.Sys.DocumentType.ID">
+            <summary>
+             身份证
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.Sys.DocumentType.Passpost">
+            <summary>
+             护照
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.Sys.DocumentType.Office">
+            <summary>
+             军官证
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.Sys.DocumentType.Other">
+            <summary>
+             其他
+            </summary>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.Sys.HYStatus">
+            <summary>
+            婚姻状况(0：未婚;1：已婚;2：离异)
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.Sys.HYStatus.Unmarried">
+            <summary>
+             未婚
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.Sys.HYStatus.Married">
+            <summary>
+             已婚
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.Sys.HYStatus.Divorced">
+            <summary>
+             离异
+            </summary>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.Sys.InworkType">
+            <summary>
+            在职状态（0：试用期；1：已转正；2：离职；3：退休）
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.Sys.InworkType.OnTrial">
+            <summary>
+             试用期
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.Sys.InworkType.InWork">
+            <summary>
+             已转正
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.Sys.InworkType.Quit">
+            <summary>
+             离职
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.Sys.InworkType.Retire">
+            <summary>
+             退休
+            </summary>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.Sys.UserData">
+            <summary>
+            用户数据权限表
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.UserData.userId">
+            <summary>
+            用户Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.UserData.projectId">
+            <summary>
+            项目表GUID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.UserData.enable">
+            <summary>
+            是否启用
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.Sys.UserJurisdiction">
+            <summary>
+            用户功能权限表
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.UserJurisdiction.userId">
+            <summary>
+            用户Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.UserJurisdiction.functionAddressId">
+            <summary>
+            公司功能权限表GUID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.UserJurisdiction.enable">
+            <summary>
+            是否启用
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Service.ICommonService">
+            <summary>
+            用户业务接口
+            </summary>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.ICommonService.getRequestIp">
+            <summary>
+            获取请求ip
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.ICommonService.getAuthenticationHeader">
+            <summary>
+            获取认证请求头
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Service.CommonService">
+            <summary>
+            用户业务具体实现
+            </summary>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.CommonService.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            通用业务
+            </summary>
+            <param name="_accessor"></param>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.CommonService.getRequestIp">
+            <summary>
+            获取请求ip
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.CommonService.getAuthenticationHeader">
+            <summary>
+            获取认证请求头
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Service.DESEncrypt">
+            <summary>
+            加密和解密
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Service.DESEncrypt.KEY">
+            <summary>
+            加密解密的key
+            </summary>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.DESEncrypt.Encrypt(System.String,System.String)">
+            <summary>
+            加密
+            </summary>
+            <param name="text"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.DESEncrypt.DecryptString(System.String,System.String)">
+            <summary>
+            解密
+            </summary>
+            <param name="cipherText"></param>
+            <param name="keyString"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Service.IUserService">
+            <summary>
+            用户业务接口
+            </summary>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.IUserService.getUserToken(Cucr.CucrSaas.App.DTO.AppTokenOutput)">
+            <summary>
+            
+            </summary>
+            <param name="appToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.IUserService.decodeToken(System.String)">
+            <summary>
+            根据token解码用户信息
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Service.UserService">
+            <summary>
+            用户业务具体实现
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Service.UserService.secret">
+            <summary>
+            密钥
+            </summary>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.UserService.getUserToken(Cucr.CucrSaas.App.DTO.AppTokenOutput)">
+            <summary>
+            获取用户登录的token
+            </summary>
+            <param name="appToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.UserService.decodeToken(System.String)">
+            <summary>
+            根据token 解密token数据
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Test.Controllers.AuthControllerTest">
+            <summary>
+            App登录注册授权接口
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Test.Controllers.AuthControllerTest.oaContext">
+            <summary>
+            OA数据访问对象
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Test.Controllers.AuthControllerTest.sysContext">
+            <summary>
+            系统数据库访问
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Test.Controllers.AuthControllerTest.userService">
+            <summary>
+            用户接口
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Test.Controllers.AuthControllerTest.#ctor(Cucr.CucrSaas.App.DataAccess.OAContext,Cucr.CucrSaas.App.DataAccess.SysContext,Cucr.CucrSaas.App.Service.ICommonService,Cucr.CucrSaas.App.Service.IUserService)">
+            <summary>
+            
+            </summary>
+            <param name="_oaContext"></param>
+            <param name="_sysContext"></param>
+            <param name="_commonService"></param>
+            <param name="_userService"></param>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Test.Controllers.AuthControllerTest.Index_ReturnsAViewResult_WithAListOfBrainstormSessions">
+            <summary>桉树
+            测试h
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cucr.CucrSaas.Common.Bean.BodyData">
+            <summary>
+            DevExtream Body Datas
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.Common.Bean.BodyData.values">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Cucr.Program">
+            <summary>
+            程序启动文件
+            </summary>
+        </member>
+        <member name="M:Cucr.Program.Main(System.String[])">
+            <summary>
+            程序启动主函数
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Cucr.Program.CreateWebHostBuilder(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cucr.Startup">
+            <summary>
+            程序启动类
+            </summary>
+        </member>
+        <member name="M:Cucr.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            程序启动类的构造函数
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:Cucr.Startup.Configuration">
+            <summary>
+            程序配置对象
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Cucr.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+             This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Cucr.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+             <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+             </summary>
+             <param name="app"></param>
+             <param name="env"></param>
+        </member>
+    </members>
+</doc>
