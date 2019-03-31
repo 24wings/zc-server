@@ -3801,6 +3801,86 @@
             <param name="keyString"></param>
             <returns></returns>
         </member>
+        <member name="T:Cucr.CucrSaas.App.Service.OSSService">
+            <summary>
+            Sample for putting object.
+            </summary>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.OSSService.uploadFile(System.String,System.String,System.IO.Stream)">
+            <summary>
+            上传文件
+            </summary>
+            <param name="bucketName"></param>
+            <param name="key"></param>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.OSSService.PutObject(System.String)">
+            <summary>
+            sample for put object to oss
+            </summary>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.OSSService.PutObjectFromFile(System.String)">
+            <summary>
+            文件上传
+            </summary>
+            <param name="bucketName"></param>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.OSSService.PutObjectFromFileWithTimeout(System.String)">
+            <summary>
+            限时文件上传
+            </summary>
+            <param name="bucketName"></param>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.OSSService.GetMd5Hash(System.String)">
+            <summary>
+            md5hash
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.OSSService.PutObjectFromStringWithHashPrefix(System.String)">
+            <summary>
+            上传文件以md5前缀
+            </summary>
+            <param name="bucketName"></param>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.OSSService.PutObjectFromString(System.String)">
+            <summary>
+            字符串上传文件
+            </summary>
+            <param name="bucketName"></param>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.OSSService.PutObjectWithDir(System.String)">
+            <summary>
+            文件夹上传
+            </summary>
+            <param name="bucketName"></param>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.OSSService.PutObjectWithMd5(System.String)">
+            <summary>
+            md5上传
+            </summary>
+            <param name="bucketName"></param>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.OSSService.PutObjectWithHeader(System.String)">
+            <summary>
+            文件头上传
+            </summary>
+            <param name="bucketName"></param>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.OSSService.AsyncPutObject(System.String)">
+            <summary>
+            异步上传
+            </summary>
+            <param name="bucketName"></param>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.OSSService.PutObjectCallback(System.IAsyncResult)">
+            <summary>
+            回调上传
+            </summary>
+            <param name="ar"></param>
+        </member>
         <member name="T:Cucr.CucrSaas.App.Service.IUserService">
             <summary>
             用户业务接口
@@ -3842,12 +3922,6 @@
             根据token 解密token数据
             </summary>
             <param name="token"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cucr.CucrSaas.App.Test.Controllers.AuthControllerTest.test">
-            <summary>桉树
-            测试h
-            </summary>
             <returns></returns>
         </member>
         <member name="T:Cucr.CucrSaas.Common.Bean.BodyData">

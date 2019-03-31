@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.1": {
+      "aliyun-net-sdk-core/1.2.6": {
+        "type": "package",
+        "dependencies": {
+          "sharpconfig": "3.2.8"
+        },
+        "compile": {
+          "lib/netstandard2.0/aliyun-net-sdk-core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/aliyun-net-sdk-core.dll": {}
+        }
+      },
       "aliyun.oss.sdk.core/2.5.3": {
         "type": "package",
         "dependencies": {
@@ -3339,6 +3351,15 @@
           }
         }
       },
+      "sharpconfig/3.2.8": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp2.0/SharpConfig.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/SharpConfig.dll": {}
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -5434,6 +5455,18 @@
     }
   },
   "libraries": {
+    "aliyun-net-sdk-core/1.2.6": {
+      "sha512": "QhqORJpiEtAKqjaSqh8rrdO1zvsiRS5JAL7Yf+3PN/GuK6ffsNTMtde9wo15iBxHrBn48QDk0slHNKSLOWiMtA==",
+      "type": "package",
+      "path": "aliyun-net-sdk-core/1.2.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "aliyun-net-sdk-core.1.2.6.nupkg.sha512",
+        "aliyun-net-sdk-core.nuspec",
+        "lib/netstandard2.0/aliyun-net-sdk-core.dll"
+      ]
+    },
     "aliyun.oss.sdk.core/2.5.3": {
       "sha512": "PUoPj0uTcdZG+wpZQp+fSsYqXqElqrXWKiB1CcxOmBgSr+XKiF5dRfgECr5q/1439MX1NLUaxxQVpUv3Jt7iow==",
       "type": "package",
@@ -9445,6 +9478,23 @@
         "runtimes/win-x86/native/sni.dll",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "sharpconfig/3.2.8": {
+      "sha512": "IBH5OTbsVMnzDB8OqRs+QmJ4fXz3PNca4TcrqQQdCl6TZwod03tZyvrRgxicARWy5PyyL8xE8c6EFEoJwOdfzQ==",
+      "type": "package",
+      "path": "sharpconfig/3.2.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/SharpConfig.dll",
+        "lib/net20/SharpConfig.xml",
+        "lib/netcoreapp2.0/SharpConfig.deps.json",
+        "lib/netcoreapp2.0/SharpConfig.dll",
+        "lib/netcoreapp2.0/SharpConfig.pdb",
+        "lib/netcoreapp2.0/SharpConfig.xml",
+        "sharpconfig.3.2.8.nupkg.sha512",
+        "sharpconfig.nuspec"
       ]
     },
     "System.AppContext/4.3.0": {
@@ -14873,6 +14923,7 @@
       "Newtonsoft.Json >= 12.0.1",
       "Pomelo.EntityFrameworkCore.MySql >= 2.1.0",
       "System.IdentityModel.Tokens.Jwt >= 5.4.0",
+      "aliyun-net-sdk-core >= 1.2.6",
       "aliyun.oss.sdk.core >= 2.5.3",
       "xunit >= 2.4.1"
     ]
@@ -14987,6 +15038,10 @@
           "System.IdentityModel.Tokens.Jwt": {
             "target": "Package",
             "version": "[5.4.0, )"
+          },
+          "aliyun-net-sdk-core": {
+            "target": "Package",
+            "version": "[1.2.6, )"
           },
           "aliyun.oss.sdk.core": {
             "target": "Package",
