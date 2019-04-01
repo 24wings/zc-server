@@ -107,22 +107,22 @@ namespace Cucr.CucrSaas.App.Controllers
             var exisitUser = (from user in this.sysContext.users where user.phone == loginInput.phone select user).FirstOrDefault();
             if (exisitUser != null)
             {
-                if (DESEncrypt.DecryptString(exisitUser.loginPassword) == loginInput.loginPassword)
-                {
-                    var loginIp = this.commonService.getRequestIp();
-                    exisitUser.loginNumber++;
-                    exisitUser.loginIP = loginIp;
-                    exisitUser.mechineId = loginInput.mechineId;
-                    var token = this.userService.getUserToken(new AppTokenOutput { user = exisitUser });
-                    exisitUser.token = token;
-                    this.sysContext.SaveChanges();
+                // if (DESEncrypt.DecryptString(exisitUser.loginPassword) == loginInput.loginPassword)
+                // {
+                var loginIp = this.commonService.getRequestIp();
+                exisitUser.loginNumber++;
+                exisitUser.loginIP = loginIp;
+                exisitUser.mechineId = loginInput.mechineId;
+                var token = this.userService.getUserToken(new AppTokenOutput { user = exisitUser });
+                exisitUser.token = token;
+                this.sysContext.SaveChanges();
 
-                    return new CommonRtn { success = true, message = "登录成功", resData = new Dictionary<string, object>() { { "token", token } } };
-                }
-                else
-                {
-                    return CommonRtn.Error("登录失败,用户密码错误");
-                }
+                return new CommonRtn { success = true, message = "登录成功", resData = new Dictionary<string, object>() { { "token", token } } };
+                // }
+                // else
+                // {
+                // return CommonRtn.Error("登录失败,用户密码错误");
+                // }
             }
             else
             {

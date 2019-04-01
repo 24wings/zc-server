@@ -23,19 +23,18 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-namespace Cucr.CucrSaas.App.Controllers
-{
+namespace Cucr.CucrSaas.App.Controllers {
 
     /// <summary>
     /// App登录注册授权接口
     /// </summary>
-    [Route("api/CucrSaas/App/[controller]")]
+    [Route ("api/CucrSaas/App/[controller]")]
     [ApiController]
 
-    public class UserController : ControllerBase
-    {
+    public class UserController : ControllerBase {
 
         private ICommonService commonService { get; set; }
         /// <summary>
@@ -67,13 +66,12 @@ namespace Cucr.CucrSaas.App.Controllers
         /// <param name="_commonService"></param>
         /// <param name="_userService"></param>
         /// <param name="_smsService"></param>
-        public UserController(OAContext _oaContext,
+        public UserController (OAContext _oaContext,
             SysContext _sysContext,
             ICommonService _commonService,
             IUserService _userService,
             ISmsService _smsService
-        )
-        {
+        ) {
             this.oaContext = _oaContext;
             this.sysContext = _sysContext;
             this.commonService = _commonService;
@@ -81,24 +79,20 @@ namespace Cucr.CucrSaas.App.Controllers
             this.smsService = _smsService;
         }
 
-
-
-
         /// <summary>
         /// 获取用户信息
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        [HttpPost("[action]")]
-        public CommonRtn getUserInfo([FromBody] UserInfoInput input)
-        {
-            var user = this.userService.decodeToken(input.token);
-            if (user.user.mechineId == input.mechineId)
-            {
-                return new CommonRtn { success = true, message = "", resData = new Dictionary<string, object> { { "user", user.user } } };
-            }
-            else
-            {
+        [HttpPost ("[action]")]
+        public CommonRtn getUserInfo ([FromBody] UserInfoInput input) {
+            var instance = this.userService.decodeToken (input.token);
+
+            if (instance.user.mechineId == input.mechineId) {
+                var dbUser = (from user in this.sysContext.users where user.id == instance.user.id select user).Include (u => u.company).FirstOrDefault ();
+
+                return new CommonRtn { success = true, message = "", resData = new Dictionary<string, object> { { "user", dbUser } } };
+            } else {
                 return new CommonRtn { success = true, message = "设备不一致" };
             }
 

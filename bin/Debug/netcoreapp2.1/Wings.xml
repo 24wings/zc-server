@@ -109,6 +109,70 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Cucr.CucrSaas.App.Controllers.TestController">
+            <summary>
+            App登录注册授权接口
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.TestController.oaContext">
+            <summary>
+            OA数据访问对象
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.TestController.sysContext">
+            <summary>
+            系统数据库访问
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.TestController.userService">
+            <summary>
+            用户接口
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.TestController.smsService">
+            <summary>
+            短信验证码
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.TestController.#ctor(Cucr.CucrSaas.App.DataAccess.OAContext,Cucr.CucrSaas.App.DataAccess.SysContext,Cucr.CucrSaas.App.Service.ICommonService,Cucr.CucrSaas.App.Service.IUserService,Cucr.CucrSaas.App.Service.ISmsService)">
+            <summary>
+            
+            </summary>
+            <param name="_oaContext"></param>
+            <param name="_sysContext"></param>
+            <param name="_commonService"></param>
+            <param name="_userService"></param>
+            <param name="_smsService"></param>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.TestController.sendSignupAuthcode(Cucr.CucrSaas.App.DTO.AppSingupInput)">
+            <summary>
+            发送短信注册验证码
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.TestController.appLogin(Cucr.CucrSaas.App.DTO.AppUserLoginInput)">
+            <summary>
+            app登录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.TestController.userList(DevExtreme.AspNet.Mvc.DataSourceLoadOptions)">
+            <summary>
+            用户列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.TestController.forgotPassword(Cucr.CucrSaas.App.DTO.AppForgotPasswordInput)">
+            <summary>
+            忘记密码
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Cucr.CucrSaas.App.Controllers.UserController">
             <summary>
             App登录注册授权接口
@@ -3778,6 +3842,12 @@
             <summary>
             数据的创建时间
             </summary>
+            /// <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.company">
+            <summary>
+            公司
+            </summary>
             <value></value>
         </member>
         <member name="T:Cucr.CucrSaas.App.Entity.Sys.DocumentType">
@@ -3905,7 +3975,7 @@
             <summary>
             白名单
             </summary>
-            <value></value>
+            /// <value></value>
         </member>
         <member name="P:Cucr.CucrSaas.App.Filters.SingleLoginFilter.sysContext">
             <summary>

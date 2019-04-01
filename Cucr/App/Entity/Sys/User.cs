@@ -27,6 +27,7 @@ namespace Cucr.CucrSaas.App.Entity.Sys {
         /// </summary>
         /// <value></value>
         public string companyId { get; set; }
+
         /// <summary>
         /// 组织架构ID
         /// </summary>
@@ -284,8 +285,14 @@ namespace Cucr.CucrSaas.App.Entity.Sys {
         /// <summary>
         /// 数据的创建时间
         /// </summary>
+        /// /// <value></value>
+        public DateTime? createTime { get; set; } = DateTime.Now;
+        /// <summary>
+        /// 公司
+        /// </summary>
         /// <value></value>
-        public DateTime createTime { get; set; } = DateTime.Now;
+        // [NotMapped]
+        public Company company { get; set; }
     }
 
     /// <summary>
