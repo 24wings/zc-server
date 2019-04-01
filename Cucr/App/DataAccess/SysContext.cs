@@ -22,9 +22,15 @@ namespace Cucr.CucrSaas.App.DataAccess {
         /// <returns></returns>
         public SysContext (DbContextOptions<SysContext> options) : base (options) { }
         /// <summary>
-        /// 问卷调查
+        /// 用户
         /// </summary>
         public DbSet<User> users { get; set; }
+        /// <summary>
+        /// 发送短信记录表
+        /// </summary>
+        /// <value></value>
+        public DbSet<Message> messages { get; set; }
+
     }
 
 }

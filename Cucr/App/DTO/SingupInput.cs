@@ -16,10 +16,10 @@ namespace Cucr.CucrSaas.App.DTO {
         public string loginPassword { get; set; }
 
         /// <summary>
-        /// 邀请码
+        /// 验证码
         /// </summary>
         /// <value></value>
-        public string invitationCode { get; set; }
+        public string authcode { get; set; }
     }
 
 }

@@ -27,7 +27,13 @@
             </summary>
             <value></value>
         </member>
-        <member name="M:Cucr.CucrSaas.App.Controllers.AuthController.#ctor(Cucr.CucrSaas.App.DataAccess.OAContext,Cucr.CucrSaas.App.DataAccess.SysContext,Cucr.CucrSaas.App.Service.ICommonService,Cucr.CucrSaas.App.Service.IUserService)">
+        <member name="P:Cucr.CucrSaas.App.Controllers.AuthController.smsService">
+            <summary>
+            短信验证码
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.AuthController.#ctor(Cucr.CucrSaas.App.DataAccess.OAContext,Cucr.CucrSaas.App.DataAccess.SysContext,Cucr.CucrSaas.App.Service.ICommonService,Cucr.CucrSaas.App.Service.IUserService,Cucr.CucrSaas.App.Service.ISmsService)">
             <summary>
             
             </summary>
@@ -35,6 +41,14 @@
             <param name="_sysContext"></param>
             <param name="_commonService"></param>
             <param name="_userService"></param>
+            <param name="_smsService"></param>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.AuthController.sendSignupAuthcode(Cucr.CucrSaas.App.DTO.AppSingupInput)">
+            <summary>
+            发送短信注册验证码
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
         </member>
         <member name="M:Cucr.CucrSaas.App.Controllers.AuthController.appLogin(Cucr.CucrSaas.App.DTO.AppUserLoginInput)">
             <summary>
@@ -49,11 +63,10 @@
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:Cucr.CucrSaas.App.Controllers.AuthController.getUserInfo(Cucr.CucrSaas.App.DTO.UserInfoInput)">
+        <member name="M:Cucr.CucrSaas.App.Controllers.AuthController.forgotPassword(Cucr.CucrSaas.App.DTO.AppForgotPasswordInput)">
             <summary>
-            获取用户信息
+            忘记密码
             </summary>
-            <param name="input"></param>
             <returns></returns>
         </member>
         <member name="T:Cucr.CucrSaas.App.Controllers.IncardController">
@@ -94,6 +107,52 @@
             获取出勤记录列表
             可以设置日期
             </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Controllers.UserController">
+            <summary>
+            App登录注册授权接口
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.UserController.oaContext">
+            <summary>
+            OA数据访问对象
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.UserController.sysContext">
+            <summary>
+            系统数据库访问
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.UserController.userService">
+            <summary>
+            用户接口
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.UserController.smsService">
+            <summary>
+            短信验证码
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.UserController.#ctor(Cucr.CucrSaas.App.DataAccess.OAContext,Cucr.CucrSaas.App.DataAccess.SysContext,Cucr.CucrSaas.App.Service.ICommonService,Cucr.CucrSaas.App.Service.IUserService,Cucr.CucrSaas.App.Service.ISmsService)">
+            <summary>
+            
+            </summary>
+            <param name="_oaContext"></param>
+            <param name="_sysContext"></param>
+            <param name="_commonService"></param>
+            <param name="_userService"></param>
+            <param name="_smsService"></param>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.UserController.getUserInfo(Cucr.CucrSaas.App.DTO.UserInfoInput)">
+            <summary>
+            获取用户信息
+            </summary>
+            <param name="input"></param>
             <returns></returns>
         </member>
         <member name="T:Cucr.CucrSaas.App.Controllers.WagesController">
@@ -243,8 +302,48 @@
         </member>
         <member name="P:Cucr.CucrSaas.App.DataAccess.SysContext.users">
             <summary>
-            问卷调查
+            用户
             </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DataAccess.SysContext.messages">
+            <summary>
+            发送短信记录表
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.DTO.AppForgotPasswordInput">
+            <summary>
+            忘记密码
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DTO.AppForgotPasswordInput.phone">
+            <summary>
+            手机号
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DTO.AppForgotPasswordInput.authcode">
+            <summary>
+            验证码
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DTO.AppForgotPasswordInput.newPassword">
+            <summary>
+            新密码
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.DTO.AppSingupInput">
+            <summary>
+            App注册发送验证码
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DTO.AppSingupInput.phone">
+            <summary>
+            手机号
+            </summary>
+            <value></value>
         </member>
         <member name="T:Cucr.CucrSaas.App.DTO.TokenInstance">
             <summary>
@@ -327,6 +426,21 @@
             </summary>
             <value></value>
         </member>
+        <member name="M:Cucr.CucrSaas.App.DTO.CommonRtn.Error(System.String)">
+            <summary>
+            便捷方法返回错误消息
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.DTO.CommonRtn.Success(System.Collections.Generic.Dictionary{System.String,System.Object},System.String)">
+            <summary>
+            便捷方法返回正确消息
+            </summary>
+            <param name="resData"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cucr.CucrSaas.App.DTO.GetWorkReportInput">
             <summary>
             app用户登录实体
@@ -361,9 +475,9 @@
             </summary>
             <value></value>
         </member>
-        <member name="P:Cucr.CucrSaas.App.DTO.SignupInput.invitationCode">
+        <member name="P:Cucr.CucrSaas.App.DTO.SignupInput.authcode">
             <summary>
-            邀请码
+            验证码
             </summary>
             <value></value>
         </member>
@@ -3199,6 +3313,53 @@
             </summary>
             <value></value>
         </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.Sys.Message">
+            <summary>
+            发送短信记录表
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.Message.id">
+            <summary>
+            主键
+            </summary>
+            <value></value>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.Sys.Message.createTime">
+            <summary>
+            发送时间
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.Message.code">
+            <summary>
+            验证码
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.Message.isAuthcode">
+            <summary>
+            是否验证码
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.Message.content">
+            <summary>
+            短信内容
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.Message.phone">
+            <summary>
+            手机号
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.Message.bizId">
+            <summary>
+            阿里大鱼流水号,
+            可用于获取短信发送的详细信息
+            </summary>
+            <value></value>
+        </member>
         <member name="T:Cucr.CucrSaas.App.Entity.Sys.Post">
             <summary>
             岗位表
@@ -3735,6 +3896,30 @@
             </summary>
             <value></value>
         </member>
+        <member name="T:Cucr.CucrSaas.App.Filters.SingleLoginFilter">
+            <summary>
+            获取用户token
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Filters.SingleLoginFilter.whiteList">
+            <summary>
+            白名单
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Filters.SingleLoginFilter.sysContext">
+            <summary>
+            
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Filters.SingleLoginFilter.#ctor(Cucr.CucrSaas.App.Service.ICommonService,Cucr.CucrSaas.App.Service.IUserService,Cucr.CucrSaas.App.DataAccess.SysContext)">
+            <summary>
+            单点登录
+            </summary>
+            <param name="_commonService"></param>
+            <param name="_userService"></param>
+        </member>
         <member name="T:Cucr.CucrSaas.App.Service.ICommonService">
             <summary>
             用户业务接口
@@ -3880,6 +4065,77 @@
             回调上传
             </summary>
             <param name="ar"></param>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Service.SendSmsResponseData">
+            <summary>
+            发送短信响应体数据
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Service.SendSmsResponseData.Message">
+            <summary>
+            消息
+            成功为OK
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Service.SendSmsResponseData.RequestId">
+            <summary>
+            请求Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Service.SendSmsResponseData.BizId">
+            <summary>
+            流水号
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Service.SendSmsResponseData.Code">
+            <summary>
+            状态吗
+            成功为OK
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Service.ISmsService">
+            <summary>
+            发送短信接口
+            </summary>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.ISmsService.sendSms(System.String,System.String,System.String,System.String)">
+            <summary>
+            发送短信接口
+            </summary>
+            <param name="phoneNumbers"></param>
+            <param name="signName"></param>
+            <param name="templateCode"></param>
+            <param name="templateParam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.ISmsService.sendSignupAuthcode(System.String,System.String)">
+            <summary>
+            发送注册验证码
+            </summary>
+            <param name="phone"></param>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Service.SmsService">
+            <summary>
+            短信服务
+            </summary>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.SmsService.sendSms(System.String,System.String,System.String,System.String)">
+            <summary>
+            发送短信验证码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.SmsService.sendSignupAuthcode(System.String,System.String)">
+            <summary>
+            发送注册验证码
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:Cucr.CucrSaas.App.Service.IUserService">
             <summary>
