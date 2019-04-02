@@ -7,15 +7,17 @@ using System.Threading.Tasks;
 using Cucr.CucrSaas.App.Entity.OA;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-namespace Cucr.CucrSaas.App.Entity.Sys {
+namespace Cucr.CucrSaas.App.Entity.Sys
+{
 
     /// <summary>
     /// 岗位表
     /// </summary>
-    [Table ("sys_post")]
-    public class Post : BaseEntity {
+    [Table("sys_post")]
+    public class Post : BaseEntity
+    {
         /// <summary>
-        /// 公司ID
+        /// 公司ID 
         /// </summary>
         /// <value></value>
         public string companyId { get; set; }

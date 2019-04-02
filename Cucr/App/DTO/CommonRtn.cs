@@ -1,13 +1,11 @@
 using System.Collections.Generic;
 
-namespace Cucr.CucrSaas.App.DTO
-{
+namespace Cucr.CucrSaas.App.DTO {
 
     /// <summary>
     /// 通用响应体
     /// </summary>
-    public class CommonRtn
-    {
+    public class CommonRtn {
 
         /// <summary>
         /// 消息
@@ -24,15 +22,18 @@ namespace Cucr.CucrSaas.App.DTO
         /// </summary>
         /// <value></value>
         public Dictionary<string, object> resData { get; set; }
-
+        /// <summary>
+        ///  状态码
+        /// </summary>
+        /// <value></value>
+        public int code { get; set; }
         /// <summary>
         /// 便捷方法返回错误消息
         /// </summary>
         /// <param name="message"></param>
         /// <returns></returns>
-        public static CommonRtn Error(string message)
-        {
-            return new CommonRtn { success = false, message = message };
+        public static CommonRtn Error (string message) {
+            return new CommonRtn { success = false, message = message, code = 400 };
         }
         /// <summary>
         /// 便捷方法返回正确消息
@@ -40,9 +41,8 @@ namespace Cucr.CucrSaas.App.DTO
         /// <param name="resData"></param>
         /// <param name="message"></param>
         /// <returns></returns>
-        public static CommonRtn Success(Dictionary<string, object> resData, string message = "")
-        {
-            return new CommonRtn { success = false, message = message, resData = resData };
+        public static CommonRtn Success (Dictionary<string, object> resData, string message = "") {
+            return new CommonRtn { success = true, message = message, resData = resData, code = 200 };
         }
 
     }

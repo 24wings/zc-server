@@ -6,6 +6,8 @@ using System.Text;
 using Cucr.CucrSaas.App.DataAccess;
 using Cucr.CucrSaas.App.Filters;
 using Cucr.CucrSaas.App.Service;
+using Cucr.CucrSaas.ZC.DataAccess;
+using Cucr.CucrSaas.ZC.Provider;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -15,6 +17,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json.Serialization;
 using NSwag;
 using NSwag.AspNetCore;
 using NSwag.SwaggerGeneration.Processors.Security;
@@ -51,7 +54,16 @@ namespace Cucr
             services.AddMvc(option =>
             {
                 option.Filters.Add(typeof(SingleLoginFilter));
+
             });
+            // .AddJsonOptions (options => {
+            //     //忽略循环引用
+            //     // options.SerializerSettings.ReferenceLoopHandling = Confiin;
+            //     //不使用驼峰样式的key
+            //     options.SerializerSettings.ContractResolver = new NullToEmptyStringResolver ();
+            //     //设置时间格式
+            //     // options.SerializerSettings.DateFormatString = "yyyy-MM-dd";
+            // });
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -62,10 +74,12 @@ namespace Cucr
 
             //Allow Zero Datetime=True
             var connection = "Data Source=47.100.63.224;Database=cucrsaasdb;User Id=root;Password=8US7DJ3WB5v;Convert Zero Datetime=True;Allow User Variables=True";
+            var zcUrl = "Data Source=101.132.96.199;Database=clkrzc;User Id=root;Password=123456;Convert Zero Datetime=True;Allow Zero Datetime=True;Allow User Variables=True";
             //var connection = @"Server=localhost;Initial Catalog=master;Integrated Security=True";
             services
                 .AddDbContext<OAContext>(options => options.UseMySql(connection))
                 .AddDbContext<SysContext>(options => options.UseMySql(connection))
+                .AddDbContext<ClzcContext>(option => option.UseMySql(zcUrl));
 
             ;
 

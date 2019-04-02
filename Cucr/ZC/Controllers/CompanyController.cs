@@ -25,7 +25,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-namespace Cucr.CucrSaas.App.Controllers
+namespace Cucr.CucrSaas.ZC.Controllers
 {
 
     /// <summary>
@@ -34,7 +34,7 @@ namespace Cucr.CucrSaas.App.Controllers
     [Route("api/CucrSaas/App/[controller]")]
     [ApiController]
 
-    public class AuthController : ControllerBase
+    public class CompanyController : ControllerBase
     {
 
         private ICommonService commonService { get; set; }
@@ -67,7 +67,7 @@ namespace Cucr.CucrSaas.App.Controllers
         /// <param name="_commonService"></param>
         /// <param name="_userService"></param>
         /// <param name="_smsService"></param>
-        public AuthController(OAContext _oaContext,
+        public CompanyController(OAContext _oaContext,
             SysContext _sysContext,
             ICommonService _commonService,
             IUserService _userService,
@@ -86,7 +86,7 @@ namespace Cucr.CucrSaas.App.Controllers
         /// <param name="input"></param>
         /// <returns></returns>
         [HttpPost("[action]")]
-        public CommonRtn sendSignupAuthcode([FromForm] AppSingupInput input)
+        public CommonRtn sendSignupAuthcode(AppSingupInput input)
         {
             var code = Guid.NewGuid().ToString().Substring(0, 4);
             var smsResponseData = this.smsService.sendSignupAuthcode(input.phone, code);
@@ -138,7 +138,7 @@ namespace Cucr.CucrSaas.App.Controllers
         /// <param name="input"></param>
         /// <returns></returns>
         [HttpPost("[action]")]
-        public CommonRtn signup([FromForm] SignupInput input)
+        public CommonRtn signup(SignupInput input)
         {
             var exisitUser = (from user in this.sysContext.users where user.phone == input.phone select user).Count();
             var message = (from msg in this.sysContext.messages where msg.phone == input.phone orderby msg.createTime descending select msg).First();
@@ -172,7 +172,7 @@ namespace Cucr.CucrSaas.App.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost("[action]")]
-        public CommonRtn forgotPassword([FromForm] AppForgotPasswordInput input)
+        public CommonRtn forgotPassword(AppForgotPasswordInput input)
         {
             var userExist = (from user in this.sysContext.users where user.phone == input.phone select user).First();
             if (userExist != null)

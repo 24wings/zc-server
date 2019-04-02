@@ -12,6 +12,7 @@ using Cucr.CucrSaas.App.DataAccess;
 using Cucr.CucrSaas.App.DTO;
 using Cucr.CucrSaas.App.Entity.Sys;
 using Cucr.CucrSaas.App.Service;
+using Cucr.CucrSaas.Common.Util;
 using DevExtreme.AspNet.Data;
 using DevExtreme.AspNet.Mvc;
 using JWT;
@@ -26,15 +27,17 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-namespace Cucr.CucrSaas.App.Controllers {
+namespace Cucr.CucrSaas.App.Controllers
+{
 
     /// <summary>
     /// App登录注册授权接口
     /// </summary>
-    [Route ("api/CucrSaas/App/[controller]")]
+    [Route("api/CucrSaas/App/[controller]")]
     [ApiController]
 
-    public class UserController : ControllerBase {
+    public class UserController : ControllerBase
+    {
 
         private ICommonService commonService { get; set; }
         /// <summary>
@@ -66,12 +69,13 @@ namespace Cucr.CucrSaas.App.Controllers {
         /// <param name="_commonService"></param>
         /// <param name="_userService"></param>
         /// <param name="_smsService"></param>
-        public UserController (OAContext _oaContext,
+        public UserController(OAContext _oaContext,
             SysContext _sysContext,
             ICommonService _commonService,
             IUserService _userService,
             ISmsService _smsService
-        ) {
+        )
+        {
             this.oaContext = _oaContext;
             this.sysContext = _sysContext;
             this.commonService = _commonService;
@@ -84,17 +88,136 @@ namespace Cucr.CucrSaas.App.Controllers {
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        [HttpPost ("[action]")]
-        public CommonRtn getUserInfo ([FromBody] UserInfoInput input) {
-            var instance = this.userService.decodeToken (input.token);
+        [HttpPost("[action]")]
+        public CommonRtn getUserInfo(UserInfoInput input)
+        {
+            var instance = this.userService.decodeToken(input.token);
 
-            if (instance.user.mechineId == input.mechineId) {
-                var dbUser = (from user in this.sysContext.users where user.id == instance.user.id select user).Include (u => u.company).FirstOrDefault ();
+            if (instance.user.mechineId == input.mechineId)
+            {
+                var dbUser = (from user in this.sysContext.users where user.id == instance.user.id select user)
+                    .Include(u => u.company)
+                    .Include(u => u.post)
+                    .Include(u => u.companyFramework)
+                    .FirstOrDefault();
 
                 return new CommonRtn { success = true, message = "", resData = new Dictionary<string, object> { { "user", dbUser } } };
-            } else {
+            }
+            else
+            {
                 return new CommonRtn { success = true, message = "设备不一致" };
             }
+
+        }
+
+        /// <summary>
+        /// 搜索用户
+        ///  </summary>
+        /// <returns></returns>
+        [HttpPost("[action]")]
+        public CommonRtn searchUserList([FromBody] AppSearchUserInput input)
+        {
+            var options = new DataSourceLoadOptions();
+
+            var token = this.commonService.getAuthenticationHeader();
+            var instance = this.userService.decodeToken(token);
+            var companyId = instance.user.companyId;
+
+            options.Filter = new List<object> { new string[] { "companyId", "=", companyId } };
+            // options.Select = new string[] { "name", "id", "jobNumber","companyId",
+            // "postId","companyFrameworkId",
+            //  "totleScore", "company", "post", "companyFramework" };
+            var query = (from user in this.sysContext.users select user)
+                .Include(u => u.company)
+                .Include(u => u.post)
+                .Include(u => u.companyFramework);
+            var users = DataSourceLoader.Load(query, options).data;
+            var data = new Dictionary<string, object>();
+            var LETTERS = new string[] {
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G",
+                "H",
+                "I",
+                "J",
+                "K",
+                "L",
+                "M",
+                "N",
+                "L",
+                "M",
+                "N",
+                "O",
+                "P",
+                "Q",
+                "R",
+                "S",
+                "T",
+                "U",
+                "V",
+                "W",
+                "X",
+                "Y",
+                "Z"
+            };
+            foreach (var letter in LETTERS)
+            {
+                var letterUsers = new List<User>();
+                data[letter] = letterUsers;
+            }
+            foreach (var user in users)
+            {
+
+                var userEntity = JsonConvert.DeserializeObject<User>(JsonConvert.SerializeObject(user));
+                var name = userEntity.name;
+                var nameLetter = CharUtil.GetPYChar(name).ToUpper();
+                if (name != null && name != "" && name.Length > 0)
+                {
+
+                    if (LETTERS.Contains(nameLetter))
+                    {
+                        ((List<User>)data[nameLetter]).Add(userEntity);
+                    }
+                    else
+                    {
+                        if (nameLetter == "*")
+                        {
+                            Console.WriteLine("**************");
+                            ((List<User>)data["A"]).Add(userEntity);
+
+                        }
+                        // Console.WriteLine(letter + ":" + name + ":" + nameLetter);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("no name:" + name);
+                }
+
+            }
+
+            return CommonRtn.Success(data);
+
+        }
+        /// <summary>
+        /// 搜索组织架构
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost("[action]")]
+        public CommonRtn searchCompanyFramework()
+        {
+            var options = new DataSourceLoadOptions();
+
+            var token = this.commonService.getAuthenticationHeader();
+            var instance = this.userService.decodeToken(token);
+            var companyId = instance.user.companyId;
+            options.Filter.Add(new string[] { "companyId", "=", companyId });
+
+            return CommonRtn.Success(new Dictionary<string, object> { { "users", DataSourceLoader.Load(this.sysContext.companyFrameworks, options) } });
 
         }
     }

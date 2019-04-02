@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace Cucr.CucrSaas.App.Entity.Sys {
+namespace Cucr.CucrSaas.App.Entity.Sys
+{
 
     /// <summary>
     /// 系统用户
     /// </summary>
-    [Table ("sys_user")]
-    public class User {
+    [Table("sys_user")]
+    public class User
+    {
 
         /// <summary>
         /// id
@@ -21,18 +23,22 @@ namespace Cucr.CucrSaas.App.Entity.Sys {
         /// <value></value>
         // [Key]
         // [DatabaseGenerated (DatabaseGeneratedOption.Identity)]
-        public string id { get; set; } = Guid.NewGuid ().ToString ();
+        public string id { get; set; } = Guid.NewGuid().ToString();
         /// <summary>
         /// 公司Id
         /// </summary>
         /// <value></value>
         public string companyId { get; set; }
-
+        /// <summary>
+        /// 总积分
+        /// </summary>
+        /// /// <value></value>
+        public int? totleScore { get; set; }
         /// <summary>
         /// 组织架构ID
         /// </summary>
-        /// <value></value>
-        public string jobPostId { get; set; }
+        /// /// <value></value>
+        public string companyFrameworkId { get; set; }
 
         /// <summary>
         /// 岗位ID
@@ -93,7 +99,7 @@ namespace Cucr.CucrSaas.App.Entity.Sys {
         /// </summary>
         /// <value></value>
 
-        public DateTime? birth { get; set; }
+        public int? birth { get; set; }
         /// <summary>
         /// QQ账号
         /// </summary>
@@ -133,7 +139,7 @@ namespace Cucr.CucrSaas.App.Entity.Sys {
         /// 工号
         /// </summary>
         /// <value></value>
-        public int jobNumber { get; set; }
+        public int? jobNumber { get; set; }
 
         /// <summary>
         /// 部门
@@ -150,23 +156,23 @@ namespace Cucr.CucrSaas.App.Entity.Sys {
         /// 入职日期
         /// </summary>
         /// <value></value>
-        public DateTime? rzDate { get; set; }
+        public int? rzDate { get; set; }
         /// <summary>
         /// 转正日期
         /// </summary>
         /// <value></value>
-        public DateTime? zzDate { get; set; }
+        public int? zzDate { get; set; }
         /// <summary>
         /// 离职日期
         /// </summary>
         /// <value></value>
-        public Nullable<DateTime> lzDate { get; set; }
+        public Nullable<int> lzDate { get; set; }
 
         /// <summary>
         /// 退休日期
         /// </summary>
         /// <value></value>
-        public DateTime? txDate { get; set; }
+        public int? txDate { get; set; }
 
         /// <summary>
         /// 在职状态
@@ -178,7 +184,7 @@ namespace Cucr.CucrSaas.App.Entity.Sys {
         /// 参加工作日期
         /// </summary>
         /// <value></value>
-        public DateTime? workDate { get; set; }
+        public int? workDate { get; set; }
         /// <summary>
         /// 照片
         /// </summary>
@@ -206,11 +212,7 @@ namespace Cucr.CucrSaas.App.Entity.Sys {
         /// </summary>
         /// <value></value>
         public string skill { get; set; }
-        /// <summary>
-        /// 总积分
-        /// </summary>
-        /// <value></value>
-        public int totleScore { get; set; }
+
         /// <summary>
         /// 合同附件
         ///  </summary>
@@ -252,7 +254,7 @@ namespace Cucr.CucrSaas.App.Entity.Sys {
         /// 录入时间
         /// </summary>
         /// <value></value>
-        public DateTime? inputTime { get; set; }
+        public int? inputTime { get; set; }
 
         /// <summary>
         /// 排序
@@ -285,20 +287,33 @@ namespace Cucr.CucrSaas.App.Entity.Sys {
         /// <summary>
         /// 数据的创建时间
         /// </summary>
-        /// /// <value></value>
-        public DateTime? createTime { get; set; } = DateTime.Now;
+        /// /// /// <value></value>
+        public int? createTime { get; set; }
         /// <summary>
         /// 公司
         /// </summary>
         /// <value></value>
         // [NotMapped]
         public Company company { get; set; }
+        /// <summary>
+        /// 职位
+        /// </summary>
+        /// <value></value>
+        public Post post { get; set; }
+        /// <summary>
+        /// 组织架构
+        /// </summary>
+        /// <value></value>
+        public CompanyFramework companyFramework { get; set; }
+
+        // public 
     }
 
     /// <summary>
     ///  证件类型(0:身份证；1：护照；2：军官证；3：其他；)
     /// </summary>
-    public enum DocumentType {
+    public enum DocumentType
+    {
         /// <summary>
         ///  身份证
         /// </summary>
@@ -320,7 +335,8 @@ namespace Cucr.CucrSaas.App.Entity.Sys {
     /// <summary>
     /// 婚姻状况(0：未婚;1：已婚;2：离异)
     /// </summary>
-    public enum HYStatus {
+    public enum HYStatus
+    {
 
         /// <summary>
         ///  未婚
@@ -342,7 +358,8 @@ namespace Cucr.CucrSaas.App.Entity.Sys {
     /// <summary>
     /// 在职状态（0：试用期；1：已转正；2：离职；3：退休）
     /// </summary>
-    public enum InworkType {
+    public enum InworkType
+    {
 
         /// <summary>
         ///  试用期

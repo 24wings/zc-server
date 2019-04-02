@@ -1,15 +1,17 @@
 using System;
 
-namespace Cucr.CucrSaas.App.Entity.OA {
+namespace Cucr.CucrSaas.App.Entity.OA
+{
     /// <summary>
     /// 基本参数实体
     /// </summary>
-    public class BaseEntity {
+    public class BaseEntity
+    {
         /// <summary>
         /// 主键
         /// </summary>
         /// <value></value>
-        public string id { get; set; } = Guid.NewGuid ().ToString ();
+        public string id { get; set; } = Guid.NewGuid().ToString();
         /// <summary>
         /// 录入人
         /// </summary>
@@ -19,7 +21,7 @@ namespace Cucr.CucrSaas.App.Entity.OA {
         /// 录入时间
         /// </summary>
         /// <value></value>
-        public DateTime? inputTime { get; set; }
+        public int? inputTime { get; set; }
         /// <summary>
         /// 排序
         /// </summary>

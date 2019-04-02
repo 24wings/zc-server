@@ -4,17 +4,17 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
-using Cucr.CucrSaas.App.Entity.Sys;
+using Cucr.CucrSaas.ZC.Entity.Clzc;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace Cucr.CucrSaas.App.DataAccess
+namespace Cucr.CucrSaas.ZC.DataAccess
 {
 
     /// <summary>
     /// OA数据访问
     /// </summary>
-    public class SysContext : DbContext
+    public class ClzcContext : DbContext
     {
 
         /// <summary>
@@ -22,18 +22,11 @@ namespace Cucr.CucrSaas.App.DataAccess
         /// </summary>
         /// <param name="options"></param>
         /// <returns></returns>
-        public SysContext(DbContextOptions<SysContext> options) : base(options) { }
+        public ClzcContext(DbContextOptions<ClzcContext> options) : base(options) { }
         /// <summary>
-        /// 用户
+        /// 问卷调查
         /// </summary>
-        public DbSet<User> users { get; set; }
-        /// <summary>
-        /// 发送短信记录表
-        /// </summary>
-        /// <value></value>
-        public DbSet<Message> messages { get; set; }
-
-        public DbSet<CompanyFramework> companyFrameworks { get; set; }
+        public DbSet<Company> companys { get; set; }
 
     }
 
