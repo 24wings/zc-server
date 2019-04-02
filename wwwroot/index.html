@@ -21,11 +21,11 @@
                 var base64 = e.target.result;
                 console.log(base64);
                 $.ajax({
-                    url: "/api/CucrSaas/Common/Common/uploadImage",
+                    url: "/api/CucrSaas/Common/Common/uploadFile",
                     method: "post",
                     contentType: "application/json",
 
-                    data: JSON.stringify({ base64: base64 }),
+                    data: JSON.stringify({ base64: base64, ext: "ico" }),
                     success: function (rtn) {
                         console.log(rtn);
                     }

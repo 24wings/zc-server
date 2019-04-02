@@ -27,19 +27,29 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-namespace Cucr.CucrSaas.App.Controllers
-{
+namespace Cucr.CucrSaas.App.Controllers {
 
     /// <summary>
     /// 通用控制器,例如图片,文件上传
     /// </summary>
-    [Route("api/CucrSaas/Common/[controller]")]
+    [Route ("api/CucrSaas/Common/[controller]")]
     [ApiController]
 
-    public class CommonController : ControllerBase
-    {
+    public class CommonController : ControllerBase {
 
         private ICommonService commonService { get; set; }
+
+        /// <summary>
+        /// 上传文件
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost ("[action]")]
+        public CommonRtn uploadFile (UploadFileInput input) {
+
+            var url = this.SaveFile (input.base64, input.ext);
+            return CommonRtn.Success (new Dictionary<string, object> { { "url", url } });
+
+        }
 
         /// <summary>
         /// 图片上传接口
@@ -47,11 +57,10 @@ namespace Cucr.CucrSaas.App.Controllers
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        [HttpPost("[action]")]
-        public CommonRtn uploadImage(UploadImageInput input)
-        {
-            var url = this.SaveImage(input.base64, "test");
-            return CommonRtn.Success(new Dictionary<string, object> { { "url", url } });
+        [HttpPost ("[action]")]
+        public CommonRtn uploadImage (UploadImageInput input) {
+            var url = this.SaveImage (input.base64, "test");
+            return CommonRtn.Success (new Dictionary<string, object> { { "url", url } });
         }
 
         /// <summary>
@@ -59,27 +68,46 @@ namespace Cucr.CucrSaas.App.Controllers
         /// </summary>
         /// <param name="image">图片的base64形式</param>
         /// <param name="proname">项目区分</param>
-        public string SaveImage(string image, string proname)
-        {
-            string path = $"{Directory.GetCurrentDirectory()}//wwwroot//Sonarqube//{proname}.png";
-            string filepath = Path.GetDirectoryName(path);
-            // 如果不存在就创建file文件夹
-            if (!Directory.Exists(filepath))
-            {
-                if (filepath != null) Directory.CreateDirectory(filepath);
+        private string SaveImage (string image, string proname) {
+
+            var matchPng = Regex.Match (image, "data:image/png;base64,([\\w\\W]*)$");
+            var matchJpg = Regex.Match (image, "data:image/jpg;base64,([\\w\\W]*)$");
+            var matchJpeg = Regex.Match (image, "data:image/jpeg;base64,([\\w\\W]*)$");
+            if (matchPng.Success) {
+                image = matchPng.Groups[1].Value;
             }
-            var match = Regex.Match(image, "data:image/png;base64,([\\w\\W]*)$");
-            if (match.Success)
-            {
-                image = match.Groups[1].Value;
+            if (matchJpg.Success) {
+                image = matchJpg.Groups[1].Value;
             }
-            var photoBytes = Convert.FromBase64String(image);
-            var key = Guid.NewGuid() + ".png";
-            OSSService.uploadFile(new MemoryStream(photoBytes), key);
+            if (matchJpeg.Success) {
+                image = matchJpeg.Groups[1].Value;
+            }
+            var photoBytes = Convert.FromBase64String (image);
+            var key = Guid.NewGuid () + ".png";
+            OSSService.uploadFile (new MemoryStream (photoBytes), key);
             return "https://cucr.oss-cn-beijing.aliyuncs.com/" + key;
 
         }
 
+        /// <summary>
+        ///  将echarts返回的base64 转成图片
+        /// </summary>
+        /// <param name="image">文件的base64</param>
+        /// <param name="ext">扩展名</param>
+        private string SaveFile (string image, string ext) {
+            var mime = ext;
+            if (ext == "ico") mime = "image/x-icon";
 
+            var match = Regex.Match (image, "data:" + mime + ";base64,([\\w\\W]*)$");
+            if (match.Success) {
+                Console.WriteLine ("match");
+                image = match.Groups[1].Value;
+            }
+            var photoBytes = Convert.FromBase64String (image);
+            var key = Guid.NewGuid () + "." + ext;
+            OSSService.uploadFile (new MemoryStream (photoBytes), key);
+            return "https://cucr.oss-cn-beijing.aliyuncs.com/" + key;
+
+        }
     }
 }

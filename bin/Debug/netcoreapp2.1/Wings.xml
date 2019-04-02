@@ -273,6 +273,57 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Cucr.CucrSaas.App.Controllers.WorkOrderController">
+            <summary>
+            App登录注册授权接口
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.WorkOrderController.oaContext">
+            <summary>
+            OA数据访问对象
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.WorkOrderController.sysContext">
+            <summary>
+            系统数据库访问
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.WorkOrderController.userService">
+            <summary>
+            用户接口
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.WorkOrderController.smsService">
+            <summary>
+            短信验证码
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.WorkOrderController.#ctor(Cucr.CucrSaas.App.DataAccess.OAContext,Cucr.CucrSaas.App.DataAccess.SysContext,Cucr.CucrSaas.App.Service.ICommonService,Cucr.CucrSaas.App.Service.IUserService,Cucr.CucrSaas.App.Service.ISmsService)">
+            <summary>
+            
+            </summary>
+            <param name="_oaContext"></param>
+            <param name="_sysContext"></param>
+            <param name="_commonService"></param>
+            <param name="_userService"></param>
+            <param name="_smsService"></param>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.WorkOrderController.listWorkOrdersGiveMe">
+            <summary>
+            获取直派给我我的工单
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.WorkOrderController.listWorkOrderFromMe">
+            <summary>
+            获取我指派的工单
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Cucr.CucrSaas.App.Controllers.WorkReportController">
             <summary>
             App登录注册授权接口
@@ -336,6 +387,12 @@
             通用控制器,例如图片,文件上传
             </summary>
         </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.CommonController.uploadFile(Cucr.CucrSaas.Common.DTO.UploadFileInput)">
+            <summary>
+            上传文件
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Cucr.CucrSaas.App.Controllers.CommonController.uploadImage(Cucr.CucrSaas.Common.DTO.UploadImageInput)">
             <summary>
             图片上传接口
@@ -350,6 +407,13 @@
             </summary>
             <param name="image">图片的base64形式</param>
             <param name="proname">项目区分</param>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.CommonController.SaveFile(System.String,System.String)">
+            <summary>
+             将echarts返回的base64 转成图片
+            </summary>
+            <param name="image">文件的base64</param>
+            <param name="ext">扩展名</param>
         </member>
         <member name="T:Cucr.CucrSaas.App.DataAccess.OAContext">
             <summary>
@@ -383,6 +447,12 @@
         <member name="P:Cucr.CucrSaas.App.DataAccess.OAContext.wageses">
             <summary>
             工资条
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DataAccess.OAContext.workOrders">
+            <summary>
+            工单
             </summary>
             <value></value>
         </member>
@@ -2542,44 +2612,171 @@
         </member>
         <member name="T:Cucr.CucrSaas.App.Entity.OA.WorkOrder">
             <summary>
-            工资条
+            工单
             </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.companyId">
+            <summary>
+            公司Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.projectId">
+            <summary>
+            项目id
+            </summary>
+            <value></value>
         </member>
         <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.userId">
             <summary>
-            用户Id
+            发布人id
             </summary>
             <value></value>
         </member>
-        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.companyName">
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.name">
             <summary>
-            公司名称
+            发布人姓名
             </summary>
             <value></value>
         </member>
-        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.beginDate">
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.title">
+            <summary>
+            发布标题
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.cycle">
+            <summary>
+            周期(天)
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.useworkingHours">
+            <summary>
+            已经使用工时
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.workingHours">
+            <summary>
+            总工时
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.level">
+            <summary>
+            级别
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.projectName">
+            <summary>
+            项目名称
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.assignId">
+            <summary>
+            指派人Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.assignName">
+            <summary>
+            指派人姓名
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.enclosure">
+            <summary>
+            附件
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.beginTime">
             <summary>
             开始时间
             </summary>
             <value></value>
         </member>
-        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.endDate">
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.beoverdueTime">
+            <summary>
+            过期时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.endTime">
             <summary>
             结束时间
             </summary>
             <value></value>
         </member>
-        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.department">
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.timeout">
             <summary>
-            部门
+            是否超时
             </summary>
             <value></value>
         </member>
-        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.position">
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.timeoutReason">
             <summary>
-            职位
+            超时原因
             </summary>
             <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.noticePerson">
+            <summary>
+            通知对象(用户ID集合)
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.noticePersonName">
+            <summary>
+            通知对象
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.explain">
+            <summary>
+            工单描述
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.wctype">
+            <summary>
+            工单状态
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.cancelReason">
+            <summary>
+            取消原因
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.Entity.OA.WorkOrderStatus">
+            <summary>
+            0：待开工  ；  1：进行中；2：已完成； -1：已取消
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.WorkOrderStatus.Wait">
+            <summary>
+             待开工
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.WorkOrderStatus.Process">
+            <summary>
+             进行中
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.WorkOrderStatus.Finish">
+            <summary>
+            已完成
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.App.Entity.OA.WorkOrderStatus.Cancel">
+            <summary>
+             已取消
+            </summary>
         </member>
         <member name="T:Cucr.CucrSaas.App.Entity.OA.WorkOrderDistribution">
             <summary>
@@ -4345,6 +4542,12 @@
             密钥
             </summary>
         </member>
+        <member name="M:Cucr.CucrSaas.App.Service.UserService.#ctor(Cucr.CucrSaas.App.Service.ICommonService)">
+            <summary>
+            
+            </summary>
+            <param name="_commonService"></param>
+        </member>
         <member name="M:Cucr.CucrSaas.App.Service.UserService.getUserToken(Cucr.CucrSaas.App.DTO.AppTokenOutput)">
             <summary>
             获取用户登录的token
@@ -4357,6 +4560,12 @@
             根据token 解密token数据
             </summary>
             <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Service.UserService.getUserFromAuthcationHeader">
+            <summary>
+            根据Header的Authzacation获取用户信息
+            </summary>
             <returns></returns>
         </member>
         <member name="T:Cucr.CucrSaas.ZC.Provider.NullToEmptyStringValueProvider">
@@ -4513,6 +4722,23 @@
             <summary>
             
             </summary>
+        </member>
+        <member name="T:Cucr.CucrSaas.Common.DTO.UploadFileInput">
+            <summary>
+            文件上传
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.Common.DTO.UploadFileInput.base64">
+            <summary>
+            base64格式
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.Common.DTO.UploadFileInput.ext">
+            <summary>
+            文件扩展名
+            </summary>
+            <value></value>
         </member>
         <member name="T:Cucr.CucrSaas.Common.DTO.UploadImageInput">
             <summary>
