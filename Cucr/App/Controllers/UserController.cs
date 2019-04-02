@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.IO;
@@ -84,29 +85,30 @@ namespace Cucr.CucrSaas.App.Controllers
         }
 
         /// <summary>
-        /// 获取用户信息
+        /// 获取自己的用户信息
+        /// 更加详细
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
         [HttpPost("[action]")]
-        public CommonRtn getUserInfo(UserInfoInput input)
+        public CommonRtn getMyInfo(UserInfoInput input)
         {
-            var instance = this.userService.decodeToken(input.token);
+            var instance = this.userService.decodeToken(this.commonService.getAuthenticationHeader());
 
-            if (instance.user.mechineId == input.mechineId)
-            {
-                var dbUser = (from user in this.sysContext.users where user.id == instance.user.id select user)
-                    .Include(u => u.company)
-                    .Include(u => u.post)
-                    .Include(u => u.companyFramework)
-                    .FirstOrDefault();
+            // if (instance.user.mechineId == input.mechineId)
+            // {
+            var dbUser = (from user in this.sysContext.users where user.id == instance.user.id select user)
+                .Include(u => u.company)
+                .Include(u => u.post)
+                .Include(u => u.companyFramework)
+                .FirstOrDefault();
 
-                return new CommonRtn { success = true, message = "", resData = new Dictionary<string, object> { { "user", dbUser } } };
-            }
-            else
-            {
-                return new CommonRtn { success = true, message = "设备不一致" };
-            }
+            return new CommonRtn { success = true, message = "", resData = new Dictionary<string, object> { { "user", dbUser } } };
+
+            // else
+            // {
+            //     return new CommonRtn { success = true, message = "设备不一致" };
+            // }
 
         }
 
@@ -115,7 +117,7 @@ namespace Cucr.CucrSaas.App.Controllers
         ///  </summary>
         /// <returns></returns>
         [HttpPost("[action]")]
-        public CommonRtn searchUserList([FromBody] AppSearchUserInput input)
+        public CommonRtn searchCompanyUserList([FromBody] object input)
         {
             var options = new DataSourceLoadOptions();
 
@@ -173,6 +175,8 @@ namespace Cucr.CucrSaas.App.Controllers
             {
 
                 var userEntity = JsonConvert.DeserializeObject<User>(JsonConvert.SerializeObject(user));
+                if (userEntity.token == null)
+                    Console.WriteLine("no token");
                 var name = userEntity.name;
                 var nameLetter = CharUtil.GetPYChar(name).ToUpper();
                 if (name != null && name != "" && name.Length > 0)
@@ -199,25 +203,94 @@ namespace Cucr.CucrSaas.App.Controllers
                 }
 
             }
+            foreach (var key in data.Keys.ToArray())
+            {
+                var userList = (List<User>)data[key];
+                if (userList.Count <= 0)
+                {
+                    data.Remove(key);
+                }
+            }
 
             return CommonRtn.Success(data);
 
         }
         /// <summary>
-        /// 搜索组织架构
+        /// 通过关键字搜索公司用户
         /// </summary>
+        /// <param name="input"></param>
         /// <returns></returns>
         [HttpPost("[action]")]
-        public CommonRtn searchCompanyFramework()
+        public CommonRtn searchCompanyUserListByKeyword(AppSearchUserInput input)
         {
             var options = new DataSourceLoadOptions();
 
             var token = this.commonService.getAuthenticationHeader();
             var instance = this.userService.decodeToken(token);
             var companyId = instance.user.companyId;
-            options.Filter.Add(new string[] { "companyId", "=", companyId });
 
-            return CommonRtn.Success(new Dictionary<string, object> { { "users", DataSourceLoader.Load(this.sysContext.companyFrameworks, options) } });
+            options.Filter = new List<object> { new string[] { "companyId", "=", companyId } };
+            options.Filter.Add("and");
+            options.Filter.Add(new List<string> { "name", "contains", input.keyword });
+
+            // options.Select = new string[] { "name", "id", "jobNumber","companyId",
+            // "postId","companyFrameworkId",
+            //  "totleScore", "company", "post", "companyFramework" };
+            var query = (from user in this.sysContext.users select user)
+                .Include(u => u.company)
+                .Include(u => u.post)
+                .Include(u => u.companyFramework);
+            return CommonRtn.Success(new Dictionary<string, object> { { "users", DataSourceLoader.Load(query, options) } });
+        }
+        /// <summary>
+        /// 搜索组织架构以及下级用户
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost("[action]")]
+        public CommonRtn searchCompanyFramework([FromBody] SearchCompanyFrameworkInput input)
+        {
+            var options = new DataSourceLoadOptions();
+            var token = this.commonService.getAuthenticationHeader();
+            Console.WriteLine(token);
+            var instance = this.userService.decodeToken(token);
+            var companyId = instance.user.companyId;
+
+            Console.WriteLine("companuyId:" + companyId);
+            List<CompanyFramework> companyFrameworks;
+            if (input.companyFrameworkId == null || input.companyFrameworkId == String.Empty)
+            {
+                companyFrameworks = (from companyFramework in this.sysContext.companyFrameworks where companyFramework.companyId == companyId select companyFramework).ToList();
+                return CommonRtn.Success(new Dictionary<string, object> { { "companyFrameworks", companyFrameworks }, { "users", new ArrayList() } });
+
+            }
+            else
+            {
+                companyFrameworks = (from companyFramework in this.sysContext.companyFrameworks where companyFramework.companyId == companyId && companyFramework.parentId == input.companyFrameworkId select companyFramework).ToList();
+                var cfIds = companyFrameworks.Select(cf => cf.id).Distinct().ToArray();
+                Console.WriteLine(JsonConvert.SerializeObject(cfIds));
+
+                var users = (from user in this.sysContext.users where cfIds.Contains(user.companyFrameworkId) select user).ToArray();
+                users = users.Where(user => user.id != instance.user.id).ToArray();
+                return CommonRtn.Success(new Dictionary<string, object> { { "companyFrameworks", companyFrameworks }, { "users", users } });
+
+            }
+
+        }
+
+        /// <summary>
+        /// 上传头像
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        [HttpPost("[action]")]
+        public CommonRtn changeAvator(AppChangeAvatorInput input)
+        {
+            var token = this.commonService.getAuthenticationHeader();
+            var instance = this.userService.decodeToken(token);
+            var user = this.sysContext.users.Find(instance.user.id);
+            user.headPortrait = input.url;
+            this.sysContext.SaveChanges();
+            return CommonRtn.Success(new Dictionary<string, object> { });
 
         }
     }

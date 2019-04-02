@@ -1,22 +1,20 @@
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 using Newtonsoft.Json.Serialization;
 
-namespace Cucr.CucrSaas.ZC.Provider
-{
+namespace Cucr.CucrSaas.ZC.Provider {
     /// <summary>
     /// NUll字符串转为空值提供
     /// </summary>
-    public class NullToEmptyStringValueProvider : IValueProvider
-    {
+    public class NullToEmptyStringValueProvider : IValueProvider {
         private readonly PropertyInfo _memberInfo;
 
         /// <summary>
         /// 构造函数
         /// </summary>
         /// <param name="memberInfo"></param>
-        public NullToEmptyStringValueProvider(PropertyInfo memberInfo)
-        {
+        public NullToEmptyStringValueProvider (PropertyInfo memberInfo) {
             _memberInfo = memberInfo;
         }
 
@@ -26,12 +24,32 @@ namespace Cucr.CucrSaas.ZC.Provider
         /// </summary>
         /// <param name="target"></param>
         /// <returns></returns>
-        public object GetValue(object target)
-        {
-            var result = _memberInfo.GetValue(target);
-            var stringType = String.Empty.GetType();
+        public object GetValue (object target) {
+            object result = _memberInfo.GetValue (target);
+            var stringType = String.Empty.GetType ();
             //_memberInfo.PropertyType == typeof (string) &&
-            if (result == null) result = "";
+            // Console.WriteLine (_memberInfo.Name);
+            if (result == null) {
+                // result = "";
+                if (_memberInfo.PropertyType == typeof (string) || _memberInfo.PropertyType == typeof (string)) {
+                    result = "";
+                } else if (_memberInfo.PropertyType == typeof (bool) || _memberInfo.PropertyType == typeof (bool?)) {
+                    // Console.WriteLine ("bool:" + _memberInfo.Name);
+                    result = false;
+                } else if (_memberInfo.PropertyType == typeof (int) || _memberInfo.PropertyType == typeof (int?)) {
+                    result = 0;
+                } else if (_memberInfo.PropertyType == typeof (System.Object[])) {
+                    result = new Object[] { };
+                } else if (_memberInfo.PropertyType == typeof (System.Collections.IEnumerable)) {
+                    result = new List<object> ();
+
+                } else {
+                    // Console.WriteLine (_memberInfo.Name);
+                    // Console.WriteLine (_memberInfo.PropertyType);
+                    result = 0;
+                }
+
+            }
 
             return result;
 
@@ -43,9 +61,8 @@ namespace Cucr.CucrSaas.ZC.Provider
         /// </summary>
         /// <param name="target"></param>
         /// <param name="value"></param>
-        public void SetValue(object target, object value)
-        {
-            _memberInfo.SetValue(target, value);
+        public void SetValue (object target, object value) {
+            _memberInfo.SetValue (target, value);
         }
     }
 }

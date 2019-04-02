@@ -13,6 +13,7 @@ using Cucr.CucrSaas.App.DTO;
 using Cucr.CucrSaas.App.Entity.Sys;
 using Cucr.CucrSaas.App.Service;
 using DevExtreme.AspNet.Data;
+using DevExtreme.AspNet.Data.ResponseModel;
 using DevExtreme.AspNet.Mvc;
 using JWT;
 using JWT.Algorithms;
@@ -25,16 +26,14 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-namespace Cucr.CucrSaas.App.Controllers
-{
+namespace Cucr.CucrSaas.App.Controllers {
 
     /// <summary>
     /// App登录注册授权接口
     /// </summary>
-    [Route("api/CucrSaas/App/[controller]")]
+    [Route ("api/CucrSaas/App/[controller]")]
     [ApiController]
-    public class TestController : ControllerBase
-    {
+    public class TestController : ControllerBase {
 
         private ICommonService commonService { get; set; }
         /// <summary>
@@ -66,13 +65,12 @@ namespace Cucr.CucrSaas.App.Controllers
         /// <param name="_commonService"></param>
         /// <param name="_userService"></param>
         /// <param name="_smsService"></param>
-        public TestController(OAContext _oaContext,
+        public TestController (OAContext _oaContext,
             SysContext _sysContext,
             ICommonService _commonService,
             IUserService _userService,
             ISmsService _smsService
-        )
-        {
+        ) {
             this.oaContext = _oaContext;
             this.sysContext = _sysContext;
             this.commonService = _commonService;
@@ -80,20 +78,23 @@ namespace Cucr.CucrSaas.App.Controllers
             this.smsService = _smsService;
         }
 
-
-
-
         /// <summary>
         /// 用户列表
         /// </summary>
 
         /// <returns></returns>
-        [HttpGet("[action]")]
-        public CommonRtn userList([FromQuery] DataSourceLoadOptions options)
-        {
+        [HttpGet ("[action]")]
+        public LoadResult userList ([FromQuery] DataSourceLoadOptions options) {
 
-            return CommonRtn.Success(new Dictionary<string, object> { { "users", DataSourceLoader.Load(this.sysContext.users, options) } });
+            return DataSourceLoader.Load (this.sysContext.users, options);
         }
+        /// <summary>
+        /// 实体列表
+        /// </summary>
+        /// <param name="user"></param>
+        [HttpGet ("[action]")]
+        public void entityList (User user) {
 
+        }
     }
 }

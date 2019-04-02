@@ -1,0 +1,15 @@
+D:\workspace\s\bin\Debug\netcoreapp2.1\Wings.deps.json
+D:\workspace\s\bin\Debug\netcoreapp2.1\Wings.runtimeconfig.json
+D:\workspace\s\bin\Debug\netcoreapp2.1\Wings.runtimeconfig.dev.json
+D:\workspace\s\bin\Debug\netcoreapp2.1\Wings.dll
+D:\workspace\s\bin\Debug\netcoreapp2.1\Wings.pdb
+D:\workspace\s\bin\Debug\netcoreapp2.1\Wings.xml
+D:\workspace\s\obj\Debug\netcoreapp2.1\Wings.csprojAssemblyReference.cache
+D:\workspace\s\obj\Debug\netcoreapp2.1\Wings.csproj.CoreCompileInputs.cache
+D:\workspace\s\obj\Debug\netcoreapp2.1\Wings.RazorAssemblyInfo.cache
+D:\workspace\s\obj\Debug\netcoreapp2.1\Wings.RazorAssemblyInfo.cs
+D:\workspace\s\obj\Debug\netcoreapp2.1\Wings.AssemblyInfoInputs.cache
+D:\workspace\s\obj\Debug\netcoreapp2.1\Wings.AssemblyInfo.cs
+D:\workspace\s\obj\Debug\netcoreapp2.1\Wings.RazorTargetAssemblyInfo.cache
+D:\workspace\s\obj\Debug\netcoreapp2.1\Wings.dll
+D:\workspace\s\obj\Debug\netcoreapp2.1\Wings.pdb

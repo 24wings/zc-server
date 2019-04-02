@@ -1,4 +1,6 @@
+using System;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace Cucr.CucrSaas.App.Service {
 
@@ -43,6 +45,8 @@ namespace Cucr.CucrSaas.App.Service {
         /// </summary>
         /// <returns></returns>
         public string getAuthenticationHeader () {
+            // Console.WriteLine (JsonConvert.SerializeObject (this.accessor.HttpContext.Request.Headers));
+            // Console.WriteLine (this.accessor.HttpContext.Request.Headers["Authorization"]);
             return this.accessor.HttpContext.Request.Headers["Authorization"];
         }
     }

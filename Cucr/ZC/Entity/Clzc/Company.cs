@@ -15,16 +15,29 @@ namespace Cucr.CucrSaas.ZC.Entity.Clzc
     /// 公司表
     /// </summary>
     [Table("clzc_company")]
-    public class Company : BaseEntity
+    public class Company
     {
         /// <summary>
-        /// 公司Id
+        /// 主键
+        /// </summary>
+        /// <returns></returns>
+        [Key]
+        public string id { get; set; } = Guid.NewGuid().ToString();
+        /// <summary>
+        /// 公司名称
+        /// </summary> 
+        /// <value></value>
+        public string name { get; set; }
+        /// <summary>
+        /// 登录账户
         /// </summary>
         /// <value></value>
-        public string id { get; set; }
-        public string name { get; set; }
-
         public string account { get; set; }
-        ///password, capital, area, address, legalPerson, phone, telephone, license, business, registerDate
+        /// <summary>
+        /// 登录密码
+        /// </summary>
+        /// <value></value>
+        public string password { get; set; }
+        // capital, area, address, legalPerson, phone, telephone, license, business, registerDate
     }
 }
