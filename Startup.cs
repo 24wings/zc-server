@@ -59,7 +59,6 @@ namespace Cucr
                         .AllowAnyHeader()
                         .AllowCredentials()
 
-
                     ;
                 });
             });
@@ -79,7 +78,7 @@ namespace Cucr
 
             //Allow Zero Datetime=True
             var connection = "Data Source=47.100.63.224;Database=cucrsaasdb;User Id=root;Password=8US7DJ3WB5v;Convert Zero Datetime=True;Allow User Variables=True";
-            var zcUrl = "Data Source=101.132.96.199;Database=clkrzc;User Id=root;Password=123456;Convert Zero Datetime=True;Allow Zero Datetime=True;Allow User Variables=True";
+            var zcUrl = "Data Source=101.132.96.199;Database=clkrzc;User Id=root;Password=123456;Convert Zero Datetime=True;Allow User Variables=True";
             //var connection = @"Server=localhost;Initial Catalog=master;Integrated Security=True";
             services
                 .AddDbContext<OAContext>(options => options.UseMySql(connection))

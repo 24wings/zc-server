@@ -15216,11 +15216,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\workspace\\s\\Wings.csproj",
+      "projectUniqueName": "E:\\workspace\\cucr-sass\\Wings.csproj",
       "projectName": "Wings",
-      "projectPath": "D:\\workspace\\s\\Wings.csproj",
+      "projectPath": "E:\\workspace\\cucr-sass\\Wings.csproj",
       "packagesPath": "C:\\Users\\mayn\\.nuget\\packages\\",
-      "outputPath": "D:\\workspace\\s\\obj\\",
+      "outputPath": "E:\\workspace\\cucr-sass\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -3,21 +3,18 @@ using System.Collections.Generic;
 using System.Reflection;
 using Newtonsoft.Json.Serialization;
 
-namespace Cucr.CucrSaas.ZC.Provider
-{
+namespace Cucr.CucrSaas.ZC.Provider {
     /// <summary>
     /// NUll字符串转为空值提供
     /// </summary>
-    public class NullToEmptyStringValueProvider : IValueProvider
-    {
+    public class NullToEmptyStringValueProvider : IValueProvider {
         private readonly PropertyInfo _memberInfo;
 
         /// <summary>
         /// 构造函数
         /// </summary>
         /// <param name="memberInfo"></param>
-        public NullToEmptyStringValueProvider(PropertyInfo memberInfo)
-        {
+        public NullToEmptyStringValueProvider (PropertyInfo memberInfo) {
             _memberInfo = memberInfo;
         }
 
@@ -27,44 +24,30 @@ namespace Cucr.CucrSaas.ZC.Provider
         /// </summary>
         /// <param name="target"></param>
         /// <returns></returns>
-        public object GetValue(object target)
-        {
-            object result = _memberInfo.GetValue(target);
-            var stringType = String.Empty.GetType();
+        public object GetValue (object target) {
+            object result = _memberInfo.GetValue (target);
+            var stringType = String.Empty.GetType ();
             //_memberInfo.PropertyType == typeof (string) &&
             // Console.WriteLine (_memberInfo.Name);
-            if (result == null)
-            {
+            if (result == null) {
                 // result = "";
-                if (_memberInfo.PropertyType == typeof(string) || _memberInfo.PropertyType == typeof(string))
-                {
+                if (_memberInfo.PropertyType == typeof (string) || _memberInfo.PropertyType == typeof (string)) {
                     result = "";
-                }
-                else if (_memberInfo.PropertyType == typeof(bool) || _memberInfo.PropertyType == typeof(bool?))
-                {
+                } else if (_memberInfo.PropertyType == typeof (bool) || _memberInfo.PropertyType == typeof (bool?)) {
                     // Console.WriteLine ("bool:" + _memberInfo.Name);
                     result = false;
-                }
-                else if (_memberInfo.PropertyType == typeof(int) || _memberInfo.PropertyType == typeof(int?))
-                {
+                } else if (_memberInfo.PropertyType == typeof (int) || _memberInfo.PropertyType == typeof (int?)) {
                     result = 0;
-                }
-                else if (_memberInfo.PropertyType == typeof(System.Object[]))
-                {
+                } else if (_memberInfo.PropertyType == typeof (DateTime) || _memberInfo.PropertyType == typeof (DateTime?)) {
+                    result = DateTime.Now;
+                } else if (_memberInfo.PropertyType == typeof (System.Object[])) {
                     result = new Object[] { };
-                }
-                else if (_memberInfo.PropertyType == typeof(System.Collections.IEnumerable))
-                {
-                    result = new List<object>();
+                } else if (_memberInfo.PropertyType == typeof (System.Collections.IEnumerable)) {
+                    result = new List<object> ();
 
-                }
-                else if (_memberInfo.PropertyType == typeof(decimal) || _memberInfo.PropertyType == typeof(decimal?))
-                {
-                    result = new decimal(0);
-                }
-
-                else
-                {
+                } else if (_memberInfo.PropertyType == typeof (decimal) || _memberInfo.PropertyType == typeof (decimal?)) {
+                    result = new decimal (0);
+                } else {
 
                     // Console.WriteLine (_memberInfo.Name);
                     // Console.WriteLine (_memberInfo.PropertyType);
@@ -83,9 +66,8 @@ namespace Cucr.CucrSaas.ZC.Provider
         /// </summary>
         /// <param name="target"></param>
         /// <param name="value"></param>
-        public void SetValue(object target, object value)
-        {
-            _memberInfo.SetValue(target, value);
+        public void SetValue (object target, object value) {
+            _memberInfo.SetValue (target, value);
         }
     }
 }

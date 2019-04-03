@@ -3729,6 +3729,18 @@
             </summary>
             <value></value>
         </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.CompanyFramework.userNum">
+            <summary>
+            部门人数
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.CompanyFramework.subCompanyFrameworkNum">
+            <summary>
+            子部门数量
+            </summary>
+            <value></value>
+        </member>
         <member name="T:Cucr.CucrSaas.App.Entity.Sys.CompanyFrameworkData">
             <summary>
             组织机构数据权限表
@@ -4791,6 +4803,66 @@
             <param name="propertyName"></param>
             <returns></returns>
         </member>
+        <member name="T:Cucr.CucrSaas.ZC.Controllers.BaseCURDController`1">
+            <summary>
+            基本增删改查
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Controllers.BaseCURDController`1.clzcContext">
+            <summary>
+                 众筹数据库驱动
+            </summary>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.BaseCURDController`1.#ctor(Cucr.CucrSaas.ZC.DataAccess.ClzcContext)">
+            <summary>
+            
+            </summary>
+            <param name="_clzcContext"></param>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.BaseCURDController`1.Get(DevExtreme.AspNet.Mvc.DataSourceLoadOptions)">
+            <summary>
+            查询
+            </summary>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.BaseCURDController`1.Post(Cucr.CucrSaas.Common.DTO.BodyDataInput)">
+            <summary>
+            创建组织
+            </summary>
+            <param name="bodyData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.BaseCURDController`1.Delete(System.String)">
+            <summary>
+            删除组织
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.BaseCURDController`1.Put(Cucr.CucrSaas.Common.DTO.BodyDataInput)">
+            <summary>
+            更新组织
+            </summary>
+            <param name="bodyData"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cucr.CucrSaas.ZC.Controllers.CompanyController">
+            <summary>
+            众筹登录
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Controllers.CompanyController.clzcContext">
+            <summary>
+                 众筹数据库驱动
+            </summary>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.CompanyController.#ctor(Cucr.CucrSaas.ZC.DataAccess.ClzcContext)">
+            <summary>
+            
+            </summary>
+            <param name="_clzcContext"></param>
+        </member>
         <member name="T:Cucr.CucrSaas.ZC.Controllers.ProjectManageApplyController">
             <summary>
             App登录注册授权接口
@@ -4840,50 +4912,6 @@
             审核产品经理资质
             </summary>
             <param name="projectManageApplyId"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cucr.CucrSaas.ZC.Controllers.RoleController">
-            <summary>
-            角色系统
-            </summary>
-        </member>
-        <member name="P:Cucr.CucrSaas.ZC.Controllers.RoleController.clzcContext">
-            <summary>
-                 众筹数据库驱动
-            </summary>
-        </member>
-        <member name="M:Cucr.CucrSaas.ZC.Controllers.RoleController.#ctor(Cucr.CucrSaas.ZC.DataAccess.ClzcContext)">
-            <summary>
-            
-            </summary>
-            <param name="_clzcContext"></param>
-        </member>
-        <member name="M:Cucr.CucrSaas.ZC.Controllers.RoleController.Get(DevExtreme.AspNet.Mvc.DataSourceLoadOptions)">
-            <summary>
-            查询
-            </summary>
-            <param name="options"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cucr.CucrSaas.ZC.Controllers.RoleController.Post(Cucr.CucrSaas.Common.DTO.BodyDataInput)">
-            <summary>
-            创建组织
-            </summary>
-            <param name="bodyData"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cucr.CucrSaas.ZC.Controllers.RoleController.Delete(System.String)">
-            <summary>
-            删除组织
-            </summary>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cucr.CucrSaas.ZC.Controllers.RoleController.Put(Cucr.CucrSaas.Common.DTO.BodyDataInput)">
-            <summary>
-            更新组织
-            </summary>
-            <param name="bodyData"></param>
             <returns></returns>
         </member>
         <member name="T:Cucr.CucrSaas.ZC.Controllers.UserController">
@@ -4946,6 +4974,43 @@
             </summary>
             <param name="_clzcContext"></param>
         </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.ZCAuthController.login(Cucr.CucrSaas.ZC.DTO.ZCUserLoginInput)">
+            <summary>
+            用户登录
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cucr.CucrSaas.ZC.Controllers.ZCSettingController">
+            <summary>
+            众筹设置
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Controllers.ZCSettingController.clzcContext">
+            <summary>
+                 众筹数据库驱动
+            </summary>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.ZCSettingController.#ctor(Cucr.CucrSaas.ZC.DataAccess.ClzcContext)">
+            <summary>
+            
+            </summary>
+            <param name="_clzcContext"></param>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.ZCSettingController.addBankCrad(Cucr.CucrSaas.ZC.DTO.ZCAddBankCardInput)">
+            <summary>
+            用户登录
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.ZCSettingController.listBankCard(Cucr.CucrSaas.ZC.DTO.ZCListBankCardInput)">
+            <summary>
+            列出用户银行卡
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cucr.CucrSaas.ZC.Controllers.ZCCompanyController">
             <summary>
             App登录注册授权接口
@@ -4982,6 +5047,50 @@
             <param name="input"></param>
             <returns></returns>
         </member>
+        <member name="T:Cucr.CucrSaas.ZC.Admin.Controllers.RoleController">
+            <summary>
+            角色系统
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Admin.Controllers.RoleController.clzcContext">
+            <summary>
+                 众筹数据库驱动
+            </summary>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Admin.Controllers.RoleController.#ctor(Cucr.CucrSaas.ZC.DataAccess.ClzcContext)">
+            <summary>
+            
+            </summary>
+            <param name="_clzcContext"></param>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Admin.Controllers.RoleController.Get(DevExtreme.AspNet.Mvc.DataSourceLoadOptions)">
+            <summary>
+            查询
+            </summary>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Admin.Controllers.RoleController.Post(Cucr.CucrSaas.Common.DTO.BodyDataInput)">
+            <summary>
+            创建组织
+            </summary>
+            <param name="bodyData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Admin.Controllers.RoleController.Delete(System.String)">
+            <summary>
+            删除组织
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Admin.Controllers.RoleController.Put(Cucr.CucrSaas.Common.DTO.BodyDataInput)">
+            <summary>
+            更新组织
+            </summary>
+            <param name="bodyData"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cucr.CucrSaas.ZC.DataAccess.ClzcContext">
             <summary>
             OA数据访问
@@ -5014,6 +5123,47 @@
         <member name="P:Cucr.CucrSaas.ZC.DataAccess.ClzcContext.users">
             <summary>
             用户
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.DataAccess.ClzcContext.bankCards">
+            <summary>
+            银行卡
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.ZC.DTO.ZCAddBankCardInput">
+            <summary>
+            添加银行卡
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.DTO.ZCAddBankCardInput.no">
+            <summary>
+            银行卡号
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.DTO.ZCAddBankCardInput.userId">
+            <summary>
+            用户id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.DTO.ZCAddBankCardInput.bank">
+            <summary>
+            银行卡号
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.DTO.ZCAddBankCardInput.isDefault">
+            <summary>
+            是否设为默认
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.DTO.ZCAddBankCardInput.belongTo">
+            <summary>
+            所属人
             </summary>
             <value></value>
         </member>
@@ -5063,6 +5213,17 @@
             </summary>
             <value></value>
         </member>
+        <member name="T:Cucr.CucrSaas.ZC.DTO.ZCListBankCardInput">
+            <summary>
+            众筹用户登录
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.DTO.ZCListBankCardInput.userId">
+            <summary>
+            用户id
+            </summary>
+            <value></value>
+        </member>
         <member name="T:Cucr.CucrSaas.ZC.DTO.ZCSearchCompanyInput">
             <summary>
             搜索公司
@@ -5096,6 +5257,52 @@
             手机号
             </summary>
             <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.ZC.Entity.Clzc.BankCard">
+            <summary>
+            银行卡
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.BankCard.id">
+            <summary>
+            银行卡
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.BankCard.userId">
+            <summary>
+            用户id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.BankCard.no">
+            <summary>
+            银行卡号
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.BankCard.bank">
+            <summary>
+            银行卡银行
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.BankCard.belongTo">
+            <summary>
+            卡号所属人
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.BankCard.createTime">
+            <summary>
+            创建时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="F:Cucr.CucrSaas.ZC.Entity.Clzc.BankCard.isDefault">
+            <summary>
+            设置为默认
+            </summary>
         </member>
         <member name="T:Cucr.CucrSaas.ZC.Entity.Clzc.Company">
             <summary>
@@ -5239,7 +5446,7 @@
         </member>
         <member name="T:Cucr.CucrSaas.ZC.Entity.Clzc.User">
             <summary>
-            公司表
+            用户表
             </summary>
         </member>
         <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.ID">
@@ -5247,6 +5454,12 @@
             主键
             </summary>
             <returns></returns>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.account">
+            <summary>
+            账户
+            </summary>
+            <value></value>
         </member>
         <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.name">
             <summary>
@@ -5263,6 +5476,150 @@
         <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.phone">
             <summary>
             手机号
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.nickname">
+            <summary>
+            昵称
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.headimg">
+            <summary>
+            头像
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.sex">
+            <summary>
+            性别
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.balance">
+            <summary>
+            账户余额
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.provinceid">
+            <summary>
+            省份id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.cityid">
+            <summary>
+            城市id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.areaid">
+            <summary>
+            区域id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.region">
+            <summary>
+            省份+城市中文
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.state">
+            <summary>
+            状态
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.createTime">
+            <summary>
+            创建时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.password">
+            <summary>
+            密码
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.address">
+            <summary>
+            地址
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.lastlogintime">
+            <summary>
+            上次登录时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.idcard">
+            <summary>
+            身份证
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.autograph">
+            <summary>
+            自动签名
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.profession">
+            <summary>
+            职业
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.homepage">
+            <summary>
+            个人首页
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.type">
+            <summary>
+            1注册账号，2生成账号
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.cardFront">
+            <summary>
+            身份证正面
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.cardCon">
+            <summary>
+            身份证反面
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.companyId">
+            <summary>
+            所属公司
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.companyname">
+            <summary>
+            公司名称
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.role">
+            <summary>
+            角色
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.isReadProtocol">
+            <summary>
+            是否认真阅读协议1是0否
             </summary>
             <value></value>
         </member>

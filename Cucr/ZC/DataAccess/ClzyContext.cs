@@ -42,6 +42,11 @@ namespace Cucr.CucrSaas.ZC.DataAccess
         /// </summary>
         /// <value></value>
         public DbSet<User> users { get; set; }
+        /// <summary>
+        /// 银行卡
+        /// </summary>
+        /// <value></value>
+        public DbSet<BankCard> bankCards { get; set; }
 
     }
 

@@ -101,7 +101,7 @@ namespace Cucr.CucrSaas.ZC.Controllers
             var countExit = (from apply in this.clzcContext.projectManageApplys where apply.userId == input.userId && apply.status == ProjectManageApplyStatus.Submit select apply).Count();
             if (countExit > 0)
             {
-                return CommonRtn.Error("请耐心等待审核");
+                return CommonRtn.Error("您已经提交过,请耐心等待审核");
             }
             var result = this.clzcContext.projectManageApplys.Add(
                 new ProjectManageApply
@@ -115,7 +115,7 @@ namespace Cucr.CucrSaas.ZC.Controllers
                     fileId = input.fileId
                 });
             this.clzcContext.SaveChanges();
-            return CommonRtn.Success(new Dictionary<string, object> { { "result", result } });
+            return CommonRtn.Success(new Dictionary<string, object> { }, "提交成功,请耐心等待");
         }
     }
 }

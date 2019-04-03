@@ -24,21 +24,21 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 
-namespace Cucr.CucrSaas.ZC.Admin.Controllers
+namespace Cucr.CucrSaas.ZC.Controllers
 {
 
-    /// <summary>
-    /// 角色系统
-    /// </summary>
-    // [EnableCors ("AllowAllOrigin")]
-    [Route("api/CucrSaas/ZC/Admin/[controller]")]
-    [ApiController]
 
-    public class RoleController : ControllerBase
+    /// <summary>
+    /// 基本增删改查
+    /// </summary>
+    public abstract class BaseCURDController<TEntity> : ControllerBase
     {
+
+        // abstract public DbSet<TEntity>  table{get;set;}
 
         /// <summary>
         ///      众筹数据库驱动
@@ -48,7 +48,7 @@ namespace Cucr.CucrSaas.ZC.Admin.Controllers
         /// 
         /// </summary>
         /// <param name="_clzcContext"></param>
-        public RoleController(
+        public BaseCURDController(
             ClzcContext _clzcContext
         )
         {

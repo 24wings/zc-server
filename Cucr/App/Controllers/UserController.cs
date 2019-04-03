@@ -259,17 +259,42 @@ namespace Cucr.CucrSaas.App.Controllers
             List<CompanyFramework> companyFrameworks;
             if (input.companyFrameworkId == null || input.companyFrameworkId == String.Empty)
             {
-                companyFrameworks = (from companyFramework in this.sysContext.companyFrameworks where companyFramework.companyId == companyId select companyFramework).ToList();
+                companyFrameworks = (from companyFramework in this.sysContext.companyFrameworks
+                                     where companyFramework.companyId == companyId
+                                     select new CompanyFramework
+                                     {
+                                         id = companyFramework.id,
+                                         companyId = companyFramework.companyId,
+                                         department = companyFramework.department,
+                                         userNum = companyFramework.userNum,
+                                         subCompanyFrameworkNum = (from cf in this.sysContext.companyFrameworks where companyFramework.id == cf.parentId select cf).Count(),
+                                     }).ToList();
+
                 return CommonRtn.Success(new Dictionary<string, object> { { "companyFrameworks", companyFrameworks }, { "users", new ArrayList() } });
 
             }
             else
             {
-                companyFrameworks = (from companyFramework in this.sysContext.companyFrameworks where companyFramework.companyId == companyId && companyFramework.parentId == input.companyFrameworkId select companyFramework).ToList();
-                var cfIds = companyFrameworks.Select(cf => cf.id).Distinct().ToArray();
-                Console.WriteLine(JsonConvert.SerializeObject(cfIds));
+                companyFrameworks = (from companyFramework in this.sysContext.companyFrameworks
+                                     where companyFramework.companyId == companyId && companyFramework.parentId == input.companyFrameworkId
 
-                var users = (from user in this.sysContext.users where cfIds.Contains(user.companyFrameworkId) select user).ToArray();
+                                     select new CompanyFramework
+                                     {
+                                         parentId = companyFramework.parentId,
+                                         id = companyFramework.id,
+                                         companyId = companyFramework.companyId,
+                                         department = companyFramework.department,
+                                         userNum = companyFramework.userNum,
+                                         subCompanyFrameworkNum = (from cf in this.sysContext.companyFrameworks where companyFramework.id == cf.parentId select cf).Count(),
+                                     }).ToList();
+
+                // var cfIds = companyFrameworks.Select(cf => cf.id).Distinct().ToArray();
+                // Console.WriteLine(JsonConvert.SerializeObject(cfIds));
+
+                var users = (from user in this.sysContext.users
+                             where user.companyFrameworkId == input.companyFrameworkId
+&& user.companyId == instance.user.companyId
+                             select user).ToArray();
                 users = users.Where(user => user.id != instance.user.id).ToArray();
                 return CommonRtn.Success(new Dictionary<string, object> { { "companyFrameworks", companyFrameworks }, { "users", users } });
 
