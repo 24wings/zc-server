@@ -8,20 +8,17 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace Cucr
-{
+namespace Cucr {
     /// <summary>
     /// 程序启动文件
     /// </summary>
-    public class Program
-    {
+    public class Program {
         /// <summary>
         /// 程序启动主函数
         /// </summary>
         /// <param name="args"></param>
-        public static void Main(string[] args)
-        {
-            CreateWebHostBuilder(args).Build().Run();
+        public static void Main (string[] args) {
+            CreateWebHostBuilder (args).Build ().Run ();
         }
 
         /// <summary>
@@ -29,9 +26,9 @@ namespace Cucr
         /// </summary>
         /// <param name="args"></param>
         /// <returns></returns>
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-            .UseStartup<Startup>()
-            .UseUrls("http://192.168.1.99:5000");
+        public static IWebHostBuilder CreateWebHostBuilder (string[] args) =>
+            WebHost.CreateDefaultBuilder (args)
+            .UseStartup<Startup> ()
+            .UseUrls ("http://0.0.0.0:5000");
     }
 }

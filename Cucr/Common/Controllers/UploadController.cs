@@ -11,6 +11,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Cucr.CucrSaas.App.DataAccess;
 using Cucr.CucrSaas.App.DTO;
+using Cucr.CucrSaas.App.Entity.OA;
 using Cucr.CucrSaas.App.Entity.Sys;
 using Cucr.CucrSaas.App.Service;
 using Cucr.CucrSaas.Common.DTO;
@@ -36,8 +37,22 @@ namespace Cucr.CucrSaas.App.Controllers {
     [ApiController]
 
     public class CommonController : ControllerBase {
-
+        /// <summary>
+        /// 系统环境
+        /// </summary>
+        /// <value></value>
+        private SysContext sysContext { get; set; }
+        private OAContext oaContext { get; set; }
         private ICommonService commonService { get; set; }
+        /// <summary>
+        /// 通用控制器.
+        /// </summary>
+        /// <param name="_sysContext"></param>
+        ///  <param name="_oaContext"></param>
+        public CommonController (SysContext _sysContext, OAContext _oaContext) {
+            sysContext = _sysContext;
+            oaContext = _oaContext;
+        }
 
         /// <summary>
         /// 上传文件
@@ -47,6 +62,9 @@ namespace Cucr.CucrSaas.App.Controllers {
         public CommonRtn uploadFile (UploadFileInput input) {
 
             var url = this.SaveFile (input.base64, input.ext);
+            var file = new Enclosure { fjName = input.fileName, fjAddress = url, fjType = input.ext };
+            this.oaContext.enclosures.Add (file);
+            this.oaContext.SaveChanges ();
             return CommonRtn.Success (new Dictionary<string, object> { { "url", url } });
 
         }

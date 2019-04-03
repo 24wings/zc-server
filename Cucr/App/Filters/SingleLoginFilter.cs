@@ -49,6 +49,7 @@ namespace Cucr.CucrSaas.App.Filters
         /// <param name="context"></param>
         public void OnActionExecuting(ActionExecutingContext context)
         {
+
             var exist = (from url in this.whiteList where context.HttpContext.Request.Path.ToString().Contains(url) select url).Count();
             if (this.whiteList.Contains(context.HttpContext.Request.Path.ToString()) || exist > 0)
             {

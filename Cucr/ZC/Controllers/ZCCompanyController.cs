@@ -14,6 +14,7 @@ using Cucr.CucrSaas.App.Entity.Sys;
 using Cucr.CucrSaas.App.Service;
 using Cucr.CucrSaas.ZC.DataAccess;
 using Cucr.CucrSaas.ZC.DTO;
+using Cucr.CucrSaas.ZC.Entity.Clzc;
 using DevExtreme.AspNet.Data;
 using DevExtreme.AspNet.Mvc;
 using JWT;
@@ -23,6 +24,7 @@ using JWT.Serializers;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -34,6 +36,7 @@ namespace Cucr.CucrSaas.ZC.Controllers
     /// <summary>
     /// App登录注册授权接口
     /// </summary>
+    // [EnableCors ("AllowAllOrigin")]
     [Route("api/CucrSaas/ZC/[controller]")]
     [ApiController]
 
@@ -60,7 +63,7 @@ namespace Cucr.CucrSaas.ZC.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost("[action]")]
-        public CommonRtn searchCompany(ZCSearchCompanyInput input)
+        public CommonRtn searchCompany([FromBody] ZCSearchCompanyInput input)
         {
             if (input.keyword != null && input.keyword != String.Empty)
             {
@@ -81,9 +84,38 @@ namespace Cucr.CucrSaas.ZC.Controllers
         /// <param name="input"></param>
         /// <returns></returns>
         [HttpPost("[action]")]
-        public CommonRtn getCompanyInfo(ZCGetCompanyInfoInput input)
+        public CommonRtn getCompanyInfo([FromBody] ZCGetCompanyInfoInput input)
         {
             return CommonRtn.Success(new Dictionary<string, object> { { "company", this.clzcContext.companys.Find(input.companyId) } });
+        }
+
+        /// <summary>
+        /// 提交项目经理申请
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+
+        [HttpPost("[action]")]
+        public CommonRtn submitProjectManageApply([FromBody] ZCCreateProjectManageApplyInput input)
+        {
+            var countExit = (from apply in this.clzcContext.projectManageApplys where apply.userId == input.userId && apply.status == ProjectManageApplyStatus.Submit select apply).Count();
+            if (countExit > 0)
+            {
+                return CommonRtn.Error("请耐心等待审核");
+            }
+            var result = this.clzcContext.projectManageApplys.Add(
+                new ProjectManageApply
+                {
+                    id = Guid.NewGuid().ToString(),
+                    phone = input.phone,
+                    status = ProjectManageApplyStatus.Submit,
+                    summary = input.summary,
+                    userId = input.userId,
+                    companyId = input.companyId,
+                    fileId = input.fileId
+                });
+            this.clzcContext.SaveChanges();
+            return CommonRtn.Success(new Dictionary<string, object> { { "result", result } });
         }
     }
 }

@@ -49,21 +49,26 @@ namespace Cucr
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllOrigin", builder =>
+                {
+                    builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials()
 
+
+                    ;
+                });
+            });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddMvc(option =>
             {
                 option.Filters.Add(typeof(SingleLoginFilter));
-
             });
-            // .AddJsonOptions (options => {
-            //     //忽略循环引用
-            //     // options.SerializerSettings.ReferenceLoopHandling = Confiin;
-            //     //不使用驼峰样式的key
-            //     options.SerializerSettings.ContractResolver = new NullToEmptyStringResolver ();
-            //     //设置时间格式
-            //     // options.SerializerSettings.DateFormatString = "yyyy-MM-dd";
-            // });
+
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -84,15 +89,8 @@ namespace Cucr
             ;
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddCors(options =>
-            {
-                options.AddPolicy("AllowAllOrigin", builder =>
-                {
-                    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyMethod().AllowCredentials();
-                });
-            });
+
             services.AddHttpClient();
-            // services.AddSwaggerDocument ();
             services.AddSwaggerDocument(config =>
             {
 
@@ -124,9 +122,7 @@ namespace Cucr
         /// <param name="env"></param>
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.UseAuthentication();
-
-            app.UseCors("AllowAllOrigin");
+            // app.UseAuthentication ();
 
             if (env.IsDevelopment())
             {
@@ -141,7 +137,9 @@ namespace Cucr
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseStaticFiles();
-            app.UseSpaStaticFiles();
+            // app.UseSpaStaticFiles();
+            app.UseCors("AllowAllOrigin");
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

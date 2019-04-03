@@ -4,45 +4,46 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
-using Cucr.CucrSaas.ZC.Entity.Clzc;
+using Cucr.CucrSaas.App.Entity.OA;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace Cucr.CucrSaas.ZC.DataAccess
+namespace Cucr.CucrSaas.ZC.Entity.Clzc
 {
 
     /// <summary>
-    /// OA数据访问
+    /// 公司表
     /// </summary>
-    public class ClzcContext : DbContext
+    [Table("clzc_user")]
+    public class User
     {
-
         /// <summary>
-        /// 
+        /// 主键
         /// </summary>
-        /// <param name="options"></param>
         /// <returns></returns>
-        public ClzcContext(DbContextOptions<ClzcContext> options) : base(options) { }
+        [Key]
+        public string ID { get; set; } = Guid.NewGuid().ToString();
         /// <summary>
-        /// 问卷调查
-        /// </summary>
-        public DbSet<Company> companys { get; set; }
-        /// <summary>
-        /// 项目经理申请记录
-        /// </summary>
+        /// 公司名称
+        /// </summary> 
         /// <value></value>
-        public DbSet<ProjectManageApply> projectManageApplys { get; set; }
+        public string name { get; set; }
+
         /// <summary>
         /// 角色列表
         /// </summary>
         /// <value></value>
-        public DbSet<Role> roles { get; set; }
+        public string roleIds { get; set; }
         /// <summary>
-        /// 用户
+        /// 手机号
         /// </summary>
         /// <value></value>
-        public DbSet<User> users { get; set; }
-
+        public string phone { get; set; }
+        /// <summary>
+        /// 角色列表
+        /// </summary>
+        /// <value></value>
+        [NotMapped]
+        public List<Role> roles { get; set; }
     }
-
 }

@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace Cucr.CucrSaas.App.Entity.OA {
+namespace Cucr.CucrSaas.App.Entity.OA
+{
 
     /// <summary>
     /// 工单
     /// </summary>
-    [Table ("oa_workorder")]
-    public class WorkOrder : BaseEntity {
+    [Table("oa_workorder")]
+    public class WorkOrder : BaseEntity
+    {
 
         /// <summary>
         /// 公司Id
@@ -131,13 +133,19 @@ namespace Cucr.CucrSaas.App.Entity.OA {
         /// </summary>
         /// <value></value>
         public string cancelReason { get; set; }
+        /// <summary>
+        /// 图片
+        /// </summary>
+        /// <value></value>
+        public string images { get; set; }
 
     }
 
     /// <summary>
     /// 0：待开工  ；  1：进行中；2：已完成； -1：已取消
     /// </summary>
-    public enum WorkOrderStatus {
+    public enum WorkOrderStatus
+    {
         /// <summary>
         ///  待开工
         /// </summary>

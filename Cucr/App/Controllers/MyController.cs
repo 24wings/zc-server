@@ -13,7 +13,6 @@ using Cucr.CucrSaas.App.DTO;
 using Cucr.CucrSaas.App.Entity.Sys;
 using Cucr.CucrSaas.App.Service;
 using DevExtreme.AspNet.Data;
-using DevExtreme.AspNet.Data.ResponseModel;
 using DevExtreme.AspNet.Mvc;
 using JWT;
 using JWT.Algorithms;
@@ -26,14 +25,17 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-namespace Cucr.CucrSaas.App.Controllers {
+namespace Cucr.CucrSaas.App.Controllers
+{
 
     /// <summary>
-    /// App登录注册授权接口
+    /// 我的  模块
     /// </summary>
-    [Route ("api/CucrSaas/App/[controller]")]
+    [Route("api/CucrSaas/App/[controller]")]
     [ApiController]
-    public class TestController : ControllerBase {
+
+    public class MyController : ControllerBase
+    {
 
         private ICommonService commonService { get; set; }
         /// <summary>
@@ -65,45 +67,59 @@ namespace Cucr.CucrSaas.App.Controllers {
         /// <param name="_commonService"></param>
         /// <param name="_userService"></param>
         /// <param name="_smsService"></param>
-        public TestController (OAContext _oaContext,
+        public MyController(OAContext _oaContext,
             SysContext _sysContext,
             ICommonService _commonService,
             IUserService _userService,
             ISmsService _smsService
-        ) {
+        )
+        {
             this.oaContext = _oaContext;
             this.sysContext = _sysContext;
             this.commonService = _commonService;
             this.userService = _userService;
             this.smsService = _smsService;
         }
-
         /// <summary>
-        /// 用户列表
+        /// 重置密码
         /// </summary>
-
         /// <returns></returns>
-        [HttpGet ("[action]")]
-        public LoadResult userList ([FromQuery] DataSourceLoadOptions options) {
+        [HttpPost("[action]")]
+        public CommonRtn resetPassword([FromBody]ResetPasswordInput input)
+        {
+            var tokenUser = this.userService.getUserFromAuthcationHeader();
+            var user = this.sysContext.users.Find(tokenUser.id);
+            if (user != null)
+            {
+                if (DESEncrypt.DecryptString(user.loginPassword) == input.oldPassword)
+                {
+                    user.loginPassword = DESEncrypt.Encrypt(input.newPassword);
+                    this.sysContext.SaveChanges();
+                    return CommonRtn.Success(new Dictionary<string, object> { }, "修改密码成功");
+                }
+                else
+                {
+                    return CommonRtn.Error("旧密码错误");
+                }
 
-            return DataSourceLoader.Load (this.sysContext.users, options);
+            }
+            else
+            {
+                return CommonRtn.Error("用户尚未登录");
+            }
+
         }
+
         /// <summary>
-        /// 实体列表
+        /// 获取个人消息设置
         /// /// </summary>
-        /// <param name="companyFramework"></param>
-        [HttpPost ("[action]")]
-        public void entityList ([FromBody] CompanyFramework companyFramework) {
-
+        /// <returns></returns>
+        [HttpPost("[action]")]
+        public CommonRtn getMyMsgSetting()
+        {
+            var tokenUser = this.userService.getUserFromAuthcationHeader();
+            var user = this.sysContext.users.Find(tokenUser.id);
+            return CommonRtn.Success(new Dictionary<string, object> { { "msgEnable", user.msgEnable } });
         }
-        /// <summary>
-        /// 实体列表
-        /// /// </summary>
-        /// <param name="user"></param>
-        [HttpPost ("[action]")]
-        public void entityList2 ([FromBody] User user) {
-
-        }
-
     }
 }

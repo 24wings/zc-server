@@ -8,13 +8,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace Cucr.CucrSaas.App.Entity.Sys {
+namespace Cucr.CucrSaas.App.Entity.Sys
+{
 
     /// <summary>
     /// 系统用户
     /// </summary>
-    [Table ("sys_user")]
-    public class User {
+    [Table("sys_user")]
+    public class User
+    {
 
         /// <summary>
         /// id
@@ -22,7 +24,7 @@ namespace Cucr.CucrSaas.App.Entity.Sys {
         /// <value></value>
         // [Key]
         // [DatabaseGenerated (DatabaseGeneratedOption.Identity)]
-        public string id { get; set; } = Guid.NewGuid ().ToString ();
+        public string id { get; set; } = Guid.NewGuid().ToString();
         /// <summary>
         /// 公司Id
         /// </summary>
@@ -294,26 +296,31 @@ namespace Cucr.CucrSaas.App.Entity.Sys {
         /// </summary>
         /// <value></value>
         // [NotMapped]
-        public Company company { get; set; } = new Company ();
+        public Company company { get; set; } = new Company();
         /// <summary>
         /// 职位
         /// </summary>
         /// <value></value>
 
-        public Post post { get; set; } = new Post ();
+        public Post post { get; set; } = new Post();
         /// <summary>
         /// 组织架构
         /// </summary>
         /// <value></value>
-        public CompanyFramework companyFramework { get; set; } = new CompanyFramework ();
+        public CompanyFramework companyFramework { get; set; } = new CompanyFramework();
+        /// <summary>
+        /// 是否启用消息 0 不启用,1启用
+        /// </summary>
+        /// <value></value>
+        public bool msgEnable { get; set; }
 
-        // public 
     }
 
     /// <summary>
     ///  证件类型(0:身份证；1：护照；2：军官证；3：其他；)
     /// </summary>
-    public enum DocumentType {
+    public enum DocumentType
+    {
         /// <summary>
         ///  身份证
         /// </summary>
@@ -335,7 +342,8 @@ namespace Cucr.CucrSaas.App.Entity.Sys {
     /// <summary>
     /// 婚姻状况(0：未婚;1：已婚;2：离异)
     /// </summary>
-    public enum HYStatus {
+    public enum HYStatus
+    {
 
         /// <summary>
         ///  未婚
@@ -357,7 +365,8 @@ namespace Cucr.CucrSaas.App.Entity.Sys {
     /// <summary>
     /// 在职状态（0：试用期；1：已转正；2：离职；3：退休）
     /// </summary>
-    public enum InworkType {
+    public enum InworkType
+    {
 
         /// <summary>
         ///  试用期

@@ -49,6 +49,11 @@ namespace Cucr.CucrSaas.App.DataAccess
         /// </summary>
         /// <value></value>
         public DbSet<WorkOrder> workOrders { get; set; }
+        /// <summary>
+        /// 附件
+        /// </summary>
+        /// <value></value>
+        public DbSet<Enclosure> enclosures { get; set; }
     }
 
 }

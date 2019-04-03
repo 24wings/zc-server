@@ -293,5 +293,15 @@ namespace Cucr.CucrSaas.App.Controllers
             return CommonRtn.Success(new Dictionary<string, object> { });
 
         }
+        /// <summary>
+        /// 获取用户基本信息
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost("[action]")]
+        public CommonRtn getUserBaseInfo(GetUserBaseInfoInput input)
+        {
+            var user = this.sysContext.users.Find(input.userId);
+            return CommonRtn.Success(new Dictionary<string, object> { { "user", user } });
+        }
     }
 }

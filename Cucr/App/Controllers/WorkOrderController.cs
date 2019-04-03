@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Cucr.CucrSaas.App.DataAccess;
 using Cucr.CucrSaas.App.DTO;
+using Cucr.CucrSaas.App.Entity.OA;
 using Cucr.CucrSaas.App.Entity.Sys;
 using Cucr.CucrSaas.App.Service;
 using DevExtreme.AspNet.Data;
@@ -93,7 +94,6 @@ namespace Cucr.CucrSaas.App.Controllers
             return CommonRtn.Success(new Dictionary<string, object> { { "workOrders", workOrders } });
         }
 
-
         /// <summary>
         /// 获取我指派的工单
         /// </summary>
@@ -106,6 +106,16 @@ namespace Cucr.CucrSaas.App.Controllers
             return CommonRtn.Success(new Dictionary<string, object> { { "workOrders", workOrders } });
         }
 
+        /// <summary>
+        /// 指派工单
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost("[action]")]
+        public CommonRtn createWorkOrder([FromBody] CreateWorkOrderInput input)
+        {
+
+            return CommonRtn.Success(new Dictionary<string, object> { });
+        }
 
     }
 }

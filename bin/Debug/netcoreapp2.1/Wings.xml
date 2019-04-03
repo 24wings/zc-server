@@ -109,6 +109,57 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Cucr.CucrSaas.App.Controllers.MyController">
+            <summary>
+            我的  模块
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.MyController.oaContext">
+            <summary>
+            OA数据访问对象
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.MyController.sysContext">
+            <summary>
+            系统数据库访问
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.MyController.userService">
+            <summary>
+            用户接口
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.MyController.smsService">
+            <summary>
+            短信验证码
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.MyController.#ctor(Cucr.CucrSaas.App.DataAccess.OAContext,Cucr.CucrSaas.App.DataAccess.SysContext,Cucr.CucrSaas.App.Service.ICommonService,Cucr.CucrSaas.App.Service.IUserService,Cucr.CucrSaas.App.Service.ISmsService)">
+            <summary>
+            
+            </summary>
+            <param name="_oaContext"></param>
+            <param name="_sysContext"></param>
+            <param name="_commonService"></param>
+            <param name="_userService"></param>
+            <param name="_smsService"></param>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.MyController.resetPassword(Cucr.CucrSaas.App.DTO.ResetPasswordInput)">
+            <summary>
+            重置密码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.MyController.getMyMsgSetting">
+            <summary>
+            获取个人消息设置
+            /// </summary>
+            <returns></returns>
+        </member>
         <member name="T:Cucr.CucrSaas.App.Controllers.TestController">
             <summary>
             App登录注册授权接口
@@ -154,10 +205,16 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Cucr.CucrSaas.App.Controllers.TestController.entityList(Cucr.CucrSaas.App.Entity.Sys.User)">
+        <member name="M:Cucr.CucrSaas.App.Controllers.TestController.entityList(Cucr.CucrSaas.App.Entity.Sys.CompanyFramework)">
             <summary>
             实体列表
-            </summary>
+            /// </summary>
+            <param name="companyFramework"></param>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.TestController.entityList2(Cucr.CucrSaas.App.Entity.Sys.User)">
+            <summary>
+            实体列表
+            /// </summary>
             <param name="user"></param>
         </member>
         <member name="T:Cucr.CucrSaas.App.Controllers.UserController">
@@ -231,6 +288,12 @@
             上传头像
             </summary>
             <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.UserController.getUserBaseInfo(Cucr.CucrSaas.App.DTO.GetUserBaseInfoInput)">
+            <summary>
+            获取用户基本信息
+            </summary>
             <returns></returns>
         </member>
         <member name="T:Cucr.CucrSaas.App.Controllers.WagesController">
@@ -324,6 +387,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.WorkOrderController.createWorkOrder(Cucr.CucrSaas.App.Controllers.CreateWorkOrderInput)">
+            <summary>
+            指派工单
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Cucr.CucrSaas.App.Controllers.WorkReportController">
             <summary>
             App登录注册授权接口
@@ -382,10 +451,64 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Cucr.CucrSaas.App.Controllers.CreateWorkOrderInput">
+            <summary>
+            创建工单输入
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.CreateWorkOrderInput.title">
+            <summary>
+            标题
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.CreateWorkOrderInput.endTime">
+            <summary>
+            结束时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.CreateWorkOrderInput.assignId">
+            <summary>
+            指派负责人Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.CreateWorkOrderInput.noticePerson">
+            <summary>
+            工单通知人
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.CreateWorkOrderInput.enclosure">
+            <summary>
+            附件id字符串 ,以","连接
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.CreateWorkOrderInput.images">
+            <summary>
+            图片文件列表
+            </summary>
+            <value></value>
+        </member>
         <member name="T:Cucr.CucrSaas.App.Controllers.CommonController">
             <summary>
             通用控制器,例如图片,文件上传
             </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.Controllers.CommonController.sysContext">
+            <summary>
+            系统环境
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Cucr.CucrSaas.App.Controllers.CommonController.#ctor(Cucr.CucrSaas.App.DataAccess.SysContext,Cucr.CucrSaas.App.DataAccess.OAContext)">
+            <summary>
+            通用控制器.
+            </summary>
+            <param name="_sysContext"></param>
+             <param name="_oaContext"></param>
         </member>
         <member name="M:Cucr.CucrSaas.App.Controllers.CommonController.uploadFile(Cucr.CucrSaas.Common.DTO.UploadFileInput)">
             <summary>
@@ -453,6 +576,12 @@
         <member name="P:Cucr.CucrSaas.App.DataAccess.OAContext.workOrders">
             <summary>
             工单
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DataAccess.OAContext.enclosures">
+            <summary>
+            附件
             </summary>
             <value></value>
         </member>
@@ -643,6 +772,17 @@
             <param name="message"></param>
             <returns></returns>
         </member>
+        <member name="T:Cucr.CucrSaas.App.DTO.GetUserBaseInfoInput">
+            <summary>
+            获取用户基本信息
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DTO.GetUserBaseInfoInput.userId">
+            <summary>
+            用户Id
+            </summary>
+            <value></value>
+        </member>
         <member name="T:Cucr.CucrSaas.App.DTO.GetWorkReportInput">
             <summary>
             app用户登录实体
@@ -657,6 +797,23 @@
         <member name="P:Cucr.CucrSaas.App.DTO.GetWorkReportInput.mechineId">
             <summary>
             设备id
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.App.DTO.ResetPasswordInput">
+            <summary>
+            重置密码
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DTO.ResetPasswordInput.oldPassword">
+            <summary>
+            手机号
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.App.DTO.ResetPasswordInput.newPassword">
+            <summary>
+            新密码
             </summary>
             <value></value>
         </member>
@@ -2753,6 +2910,12 @@
             </summary>
             <value></value>
         </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.OA.WorkOrder.images">
+            <summary>
+            图片
+            </summary>
+            <value></value>
+        </member>
         <member name="T:Cucr.CucrSaas.App.Entity.OA.WorkOrderStatus">
             <summary>
             0：待开工  ；  1：进行中；2：已完成； -1：已取消
@@ -4143,6 +4306,12 @@
             </summary>
             <value></value>
         </member>
+        <member name="P:Cucr.CucrSaas.App.Entity.Sys.User.msgEnable">
+            <summary>
+            是否启用消息 0 不启用,1启用
+            </summary>
+            <value></value>
+        </member>
         <member name="T:Cucr.CucrSaas.App.Entity.Sys.DocumentType">
             <summary>
              证件类型(0:身份证；1：护照；2：军官证；3：其他；)
@@ -4532,6 +4701,12 @@
             <param name="token"></param>
             <returns></returns>
         </member>
+        <member name="M:Cucr.CucrSaas.App.Service.IUserService.getUserFromAuthcationHeader">
+            <summary>
+            根据请求头Authcation 获取并且解析出用户
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Cucr.CucrSaas.App.Service.UserService">
             <summary>
             用户业务具体实现
@@ -4616,6 +4791,161 @@
             <param name="propertyName"></param>
             <returns></returns>
         </member>
+        <member name="T:Cucr.CucrSaas.ZC.Controllers.ProjectManageApplyController">
+            <summary>
+            App登录注册授权接口
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Controllers.ProjectManageApplyController.clzcContext">
+            <summary>
+                 众筹数据库驱动
+            </summary>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.ProjectManageApplyController.#ctor(Cucr.CucrSaas.ZC.DataAccess.ClzcContext)">
+            <summary>
+            
+            </summary>
+            <param name="_clzcContext"></param>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.ProjectManageApplyController.Get(DevExtreme.AspNet.Mvc.DataSourceLoadOptions)">
+            <summary>
+            查询
+            </summary>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.ProjectManageApplyController.Post(Cucr.CucrSaas.Common.DTO.BodyDataInput)">
+            <summary>
+            创建组织
+            </summary>
+            <param name="bodyData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.ProjectManageApplyController.Delete(System.String)">
+            <summary>
+            删除组织
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.ProjectManageApplyController.Put(Cucr.CucrSaas.Common.DTO.BodyDataInput)">
+            <summary>
+            更新组织
+            </summary>
+            <param name="bodyData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.ProjectManageApplyController.projectManageApplyVerifyPass(System.String)">
+            <summary>
+            审核产品经理资质
+            </summary>
+            <param name="projectManageApplyId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cucr.CucrSaas.ZC.Controllers.RoleController">
+            <summary>
+            角色系统
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Controllers.RoleController.clzcContext">
+            <summary>
+                 众筹数据库驱动
+            </summary>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.RoleController.#ctor(Cucr.CucrSaas.ZC.DataAccess.ClzcContext)">
+            <summary>
+            
+            </summary>
+            <param name="_clzcContext"></param>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.RoleController.Get(DevExtreme.AspNet.Mvc.DataSourceLoadOptions)">
+            <summary>
+            查询
+            </summary>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.RoleController.Post(Cucr.CucrSaas.Common.DTO.BodyDataInput)">
+            <summary>
+            创建组织
+            </summary>
+            <param name="bodyData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.RoleController.Delete(System.String)">
+            <summary>
+            删除组织
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.RoleController.Put(Cucr.CucrSaas.Common.DTO.BodyDataInput)">
+            <summary>
+            更新组织
+            </summary>
+            <param name="bodyData"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cucr.CucrSaas.ZC.Controllers.UserController">
+            <summary>
+            用户系统
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Controllers.UserController.clzcContext">
+            <summary>
+                 众筹数据库驱动
+            </summary>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.UserController.#ctor(Cucr.CucrSaas.ZC.DataAccess.ClzcContext)">
+            <summary>
+            
+            </summary>
+            <param name="_clzcContext"></param>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.UserController.Get(DevExtreme.AspNet.Mvc.DataSourceLoadOptions)">
+            <summary>
+            查询
+            </summary>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.UserController.Post(Cucr.CucrSaas.Common.DTO.BodyDataInput)">
+            <summary>
+            创建组织
+            </summary>
+            <param name="bodyData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.UserController.Delete(System.String)">
+            <summary>
+            删除组织
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.UserController.Put(Cucr.CucrSaas.Common.DTO.BodyDataInput)">
+            <summary>
+            更新组织
+            </summary>
+            <param name="bodyData"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cucr.CucrSaas.ZC.Controllers.ZCAuthController">
+            <summary>
+            众筹登录
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Controllers.ZCAuthController.clzcContext">
+            <summary>
+                 众筹数据库驱动
+            </summary>
+        </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.ZCAuthController.#ctor(Cucr.CucrSaas.ZC.DataAccess.ClzcContext)">
+            <summary>
+            
+            </summary>
+            <param name="_clzcContext"></param>
+        </member>
         <member name="T:Cucr.CucrSaas.ZC.Controllers.ZCCompanyController">
             <summary>
             App登录注册授权接口
@@ -4645,6 +4975,13 @@
             <param name="input"></param>
             <returns></returns>
         </member>
+        <member name="M:Cucr.CucrSaas.ZC.Controllers.ZCCompanyController.submitProjectManageApply(Cucr.CucrSaas.ZC.DTO.ZCCreateProjectManageApplyInput)">
+            <summary>
+            提交项目经理申请
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cucr.CucrSaas.ZC.DataAccess.ClzcContext">
             <summary>
             OA数据访问
@@ -4661,6 +4998,59 @@
             <summary>
             问卷调查
             </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.DataAccess.ClzcContext.projectManageApplys">
+            <summary>
+            项目经理申请记录
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.DataAccess.ClzcContext.roles">
+            <summary>
+            角色列表
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.DataAccess.ClzcContext.users">
+            <summary>
+            用户
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.ZC.DTO.ZCCreateProjectManageApplyInput">
+            <summary>
+            创建项目经理申请
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.DTO.ZCCreateProjectManageApplyInput.userId">
+            <summary>
+            申请用户Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.DTO.ZCCreateProjectManageApplyInput.companyId">
+            <summary>
+            申请的公司
+            </summary> 
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.DTO.ZCCreateProjectManageApplyInput.summary">
+            <summary>
+            简介
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.DTO.ZCCreateProjectManageApplyInput.fileId">
+            <summary>
+            文件id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.DTO.ZCCreateProjectManageApplyInput.phone">
+            <summary>
+            手机号
+            </summary>
+            <value></value>
         </member>
         <member name="T:Cucr.CucrSaas.ZC.DTO.ZCGetCompanyInfoInput">
             <summary>
@@ -4681,6 +5071,29 @@
         <member name="P:Cucr.CucrSaas.ZC.DTO.ZCSearchCompanyInput.keyword">
             <summary>
             关键字，可不传
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.ZC.DTO.ZCUserLoginInput">
+            <summary>
+            众筹用户登录
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.DTO.ZCUserLoginInput.pwd">
+            <summary>
+            密码
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.DTO.ZCUserLoginInput.option">
+            <summary>
+            操作
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.DTO.ZCUserLoginInput.phone">
+            <summary>
+            手机号
             </summary>
             <value></value>
         </member>
@@ -4713,6 +5126,152 @@
             </summary>
             <value></value>
         </member>
+        <member name="T:Cucr.CucrSaas.ZC.Entity.Clzc.ProjectManageApply">
+            <summary>
+            项目经理申请
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.ProjectManageApply.id">
+            <summary>
+            主键
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.ProjectManageApply.userId">
+            <summary>
+            申请用户Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.ProjectManageApply.companyId">
+            <summary>
+            申请的公司
+            </summary> 
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.ProjectManageApply.summary">
+            <summary>
+            登录账户
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.ProjectManageApply.fileId">
+            <summary>
+            登录密码
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.ProjectManageApply.inputTime">
+            <summary>
+            录入时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.ProjectManageApply.phone">
+            <summary>
+            手机号
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.ProjectManageApply.status">
+            <summary>
+            项目审核状态
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.ZC.Entity.Clzc.ProjectManageApplyStatus">
+            <summary>
+            项目经理申请状态
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.ZC.Entity.Clzc.ProjectManageApplyStatus.Submit">
+            <summary>
+            已提交
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.ZC.Entity.Clzc.ProjectManageApplyStatus.Approve">
+            <summary>
+            审核通过
+            </summary>
+        </member>
+        <member name="F:Cucr.CucrSaas.ZC.Entity.Clzc.ProjectManageApplyStatus.Reject">
+            <summary>
+            已拒绝
+            </summary>
+        </member>
+        <member name="T:Cucr.CucrSaas.ZC.Entity.Clzc.CommonRole">
+            <summary>
+            通用角色
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.CommonRole.ProductManage">
+            <summary>
+             产品经理
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.CommonRole.Tourist">
+            <summary>
+             游客
+             </summary>
+        </member>
+        <member name="T:Cucr.CucrSaas.ZC.Entity.Clzc.Role">
+            <summary>
+            公司表
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.Role.id">
+            <summary>
+            主键
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.Role.name">
+            <summary>
+            公司名称
+            </summary> 
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.Role.inputTime">
+            <summary>
+            登录账户
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Cucr.CucrSaas.ZC.Entity.Clzc.User">
+            <summary>
+            公司表
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.ID">
+            <summary>
+            主键
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.name">
+            <summary>
+            公司名称
+            </summary> 
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.roleIds">
+            <summary>
+            角色列表
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.phone">
+            <summary>
+            手机号
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.ZC.Entity.Clzc.User.roles">
+            <summary>
+            角色列表
+            </summary>
+            <value></value>
+        </member>
         <member name="T:Cucr.CucrSaas.Common.Bean.BodyData">
             <summary>
             DevExtream Body Datas
@@ -4722,6 +5281,22 @@
             <summary>
             
             </summary>
+        </member>
+        <member name="T:Cucr.CucrSaas.Common.DTO.BodyDataInput">
+            <summary>
+            DevExtream Body Datas
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.Common.DTO.BodyDataInput.values">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cucr.CucrSaas.Common.DTO.BodyDataInput.key">
+            <summary>
+            主键
+            </summary>
+            <value></value>
         </member>
         <member name="T:Cucr.CucrSaas.Common.DTO.UploadFileInput">
             <summary>
@@ -4737,6 +5312,14 @@
         <member name="P:Cucr.CucrSaas.Common.DTO.UploadFileInput.ext">
             <summary>
             文件扩展名
+            默认 png
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Cucr.CucrSaas.Common.DTO.UploadFileInput.fileName">
+            <summary>
+            文件名字,默认为上传文件
+            如上传文件为png,则为 上传文件.png
             </summary>
             <value></value>
         </member>
@@ -4833,7 +5416,7 @@
             <param name="dateTime"></param>
             <returns></returns>
         </member>
-        <member name="M:CucrSaasDataAccess.Common.TimeStampOperation.DeTimeStamp(System.String)">
+        <member name="M:CucrSaasDataAccess.Common.TimeStampOperation.DeTimeStamp(System.Int64)">
             <summary>
             时间戳==》时间
             </summary>

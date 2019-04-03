@@ -27,7 +27,10 @@ namespace Cucr.CucrSaas.App.Service
         /// <param name="token"></param>
         /// <returns></returns>
         AppTokenOutput decodeToken(string token);
-
+        /// <summary>
+        /// 根据请求头Authcation 获取并且解析出用户
+        /// </summary>
+        /// <returns></returns>
         User getUserFromAuthcationHeader();
     }
 
