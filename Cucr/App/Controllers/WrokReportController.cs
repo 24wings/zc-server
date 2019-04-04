@@ -26,16 +26,18 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-namespace Cucr.CucrSaas.App.Controllers {
+namespace Cucr.CucrSaas.App.Controllers
+{
 
     /// <summary>
     /// App登录注册授权接口
     /// </summary>
-    [Route ("api/CucrSaas/App/[controller]")]
+    [Route("api/CucrSaas/App/[controller]")]
     [ApiController]
 
     // [Authorize]
-    public class WorkReportController : ControllerBase {
+    public class WorkReportController : ControllerBase
+    {
 
         private ICommonService commonService { get; set; }
         /// <summary>
@@ -61,9 +63,10 @@ namespace Cucr.CucrSaas.App.Controllers {
         /// <param name="_sysContext"></param>
         /// <param name="_commonService"></param>
         /// <param name="_userService"></param>
-        public WorkReportController (OAContext _oaContext,
+        public WorkReportController(OAContext _oaContext,
             SysContext _sysContext,
-            ICommonService _commonService, IUserService _userService) {
+            ICommonService _commonService, IUserService _userService)
+        {
             this.oaContext = _oaContext;
             this.sysContext = _sysContext;
             this.commonService = _commonService;
@@ -75,12 +78,14 @@ namespace Cucr.CucrSaas.App.Controllers {
         /// </summary>
         /// <param name="options"></param>
         /// <returns></returns>
-        [HttpGet ("[action]")]
-        public CommonRtn searchWorkReport ([FromQuery] DataSourceLoadOptions options) {
-            return new CommonRtn {
-                resData = new Dictionary<string, object> { { "workreports", DataSourceLoader.Load (this.oaContext.workreports, options) } },
-                    success = true,
-                    message = ""
+        [HttpGet("[action]")]
+        public CommonRtn searchWorkReport([FromQuery] DataSourceLoadOptions options)
+        {
+            return new CommonRtn
+            {
+                resData = new Dictionary<string, object> { { "workreports", DataSourceLoader.Load(this.oaContext.workreports, options) } },
+                success = true,
+                message = ""
             };
         }
         /// <summary>
@@ -88,14 +93,18 @@ namespace Cucr.CucrSaas.App.Controllers {
         /// 获取报告详情
         /// </summary>
         /// <returns></returns>
-        [HttpGet ("[action]")]
-        public CommonRtn getWorkReportInfo ([FromQuery] GetWorkReportInput input) {
-            var token = this.commonService.getAuthenticationHeader ();
-            var appUser = this.userService.decodeToken (token);
-            if (appUser.user.mechineId == input.mechineId) {
-                var workReport = this.oaContext.workreports.Find (input.workReportId);
+        [HttpGet("[action]")]
+        public CommonRtn getWorkReportInfo([FromQuery] GetWorkReportInput input)
+        {
+            var token = this.commonService.getAuthenticationHeader();
+            var appUser = this.userService.decodeToken(token);
+            if (appUser.user.mechineId == input.mechineId)
+            {
+                var workReport = this.oaContext.workreports.Find(input.workReportId);
                 return new CommonRtn { success = true, resData = new Dictionary<string, object> { { "workReport", workReport } } };
-            } else {
+            }
+            else
+            {
                 return new CommonRtn { success = false, message = "设备不一致" };
             }
 
@@ -105,10 +114,11 @@ namespace Cucr.CucrSaas.App.Controllers {
         /// 添加工作报告
         /// </summary>
         /// <returns></returns>
-        [HttpPost ("[action]")]
-        public CommonRtn addOaWorkReportInfo ([FromBody] WorkReport workReport) {
-            this.oaContext.workreports.Add (workReport);
-            this.oaContext.SaveChanges ();
+        [HttpPost("[action]")]
+        public CommonRtn addOaWorkReportInfo([FromForm] WorkReport workReport)
+        {
+            this.oaContext.workreports.Add(workReport);
+            this.oaContext.SaveChanges();
             return new CommonRtn { success = true, message = "" };
         }
 
@@ -116,24 +126,33 @@ namespace Cucr.CucrSaas.App.Controllers {
         /// 删除工作报告
         /// </summary>
         /// <returns></returns>
-        [HttpDelete ("[action]")]
-        public CommonRtn deleteWorkReportInfo (string workReportId) {
-            var token = this.commonService.getAuthenticationHeader ();
-            var tokenInstance = this.userService.decodeToken (token);
-            if (tokenInstance?.user.id != null) {
+        [HttpDelete("[action]")]
+        public CommonRtn deleteWorkReportInfo(string workReportId)
+        {
+            var token = this.commonService.getAuthenticationHeader();
+            var tokenInstance = this.userService.decodeToken(token);
+            if (tokenInstance?.user.id != null)
+            {
 
-                var workReport = this.oaContext.workreports.Find (workReportId);
-                if (workReport != null) {
-                    return new CommonRtn {
-                    success = true, message = "",
-                    resData = new Dictionary<string, object> { { "workreport", workReport } }
+                var workReport = this.oaContext.workreports.Find(workReportId);
+                if (workReport != null)
+                {
+                    return new CommonRtn
+                    {
+                        success = true,
+                        message = "",
+                        resData = new Dictionary<string, object> { { "workreport", workReport } }
                     };
 
-                } else {
+                }
+                else
+                {
                     return new CommonRtn { success = false, message = "工作报告不存在" };
                 }
 
-            } else {
+            }
+            else
+            {
                 return new CommonRtn { success = false, message = "请先登录" };
             }
 

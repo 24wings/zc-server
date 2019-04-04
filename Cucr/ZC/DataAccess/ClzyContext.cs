@@ -8,21 +8,19 @@ using Cucr.CucrSaas.ZC.Entity.Clzc;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace Cucr.CucrSaas.ZC.DataAccess
-{
+namespace Cucr.CucrSaas.ZC.DataAccess {
 
     /// <summary>
     /// OA数据访问
     /// </summary>
-    public class ClzcContext : DbContext
-    {
+    public class ClzcContext : DbContext {
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="options"></param>
         /// <returns></returns>
-        public ClzcContext(DbContextOptions<ClzcContext> options) : base(options) { }
+        public ClzcContext (DbContextOptions<ClzcContext> options) : base (options) { }
         /// <summary>
         /// 问卷调查
         /// </summary>
@@ -47,6 +45,16 @@ namespace Cucr.CucrSaas.ZC.DataAccess
         /// </summary>
         /// <value></value>
         public DbSet<BankCard> bankCards { get; set; }
+        /// <summary>
+        /// 文件
+        /// </summary>
+        /// <value></value>
+        public DbSet<File> files { get; set; }
+        /// <summary>
+        /// 区域
+        /// </summary>
+        /// <value></value>
+        public DbSet<Area> areas { get; set; }
 
     }
 

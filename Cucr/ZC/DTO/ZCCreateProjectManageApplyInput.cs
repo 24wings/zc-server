@@ -32,6 +32,11 @@ namespace Cucr.CucrSaas.ZC.DTO
         /// </summary>
         /// <value></value>
         public string phone { get; set; }
+        /// <summary>
+        /// 申请人
+        /// </summary>
+        /// <value></value>
+        public string name { get; set; }
 
     }
 }

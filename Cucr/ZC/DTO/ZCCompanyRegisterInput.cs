@@ -1,48 +1,35 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
-using Cucr.CucrSaas.App.Entity.OA;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 
-namespace Cucr.CucrSaas.ZC.Entity.Clzc {
+namespace Cucr.CucrSaas.ZC.DTO
+{
 
     /// <summary>
-    /// 公司表
+    /// 众筹注册输入
     /// </summary>
-    [Table ("clzc_company")]
-    public class Company {
+    public class ZCCompanyRegisterInput
+    {
         /// <summary>
-        /// 主键
+        /// 姓名
         /// </summary>
-        /// <returns></returns>
-        [Key]
-        public string id { get; set; } = Guid.NewGuid ().ToString ();
-        /// <summary>
-        /// 公司名称
-        /// </summary> 
         /// <value></value>
         public string name { get; set; }
         /// <summary>
-        /// 登录账户
+        /// 账户
         /// </summary>
         /// <value></value>
         public string account { get; set; }
         /// <summary>
-        /// 登录密码
+        /// 密码
         /// </summary>
         /// <value></value>
-        public string password { get; set; }
+        public string pwd { get; set; }
         /// <summary>
         /// 注册资金
         /// </summary>
         /// <value></value>
         public decimal? capital { get; set; }
         /// <summary>
-        /// 区域
+        /// 地区
         /// </summary>
         /// <value></value>
         public string area { get; set; }
@@ -53,11 +40,11 @@ namespace Cucr.CucrSaas.ZC.Entity.Clzc {
         public string address { get; set; }
         /// <summary>
         /// 法人
-        /// /// </summary>
+        /// </summary>
         /// <value></value>
         public string legalPerson { get; set; }
         /// <summary>
-        /// 手机
+        /// 手机号
         /// </summary>
         /// <value></value>
         public string phone { get; set; }
@@ -77,9 +64,19 @@ namespace Cucr.CucrSaas.ZC.Entity.Clzc {
         /// <value></value>
         public string business { get; set; }
         /// <summary>
-        /// 注册时间
+        /// 注册日期
+        /// </summary>
+        /// /// <value></value>
+        public DateTime? registerDate { get; set; }
+        /// <summary>
+        /// 身份证反面
         /// </summary>
         /// <value></value>
-        public DateTime? registerDate { get; set; }
+        public string cardNo { get; set; }
+        /// <summary>
+        /// 身份证正面照
+        /// </summary>
+        /// <value></value>
+        public string cardFront { get; set; }
     }
 }

@@ -28,17 +28,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 
-namespace Cucr.CucrSaas.ZC.Controllers
-{
+namespace Cucr.CucrSaas.ZC.Controllers {
 
     /// <summary>
     /// 众筹设置
     /// </summary>
-    [Route("api/CucrSaas/ZC/Admin/[controller]")]
+    [Route ("api/CucrSaas/ZC/Admin/[controller]")]
     [ApiController]
 
-    public class ZCSettingController : ControllerBase
-    {
+    public class ZCSettingController : ControllerBase {
 
         /// <summary>
         ///      众筹数据库驱动
@@ -48,44 +46,51 @@ namespace Cucr.CucrSaas.ZC.Controllers
         /// 
         /// </summary>
         /// <param name="_clzcContext"></param>
-        public ZCSettingController(
+        public ZCSettingController (
             ClzcContext _clzcContext
-        )
-        {
+        ) {
             this.clzcContext = _clzcContext;
         }
         /// <summary>
-        /// 用户登录
+        /// 保存个人信息
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        [HttpPost("[action]")]
-        public CommonRtn addBankCrad(ZCAddBankCardInput input)
-        {
-            var bankCards = (from bankCard in this.clzcContext.bankCards where bankCard.userId == input.userId select bankCard).ToArray();
-            if (input.isDefault)
-            {
-                foreach (var card in bankCards) card.isDefault = false;
+        [HttpPost ("[action]")]
+        public CommonRtn savePersonal ([FromBody] ZCSaveUserInfoInput input) {
+            var user = this.clzcContext.users.Find (input.userId);
+            user.idcard = input.idCard;
+            user.profession = input.profession;
+            user.region = input.region;
+            user.provinceid = input.provinceId;
+            user.sex = input.sex;
+            user.name = input.name;
+            user.nickname = input.nickname;
 
-                this.clzcContext.bankCards.UpdateRange(bankCards);
+            user.companyname = input.companyName;
+            user.address = input.address;
+
+            user.areaid = input.areaId;
+            user.autograph = input.autograph;
+
+            var userBankCard = (from bankCard in this.clzcContext.bankCards where bankCard.userId == input.userId select bankCard).FirstOrDefault ();
+            if (userBankCard == null) {
+                userBankCard = new BankCard { no = input.bank.no, bank = input.bank.bank, belongTo = input.bank.belongTo, userId = user.ID };
+                this.clzcContext.bankCards.Add (userBankCard);
+                this.clzcContext.SaveChanges ();
+
+            } else {
+                userBankCard.no = input.bank.no;
+                userBankCard.belongTo = input.bank.belongTo;
+                userBankCard.bank = input.bank.bank;
+                this.clzcContext.bankCards.Update (userBankCard);
+                this.clzcContext.SaveChanges ();
+
             }
-            var newBankCard = new BankCard { bank = input.bank, no = input.no, belongTo = input.belongTo, isDefault = input.isDefault };
-            this.clzcContext.bankCards.Add(newBankCard);
-            this.clzcContext.SaveChanges();
-            return CommonRtn.Success(new Dictionary<string, object> { { "bankCard", newBankCard } });
+            this.clzcContext.Update (user);
+            this.clzcContext.SaveChanges ();
+            return CommonRtn.Success (new Dictionary<string, object> { { "bankCard", userBankCard }, { "user", user } });
 
-        }
-
-
-        /// <summary>
-        /// 列出用户银行卡
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        [HttpPost("[action]")]
-        public CommonRtn listBankCard(ZCListBankCardInput input)
-        {
-            return CommonRtn.Error("不存在");
         }
 
     }

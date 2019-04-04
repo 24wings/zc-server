@@ -22,7 +22,7 @@ namespace Cucr.CucrSaas.App.Filters
         /// 白名单
         /// </summary>
         /// /// <value></value>
-        public string[] whiteList = new[] { "appLogin", "Test", "ZC", "Common" };
+        public string[] whiteList = new[] { "appLogin", "Test", "ZC", "Common", "User" };
 
         private ICommonService commonService { get; set; }
         private IUserService userService { get; set; }
@@ -49,7 +49,6 @@ namespace Cucr.CucrSaas.App.Filters
         /// <param name="context"></param>
         public void OnActionExecuting(ActionExecutingContext context)
         {
-
             var exist = (from url in this.whiteList where context.HttpContext.Request.Path.ToString().Contains(url) select url).Count();
             if (this.whiteList.Contains(context.HttpContext.Request.Path.ToString()) || exist > 0)
             {

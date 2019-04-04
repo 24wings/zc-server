@@ -26,17 +26,15 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-namespace Cucr.CucrSaas.App.Controllers
-{
+namespace Cucr.CucrSaas.App.Controllers {
 
     /// <summary>
     /// App登录注册授权接口
     /// </summary>
-    [Route("api/CucrSaas/App/[controller]")]
+    [Route ("api/CucrSaas/App/[controller]")]
     [ApiController]
 
-    public class WorkOrderController : ControllerBase
-    {
+    public class WorkOrderController : ControllerBase {
 
         private ICommonService commonService { get; set; }
         /// <summary>
@@ -68,13 +66,12 @@ namespace Cucr.CucrSaas.App.Controllers
         /// <param name="_commonService"></param>
         /// <param name="_userService"></param>
         /// <param name="_smsService"></param>
-        public WorkOrderController(OAContext _oaContext,
+        public WorkOrderController (OAContext _oaContext,
             SysContext _sysContext,
             ICommonService _commonService,
             IUserService _userService,
             ISmsService _smsService
-        )
-        {
+        ) {
             this.oaContext = _oaContext;
             this.sysContext = _sysContext;
             this.commonService = _commonService;
@@ -85,36 +82,33 @@ namespace Cucr.CucrSaas.App.Controllers
         /// 获取直派给我我的工单
         /// </summary>
         /// <returns></returns>
-        [HttpGet("[action]")]
-        public CommonRtn listWorkOrdersGiveMe()
-        {
-            var tokenUser = this.userService.getUserFromAuthcationHeader();
+        [HttpGet ("[action]")]
+        public CommonRtn listWorkOrdersGiveMe () {
+            var tokenUser = this.userService.getUserFromAuthcationHeader ();
 
-            var workOrders = (from workOrder in this.oaContext.workOrders where workOrder.assignId == tokenUser.id select workOrder).ToArray();
-            return CommonRtn.Success(new Dictionary<string, object> { { "workOrders", workOrders } });
+            var workOrders = (from workOrder in this.oaContext.workOrders where workOrder.assignId == tokenUser.id select workOrder).ToArray ();
+            return CommonRtn.Success (new Dictionary<string, object> { { "workOrders", workOrders } });
         }
 
         /// <summary>
         /// 获取我指派的工单
         /// </summary>
         /// <returns></returns>
-        [HttpGet("[action]")]
-        public CommonRtn listWorkOrderFromMe()
-        {
-            var tokenUser = this.userService.getUserFromAuthcationHeader();
-            var workOrders = (from workOrder in this.oaContext.workOrders where workOrder.userId == tokenUser.id select workOrder).ToArray();
-            return CommonRtn.Success(new Dictionary<string, object> { { "workOrders", workOrders } });
+        [HttpGet ("[action]")]
+        public CommonRtn listWorkOrderFromMe () {
+            var tokenUser = this.userService.getUserFromAuthcationHeader ();
+            var workOrders = (from workOrder in this.oaContext.workOrders where workOrder.userId == tokenUser.id select workOrder).ToArray ();
+            return CommonRtn.Success (new Dictionary<string, object> { { "workOrders", workOrders } });
         }
 
         /// <summary>
         /// 指派工单
         /// </summary>
         /// <returns></returns>
-        [HttpPost("[action]")]
-        public CommonRtn createWorkOrder([FromBody] CreateWorkOrderInput input)
-        {
+        [HttpPost ("[action]")]
+        public CommonRtn createWorkOrder ([FromForm] CreateWorkOrderInput input) {
 
-            return CommonRtn.Success(new Dictionary<string, object> { });
+            return CommonRtn.Success (new Dictionary<string, object> { });
         }
 
     }

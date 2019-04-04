@@ -25,15 +25,17 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-namespace Cucr.CucrSaas.App.Controllers {
+namespace Cucr.CucrSaas.App.Controllers
+{
 
     /// <summary>
     /// App登录注册授权接口
     /// </summary>
-    [Route ("api/CucrSaas/App/[controller]")]
+    [Route("api/CucrSaas/App/[controller]")]
     [ApiController]
 
-    public class AuthController : ControllerBase {
+    public class AuthController : ControllerBase
+    {
 
         private ICommonService commonService { get; set; }
         /// <summary>
@@ -65,12 +67,13 @@ namespace Cucr.CucrSaas.App.Controllers {
         /// <param name="_commonService"></param>
         /// <param name="_userService"></param>
         /// <param name="_smsService"></param>
-        public AuthController (OAContext _oaContext,
+        public AuthController(OAContext _oaContext,
             SysContext _sysContext,
             ICommonService _commonService,
             IUserService _userService,
             ISmsService _smsService
-        ) {
+        )
+        {
             this.oaContext = _oaContext;
             this.sysContext = _sysContext;
             this.commonService = _commonService;
@@ -82,13 +85,14 @@ namespace Cucr.CucrSaas.App.Controllers {
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        [HttpPost ("[action]")]
-        public CommonRtn sendSignupAuthcode ([FromForm] AppSingupInput input) {
-            var code = Guid.NewGuid ().ToString ().Substring (0, 4);
-            var smsResponseData = this.smsService.sendSignupAuthcode (input.phone, code);
+        [HttpPost("[action]")]
+        public CommonRtn sendSignupAuthcode([FromForm] AppSingupInput input)
+        {
+            var code = Guid.NewGuid().ToString().Substring(0, 4);
+            var smsResponseData = this.smsService.sendSignupAuthcode(input.phone, code);
             var message = new Message { bizId = smsResponseData.BizId, phone = input.phone, code = code, isAuthcode = true };
-            this.sysContext.messages.Add (message);
-            this.sysContext.SaveChanges ();
+            this.sysContext.messages.Add(message);
+            this.sysContext.SaveChanges();
             return new CommonRtn { success = true, message = "", resData = new Dictionary<string, object> { { "response", smsResponseData } } };
         }
 
@@ -96,39 +100,45 @@ namespace Cucr.CucrSaas.App.Controllers {
         /// app登录
         /// </summary>
         /// <returns></returns>
-        [HttpPost ("[action]")]
-        public CommonRtn appLogin (AppUserLoginInput loginInput) {
+        [HttpPost("[action]")]
+        public CommonRtn appLogin([FromForm]AppUserLoginInput loginInput)
+        {
 
-            var exisitUser = (from user in this.sysContext.users where user.phone == loginInput.phone select user).FirstOrDefault ();
-            if (exisitUser != null) {
+            var exisitUser = (from user in this.sysContext.users where user.phone == loginInput.phone select user).FirstOrDefault();
+            if (exisitUser != null)
+            {
                 // if (DESEncrypt.DecryptString(exisitUser.loginPassword) == loginInput.loginPassword)
                 // {
-                var loginIp = this.commonService.getRequestIp ();
+                var loginIp = this.commonService.getRequestIp();
                 exisitUser.loginNumber++;
                 exisitUser.loginIP = loginIp;
                 exisitUser.mechineId = loginInput.mechineId;
-                var token = this.userService.getUserToken (
-                    new AppTokenOutput {
-                        user = new User {
+                var token = this.userService.getUserToken(
+                    new AppTokenOutput
+                    {
+                        user = new User
+                        {
                             id = exisitUser.id,
-                                phone = exisitUser.phone,
-                                companyId = exisitUser.companyId,
-                                companyFrameworkId = exisitUser.companyFrameworkId
+                            phone = exisitUser.phone,
+                            companyId = exisitUser.companyId,
+                            companyFrameworkId = exisitUser.companyFrameworkId
                         }
                     });
                 exisitUser.token = token;
-                Console.WriteLine ("companyFrameowrkId:" + this.userService.decodeToken (token).user.companyFrameworkId);
-                Console.WriteLine ("cpmid" + exisitUser.companyFrameworkId);
-                Console.WriteLine ("companyId" + exisitUser.companyId);
-                this.sysContext.SaveChanges ();
+                Console.WriteLine("companyFrameowrkId:" + this.userService.decodeToken(token).user.companyFrameworkId);
+                Console.WriteLine("cpmid" + exisitUser.companyFrameworkId);
+                Console.WriteLine("companyId" + exisitUser.companyId);
+                this.sysContext.SaveChanges();
 
-                return new CommonRtn { success = true, message = "登录成功", resData = new Dictionary<string, object> () { { "token", token }, { "user", exisitUser } } };
+                return new CommonRtn { success = true, message = "登录成功", resData = new Dictionary<string, object>() { { "token", token }, { "user", exisitUser } } };
                 // }
                 // else
                 // {
                 // return CommonRtn.Error("登录失败,用户密码错误");
                 // }
-            } else {
+            }
+            else
+            {
 
                 return new CommonRtn { success = false, message = "登录失败,用户不存在", };
             }
@@ -140,26 +150,33 @@ namespace Cucr.CucrSaas.App.Controllers {
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        [HttpPost ("[action]")]
-        public CommonRtn signup ([FromForm] SignupInput input) {
-            var exisitUser = (from user in this.sysContext.users where user.phone == input.phone select user).Count ();
-            var message = (from msg in this.sysContext.messages where msg.phone == input.phone orderby msg.createTime descending select msg).First ();
-            if (message == null) {
-                return CommonRtn.Error ("请先发送短信验证码");
+        [HttpPost("[action]")]
+        public CommonRtn signup([FromForm] SignupInput input)
+        {
+            var exisitUser = (from user in this.sysContext.users where user.phone == input.phone select user).Count();
+            var message = (from msg in this.sysContext.messages where msg.phone == input.phone orderby msg.createTime descending select msg).First();
+            if (message == null)
+            {
+                return CommonRtn.Error("请先发送短信验证码");
             }
-            if (message.code != input.authcode) {
-                return CommonRtn.Error ("短信验证码错误");
+            if (message.code != input.authcode)
+            {
+                return CommonRtn.Error("短信验证码错误");
             }
-            if (exisitUser > 0) {
+            if (exisitUser > 0)
+            {
                 return new CommonRtn { success = false, message = "用户已经注册" };
-            } else {
-                var user = new User {
+            }
+            else
+            {
+                var user = new User
+                {
                     phone = input.phone,
-                    loginPassword = DESEncrypt.Encrypt (input.loginPassword),
-                    id = Guid.NewGuid ().ToString ()
+                    loginPassword = DESEncrypt.Encrypt(input.loginPassword),
+                    id = Guid.NewGuid().ToString()
                 };
-                this.sysContext.users.Add (user);
-                this.sysContext.SaveChanges ();
+                this.sysContext.users.Add(user);
+                this.sysContext.SaveChanges();
                 return new CommonRtn { success = true, message = "注册成功" };
             }
         }
@@ -167,24 +184,34 @@ namespace Cucr.CucrSaas.App.Controllers {
         /// 忘记密码
         /// </summary>
         /// <returns></returns>
-        [HttpPost ("[action]")]
-        public CommonRtn forgotPassword ([FromForm] AppForgotPasswordInput input) {
-            var userExist = (from user in this.sysContext.users where user.phone == input.phone select user).First ();
-            if (userExist != null) {
-                var msg = (from message in this.sysContext.messages where message.phone == input.phone orderby message.createTime select message).First ();
-                if (msg != null) {
-                    if (msg.code == input.authcode) {
-                        userExist.loginPassword = DESEncrypt.Encrypt (input.newPassword);
-                        var token = userService.getUserToken (new AppTokenOutput { user = userExist });
-                        return CommonRtn.Success (new Dictionary<string, object> { { "token", token } });
-                    } else {
-                        return CommonRtn.Error ("短信验证码错误");
+        [HttpPost("[action]")]
+        public CommonRtn forgotPassword([FromForm] AppForgotPasswordInput input)
+        {
+            var userExist = (from user in this.sysContext.users where user.phone == input.phone select user).First();
+            if (userExist != null)
+            {
+                var msg = (from message in this.sysContext.messages where message.phone == input.phone orderby message.createTime select message).First();
+                if (msg != null)
+                {
+                    if (msg.code == input.authcode)
+                    {
+                        userExist.loginPassword = DESEncrypt.Encrypt(input.newPassword);
+                        var token = userService.getUserToken(new AppTokenOutput { user = userExist });
+                        return CommonRtn.Success(new Dictionary<string, object> { { "token", token } });
                     }
-                } else {
-                    return CommonRtn.Error ("请先发送短信验证码");
+                    else
+                    {
+                        return CommonRtn.Error("短信验证码错误");
+                    }
                 }
-            } else {
-                return CommonRtn.Error ("手机号尚未注册为用户");
+                else
+                {
+                    return CommonRtn.Error("请先发送短信验证码");
+                }
+            }
+            else
+            {
+                return CommonRtn.Error("手机号尚未注册为用户");
             }
         }
 

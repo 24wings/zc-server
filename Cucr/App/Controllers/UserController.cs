@@ -91,7 +91,7 @@ namespace Cucr.CucrSaas.App.Controllers
         /// <param name="input"></param>
         /// <returns></returns>
         [HttpPost("[action]")]
-        public CommonRtn getMyInfo(UserInfoInput input)
+        public CommonRtn getMyInfo([FromForm] UserInfoInput input)
         {
             var instance = this.userService.decodeToken(this.commonService.getAuthenticationHeader());
 
@@ -117,7 +117,7 @@ namespace Cucr.CucrSaas.App.Controllers
         ///  </summary>
         /// <returns></returns>
         [HttpPost("[action]")]
-        public CommonRtn searchCompanyUserList([FromBody] object input)
+        public CommonRtn searchCompanyUserList([FromForm] object input)
         {
             var options = new DataSourceLoadOptions();
 
@@ -221,7 +221,7 @@ namespace Cucr.CucrSaas.App.Controllers
         /// <param name="input"></param>
         /// <returns></returns>
         [HttpPost("[action]")]
-        public CommonRtn searchCompanyUserListByKeyword(AppSearchUserInput input)
+        public CommonRtn searchCompanyUserListByKeyword([FromForm] AppSearchUserInput input)
         {
             var options = new DataSourceLoadOptions();
 
@@ -292,8 +292,8 @@ namespace Cucr.CucrSaas.App.Controllers
                 // Console.WriteLine(JsonConvert.SerializeObject(cfIds));
 
                 var users = (from user in this.sysContext.users
-                             where user.companyFrameworkId == input.companyFrameworkId
-&& user.companyId == instance.user.companyId
+                             where user.companyFrameworkId == input.companyFrameworkId &&
+user.companyId == instance.user.companyId
                              select user).ToArray();
                 users = users.Where(user => user.id != instance.user.id).ToArray();
                 return CommonRtn.Success(new Dictionary<string, object> { { "companyFrameworks", companyFrameworks }, { "users", users } });
@@ -308,7 +308,7 @@ namespace Cucr.CucrSaas.App.Controllers
         /// <param name="input"></param>
         /// <returns></returns>
         [HttpPost("[action]")]
-        public CommonRtn changeAvator(AppChangeAvatorInput input)
+        public CommonRtn changeAvator([FromForm]AppChangeAvatorInput input)
         {
             var token = this.commonService.getAuthenticationHeader();
             var instance = this.userService.decodeToken(token);
@@ -323,9 +323,11 @@ namespace Cucr.CucrSaas.App.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost("[action]")]
-        public CommonRtn getUserBaseInfo(GetUserBaseInfoInput input)
+        public CommonRtn getUserBaseInfo([FromForm] GetUserBaseInfoInput input)
         {
             var user = this.sysContext.users.Find(input.userId);
+            Console.WriteLine("input userId:" + input.userId);
+            Console.WriteLine(user);
             return CommonRtn.Success(new Dictionary<string, object> { { "user", user } });
         }
     }

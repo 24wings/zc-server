@@ -55,6 +55,62 @@ namespace Cucr.CucrSaas.ZC.Controllers
             this.clzcContext = _clzcContext;
         }
 
+        /// <summary>
+        /// 查询
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public object Get(DataSourceLoadOptions options)
+        {
+            return DataSourceLoader.Load(this.clzcContext.roles, options);
+        }
+
+        /// <summary>
+        /// 创建组织
+        /// </summary>
+        /// <param name="bodyData"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public bool Post([FromForm] BodyDataInput bodyData)
+        {
+            var role = new Role();
+            JsonConvert.PopulateObject(bodyData.values, role);
+            //Validate(order);
+            if (!ModelState.IsValid)
+                return false;
+            this.clzcContext.roles.Add(role);
+            this.clzcContext.SaveChanges();
+            return true;
+        }
+
+        /// <summary>
+        /// 删除组织
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        [HttpDelete]
+        public bool Delete([FromForm] string key)
+        {
+
+            var order = this.clzcContext.roles.Find(key);
+            this.clzcContext.roles.Remove(order);
+            this.clzcContext.SaveChanges();
+            return true;
+        }
+        /// <summary>
+        /// 更新组织
+        /// </summary>
+        /// <param name="bodyData"></param>
+        /// <returns></returns>
+        [HttpPut]
+        public bool Put([FromForm] BodyDataInput bodyData)
+        {
+            var order = this.clzcContext.roles.Find(bodyData.key);
+            JsonConvert.PopulateObject(bodyData.values, order);
+            this.clzcContext.SaveChanges();
+            return true;
+        }
 
     }
 }

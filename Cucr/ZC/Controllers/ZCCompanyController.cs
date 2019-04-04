@@ -30,18 +30,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 
-namespace Cucr.CucrSaas.ZC.Controllers
-{
+namespace Cucr.CucrSaas.ZC.Controllers {
 
     /// <summary>
     /// App登录注册授权接口
     /// </summary>
     // [EnableCors ("AllowAllOrigin")]
-    [Route("api/CucrSaas/ZC/[controller]")]
+    [Route ("api/CucrSaas/ZC/[controller]")]
     [ApiController]
 
-    public class ZCCompanyController : ControllerBase
-    {
+    public class ZCCompanyController : ControllerBase {
 
         /// <summary>
         ///      众筹数据库驱动
@@ -51,10 +49,9 @@ namespace Cucr.CucrSaas.ZC.Controllers
         /// 
         /// </summary>
         /// <param name="_clzcContext"></param>
-        public ZCCompanyController(
+        public ZCCompanyController (
             ClzcContext _clzcContext
-        )
-        {
+        ) {
             this.clzcContext = _clzcContext;
         }
 
@@ -62,18 +59,14 @@ namespace Cucr.CucrSaas.ZC.Controllers
         /// 列出公司列表
         /// </summary>
         /// <returns></returns>
-        [HttpPost("[action]")]
-        public CommonRtn searchCompany([FromBody] ZCSearchCompanyInput input)
-        {
-            if (input.keyword != null && input.keyword != String.Empty)
-            {
-                var companys = (from company in this.clzcContext.companys where company.name.Contains(input.keyword) select company).ToArray();
-                return CommonRtn.Success(new Dictionary<string, object> { { "companys", companys } });
-            }
-            else
-            {
-                var companys = this.clzcContext.companys.ToArray();
-                return CommonRtn.Success(new Dictionary<string, object> { { "companys", companys } });
+        [HttpPost ("[action]")]
+        public CommonRtn searchCompany ([FromBody] ZCSearchCompanyInput input) {
+            if (input.keyword != null && input.keyword != String.Empty) {
+                var companys = (from company in this.clzcContext.companys where company.name.Contains (input.keyword) select company).ToArray ();
+                return CommonRtn.Success (new Dictionary<string, object> { { "companys", companys } });
+            } else {
+                var companys = this.clzcContext.companys.ToArray ();
+                return CommonRtn.Success (new Dictionary<string, object> { { "companys", companys } });
             }
 
         }
@@ -83,10 +76,9 @@ namespace Cucr.CucrSaas.ZC.Controllers
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        [HttpPost("[action]")]
-        public CommonRtn getCompanyInfo([FromBody] ZCGetCompanyInfoInput input)
-        {
-            return CommonRtn.Success(new Dictionary<string, object> { { "company", this.clzcContext.companys.Find(input.companyId) } });
+        [HttpPost ("[action]")]
+        public CommonRtn getCompanyInfo ([FromBody] ZCGetCompanyInfoInput input) {
+            return CommonRtn.Success (new Dictionary<string, object> { { "company", this.clzcContext.companys.Find (input.companyId) } });
         }
 
         /// <summary>
@@ -95,27 +87,26 @@ namespace Cucr.CucrSaas.ZC.Controllers
         /// <param name="input"></param>
         /// <returns></returns>
 
-        [HttpPost("[action]")]
-        public CommonRtn submitProjectManageApply([FromBody] ZCCreateProjectManageApplyInput input)
-        {
-            var countExit = (from apply in this.clzcContext.projectManageApplys where apply.userId == input.userId && apply.status == ProjectManageApplyStatus.Submit select apply).Count();
-            if (countExit > 0)
-            {
-                return CommonRtn.Error("您已经提交过,请耐心等待审核");
+        [HttpPost ("[action]")]
+        public CommonRtn submitProjectManageApply ([FromBody] ZCCreateProjectManageApplyInput input) {
+            Console.WriteLine ("========");
+            var countExit = (from apply in this.clzcContext.projectManageApplys where apply.userId == input.userId && apply.status == ProjectManageApplyStatus.Submit select apply).Count ();
+            if (countExit > 0) {
+                return CommonRtn.Error ("您已经提交过,请耐心等待审核");
             }
-            var result = this.clzcContext.projectManageApplys.Add(
-                new ProjectManageApply
-                {
-                    id = Guid.NewGuid().ToString(),
-                    phone = input.phone,
-                    status = ProjectManageApplyStatus.Submit,
-                    summary = input.summary,
-                    userId = input.userId,
-                    companyId = input.companyId,
-                    fileId = input.fileId
+            var result = this.clzcContext.projectManageApplys.Add (
+                new ProjectManageApply {
+                    id = Guid.NewGuid ().ToString (),
+                        phone = input.phone,
+                        status = ProjectManageApplyStatus.Submit,
+                        summary = input.summary,
+                        userId = input.userId,
+                        companyId = input.companyId,
+                        fileId = input.fileId,
+                        name = input.name
                 });
-            this.clzcContext.SaveChanges();
-            return CommonRtn.Success(new Dictionary<string, object> { }, "提交成功,请耐心等待");
+            this.clzcContext.SaveChanges ();
+            return CommonRtn.Success (new Dictionary<string, object> { }, "提交成功,请耐心等待");
         }
     }
 }

@@ -61,6 +61,11 @@ namespace Cucr.CucrSaas.ZC.Entity.Clzc
         /// </summary>
         /// <value></value>
         public ProjectManageApplyStatus status { get; set; }
+        /// <summary>
+        /// 申请人
+        /// </summary>
+        /// <value></value>
+        public string name { get; set; }
     }
     /// <summary>
     /// 项目经理申请状态
