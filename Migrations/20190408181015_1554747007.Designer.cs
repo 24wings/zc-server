@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Wings.DataAccess;
 
 namespace Wings.Migrations
 {
     [DbContext(typeof(WingsContext))]
-    partial class WingsContextModelSnapshot : ModelSnapshot
+    [Migration("20190408181015_1554747007")]
+    partial class _1554747007
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,9 +41,26 @@ namespace Wings.Migrations
                     b.ToTable("OssFile");
                 });
 
+            modelBuilder.Entity("Wings.Base.RBAC.Entity.Role", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int?>("Userid");
+
+                    b.Property<string>("name")
+                        .HasColumnType("varchar(45)");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("Userid");
+
+                    b.ToTable("Role");
+                });
+
             modelBuilder.Entity("Wings.Base.RBAC.Entity.User", b =>
                 {
-                    b.Property<int>("userId")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTime?>("createTime4")
@@ -57,13 +76,20 @@ namespace Wings.Migrations
 
                     b.Property<int?>("orderNoid");
 
-                    b.HasKey("userId");
+                    b.HasKey("id");
 
                     b.HasIndex("headImageid");
 
                     b.HasIndex("orderNoid");
 
                     b.ToTable("user");
+                });
+
+            modelBuilder.Entity("Wings.Base.RBAC.Entity.Role", b =>
+                {
+                    b.HasOne("Wings.Base.RBAC.Entity.User")
+                        .WithMany("roles")
+                        .HasForeignKey("Userid");
                 });
 
             modelBuilder.Entity("Wings.Base.RBAC.Entity.User", b =>

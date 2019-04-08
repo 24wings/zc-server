@@ -387,12 +387,29 @@
             <param name="timeStamp"></param>
             <returns></returns>
         </member>
+        <member name="T:Wings.Base.RBAC.Entity.Role">
+            <summary>
+            用户管理
+            </summary>
+        </member>
+        <member name="P:Wings.Base.RBAC.Entity.Role.roleId">
+            <summary>
+            主键
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.RBAC.Entity.Role.name">
+            <summary>
+            角色名
+            </summary>
+            <value></value>
+        </member>
         <member name="T:Wings.Base.RBAC.Entity.User">
             <summary>
             用户管理
             </summary>
         </member>
-        <member name="P:Wings.Base.RBAC.Entity.User.id">
+        <member name="P:Wings.Base.RBAC.Entity.User.userId">
             <summary>
             主键
             </summary>
