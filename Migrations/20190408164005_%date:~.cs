@@ -2,21 +2,22 @@
 
 namespace Wings.Migrations
 {
-    public partial class _8 : Migration
+    public partial class date : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<int>(
+            migrationBuilder.RenameColumn(
                 name: "createTime2",
-                table: "rbacUsers",
-                nullable: true);
+                table: "user",
+                newName: "createTime3");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "createTime2",
-                table: "rbacUsers");
+            migrationBuilder.RenameColumn(
+                name: "createTime3",
+                table: "user",
+                newName: "createTime2");
         }
     }
 }

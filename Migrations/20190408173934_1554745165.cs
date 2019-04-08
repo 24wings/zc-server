@@ -2,7 +2,7 @@
 
 namespace Wings.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class _1554745165 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

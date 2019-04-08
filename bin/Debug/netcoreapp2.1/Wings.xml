@@ -387,24 +387,24 @@
             <param name="timeStamp"></param>
             <returns></returns>
         </member>
-        <member name="T:Wings.Base.RBAC.DataAccess.RbacContext">
+        <member name="T:Wings.Base.RBAC.Entity.User">
             <summary>
-            基于角色权限系统
+            用户管理
             </summary>
         </member>
-        <member name="M:Wings.Base.RBAC.DataAccess.RbacContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{Wings.Base.RBAC.DataAccess.RbacContext})">
+        <member name="P:Wings.Base.RBAC.Entity.User.id">
             <summary>
-             
+            主键
             </summary>
-            <param name="options"></param>
-            <returns></returns>
+            <value></value>
         </member>
-        <member name="P:Wings.Base.RBAC.DataAccess.RbacContext.rbacUsers">
+        <member name="P:Wings.Base.RBAC.Entity.User.name">
             <summary>
-            用户
+            姓名
             </summary>
+            <value></value>
         </member>
-        <member name="P:Wings.Base.RBAC.Entity.RbacUser.createTime">
+        <member name="P:Wings.Base.RBAC.Entity.User.createTime4">
             <summary>
             创建时间
             </summary>
