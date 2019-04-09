@@ -4,6 +4,77 @@
         <name>Wings</name>
     </assembly>
     <members>
+        <member name="T:Wings.Base.Common.Attrivute.ColAttribute">
+            <summary>
+            列特性
+            </summary>
+        </member>
+        <member name="P:Wings.Base.Common.Attrivute.ColAttribute.label">
+            <summary>
+            标签
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Wings.Base.Common.Attrivute.ItemAttribute">
+            <summary>
+            表单特性
+            </summary>
+        </member>
+        <member name="P:Wings.Base.Common.Attrivute.ItemAttribute.label">
+            <summary>
+            标签
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.Common.Attrivute.ItemAttribute.editorType">
+            <summary>
+            编辑类型
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.Common.Attrivute.ItemAttribute.dataField">
+            <summary>
+            数据字段
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Wings.Base.Common.Attrivute.EditorType">
+            <summary>
+            表单控件类型
+            </summary>
+        </member>
+        <member name="T:Wings.Base.Common.Attrivute.ViewAttribute">
+            <summary>
+            视图特性
+            </summary>
+        </member>
+        <member name="P:Wings.Base.Common.Attrivute.ViewAttribute.viewType">
+            <summary>
+            视图类型
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.Common.Attrivute.ViewAttribute.title">
+            <summary>
+            标题
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Wings.Base.Common.Attrivute.ViewType">
+            <summary>
+            视图类型
+            </summary>
+        </member>
+        <member name="F:Wings.Base.Common.Attrivute.ViewType.Table">
+            <summary>
+            表格
+            </summary>
+        </member>
+        <member name="F:Wings.Base.Common.Attrivute.ViewType.Tree">
+            <summary>
+            树形
+            </summary>
+        </member>
         <member name="T:Wings.Base.Common.Entity.TokenInstance">
             <summary>
             token信息
@@ -32,6 +103,17 @@
             token实体
             前端使用token可以获得token实体信息
             </summary>
+        </member>
+        <member name="T:Wings.Base.Common.Entity.OssFile">
+            <summary>
+            oss文件
+            </summary>
+        </member>
+        <member name="P:Wings.Base.Common.Entity.OssFile.id">
+            <summary>
+            主键
+            </summary>
+            <value></value>
         </member>
         <member name="T:Wings.Base.Common.DTO.CommonRtn">
             <summary>
@@ -128,6 +210,92 @@
             base64格式
             </summary>
             <value></value>
+        </member>
+        <member name="T:Wings.Base.Common.DTO.Col">
+            <summary>
+            列
+            </summary>
+        </member>
+        <member name="P:Wings.Base.Common.DTO.Col.label">
+            <summary>
+            标签
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Wings.Base.Common.DTO.Item">
+            <summary>
+            表单元数据
+            </summary>
+        </member>
+        <member name="P:Wings.Base.Common.DTO.Item.label">
+            <summary>
+            标签
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.Common.DTO.Item.editorType">
+            <summary>
+            编辑类型
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.Common.DTO.Item.dataField">
+            <summary>
+            数据字段
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Wings.Base.Common.DTO.View">
+            <summary>
+            视图元数据
+            </summary>
+        </member>
+        <member name="P:Wings.Base.Common.DTO.View.viewType">
+            <summary>
+            视图类型
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.Common.DTO.View.title">
+            <summary>
+            页面标题
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.Common.DTO.View.cols">
+            <summary>
+            列
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.Common.DTO.View.items">
+            <summary>
+            表单字段
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Wings.Base.Common.DTO.Label">
+            <summary>
+            标签文本
+            </summary>
+        </member>
+        <member name="P:Wings.Base.Common.DTO.Label.text">
+            <summary>
+            标签文本
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Wings.Base.Common.DVO.IDVO`1">
+            <summary>
+            DVO需要实现增删改查方法
+            </summary>
+        </member>
+        <member name="M:Wings.Base.Common.DVO.IDVO`1.query(Wings.DataAccess.WingsContext)">
+            <summary>
+            查询数据
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
         </member>
         <member name="T:Wings.Base.Common.Services.CharUtil">
             <summary>
@@ -386,6 +554,36 @@
             </summary>
             <param name="timeStamp"></param>
             <returns></returns>
+        </member>
+        <member name="M:Wings.Base.RBAC.Controllers.DemoController.dvoView(System.String)">
+            <summary>
+            dvo视图
+            </summary>
+            <param name="dvo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Wings.Base.RBAC.DVO.UserDVO">
+            <summary>
+            数据查询
+            </summary>
+        </member>
+        <member name="P:Wings.Base.RBAC.DVO.UserDVO.name">
+            <summary>
+            姓名
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.RBAC.DVO.UserDVO.userName">
+            <summary>
+            登录名
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.RBAC.DVO.UserDVO.password">
+            <summary>
+            密码
+            </summary>
+            <value></value>
         </member>
         <member name="T:Wings.Base.RBAC.Entity.Role">
             <summary>
