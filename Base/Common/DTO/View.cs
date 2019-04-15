@@ -11,7 +11,17 @@ namespace Wings.Base.Common.DTO {
         /// 标签
         /// </summary>
         /// <value></value>
-        public string label { get; set; }
+        public string caption { get; set; }
+        /// <summary>
+        /// 属性
+        /// </summary>
+        /// <value></value>
+        public string dataField { get; set; }
+        /// <summary>
+        /// 列的数据类型
+        /// </summary>
+        /// <value></value>
+        public string dataType { get; set; }
     }
     /// <summary>
     /// 表单元数据
@@ -39,10 +49,20 @@ namespace Wings.Base.Common.DTO {
     /// </summary>
     public class View {
         /// <summary>
+        /// 数据视图对象名称
+        /// </summary>
+        /// <value></value>
+        public string dvo { get; set; }
+        /// <summary>
+        /// 完全限定名
+        /// </summary>
+        /// <value></value>
+        public string fullName { get; set; }
+        /// <summary>
         /// 视图类型
         /// </summary>
         /// <value></value>
-        public ViewType viewType { get; set; }
+        public string viewType { get; set; }
 
         /// <summary>
         /// 页面标题
@@ -60,6 +80,23 @@ namespace Wings.Base.Common.DTO {
         /// </summary>
         /// <value></value>
         public List<Item> items { get; set; }
+
+        /// <summary>
+        /// 主键表达式
+        /// </summary>
+        /// <value></value>
+
+        public string keyExpr { get; set; }
+        /// <summary>
+        /// 上级id表达式
+        /// </summary>
+        /// <value></value>
+        public string parentIdExpr { get; set; }
+        /// <summary>
+        /// 数据源
+        /// </summary>
+        /// <value></value>
+        public DataSource dataSource { get; set; }
     }
     /// <summary>
     /// 标签文本

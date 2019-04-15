@@ -19,7 +19,9 @@ using NSwag;
 using NSwag.AspNetCore;
 using NSwag.SwaggerGeneration.Processors.Security;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+using Wings.Base.Common.Services;
 using Wings.DataAccess;
+using Wings.Projects.Hk;
 
 namespace Wings {
     /// <summary>
@@ -74,12 +76,11 @@ namespace Wings {
             var connection = "Data Source=47.100.63.224;Database=wings;User Id=root;Password=8US7DJ3WB5v;Convert Zero Datetime=True;Allow User Variables=True;";
             // var zcUrl = "Data Source=101.132.96.199;Database=wings;User Id=root;Password=123456;Convert Zero Datetime=True;Allow User Variables=True; ";
             //var connection = @"Server=localhost;Initial Catalog=master;Integrated Security=True";
+            var hkConnect = "Data Source=127.0.0.1;Database=hk;User Id=root;Password=lwm740130;Convert Zero Datetime=True;Allow User Variables=True;";
+
             services
                 .AddDbContext<WingsContext> (option => option.UseMySql (connection))
-            // .AddDbContext<CommonContext> (option => option.UseMySql (connection))
-            ;
-
-            ;
+                .AddDbContext<HkContext> (option => option.UseMySql (hkConnect));
             //解决中文被编码
             services.AddSingleton (HtmlEncoder.Create (UnicodeRanges.All));
 
@@ -104,7 +105,7 @@ namespace Wings {
             // services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             // services.AddScoped<ICommonService, CommonService>();
             // services.AddSingleton<IUserService, UserService>();
-            // services.AddSingleton<ISmsService, SmsService>();
+            services.AddSingleton<IDVOService, DVOService> ();
 
         }
 

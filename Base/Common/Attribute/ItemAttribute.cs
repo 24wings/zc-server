@@ -16,7 +16,7 @@ namespace Wings.Base.Common.Attrivute {
         /// 编辑类型
         /// </summary>
         /// <value></value>
-        public EditorType editorType { get; set; }
+        public EditorType editorType { get; set; } = EditorType.dxTextBox;
         /// <summary>
         /// 数据字段
         /// </summary>

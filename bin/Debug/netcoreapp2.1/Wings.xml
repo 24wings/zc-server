@@ -9,9 +9,55 @@
             列特性
             </summary>
         </member>
-        <member name="P:Wings.Base.Common.Attrivute.ColAttribute.label">
+        <member name="P:Wings.Base.Common.Attrivute.ColAttribute.caption">
             <summary>
             标签
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.Common.Attrivute.ColAttribute.dataField">
+            <summary>
+            属性
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Wings.Base.Common.Attrivute.ColDataType">
+            <summary>
+            列的数据类型
+            </summary>
+        </member>
+        <member name="T:Wings.Base.Common.Attrivute.DataSourceAttribute">
+            <summary>
+            数据源
+            </summary>
+        </member>
+        <member name="P:Wings.Base.Common.Attrivute.DataSourceAttribute.url">
+            <summary>
+            默认增删改查地址
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.Common.Attrivute.DataSourceAttribute.loadUrl">
+            <summary>
+            查询地址
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.Common.Attrivute.DataSourceAttribute.insertUrl">
+            <summary>
+            插入地址
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.Common.Attrivute.DataSourceAttribute.deleteUrl">
+            <summary>
+            移除地址
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.Common.Attrivute.DataSourceAttribute.updateUrl">
+            <summary>
+            更新地址
             </summary>
             <value></value>
         </member>
@@ -42,6 +88,29 @@
             <summary>
             表单控件类型
             </summary>
+        </member>
+        <member name="T:Wings.Base.Common.Attrivute.TreeListViewAttribute">
+            <summary>
+            视图特性
+            </summary>
+        </member>
+        <member name="P:Wings.Base.Common.Attrivute.TreeListViewAttribute.viewType">
+            <summary>
+            覆盖视图类型 
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.Common.Attrivute.TreeListViewAttribute.keyExpr">
+            <summary>
+            主键表达式
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.Common.Attrivute.TreeListViewAttribute.parentIdExpr">
+            <summary>
+            上级id表达式
+            </summary>
+            <value></value>
         </member>
         <member name="T:Wings.Base.Common.Attrivute.ViewAttribute">
             <summary>
@@ -159,6 +228,47 @@
             <param name="message"></param>
             <returns></returns>
         </member>
+        <member name="T:Wings.Base.Common.DTO.DataSource">
+            <summary>
+               数据源
+            </summary>
+        </member>
+        <member name="P:Wings.Base.Common.DTO.DataSource.type">
+            <summary>
+            数据存取方式, local,odata,custom
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.Common.DTO.DataSource.url">
+            <summary>
+            默认增删改查地址
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.Common.DTO.DataSource.loadUrl">
+            <summary>
+            查询地址
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.Common.DTO.DataSource.insertUrl">
+            <summary>
+            插入地址
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.Common.DTO.DataSource.deleteUrl">
+            <summary>
+            移除地址
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.Common.DTO.DataSource.updateUrl">
+            <summary>
+            更新地址
+            </summary>
+            <value></value>
+        </member>
         <member name="T:Wings.Base.Common.DTO.DevExtreamQuery">
             <summary>
             DevExtream Body Datas
@@ -170,6 +280,22 @@
             </summary>
         </member>
         <member name="P:Wings.Base.Common.DTO.DevExtreamQuery.key">
+            <summary>
+            主键
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Wings.Base.Common.DTO.DevExtremInput">
+            <summary>
+            DevExtream Body Datas
+            </summary>
+        </member>
+        <member name="P:Wings.Base.Common.DTO.DevExtremInput.values">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Wings.Base.Common.DTO.DevExtremInput.key">
             <summary>
             主键
             </summary>
@@ -216,9 +342,21 @@
             列
             </summary>
         </member>
-        <member name="P:Wings.Base.Common.DTO.Col.label">
+        <member name="P:Wings.Base.Common.DTO.Col.caption">
             <summary>
             标签
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.Common.DTO.Col.dataField">
+            <summary>
+            属性
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.Common.DTO.Col.dataType">
+            <summary>
+            列的数据类型
             </summary>
             <value></value>
         </member>
@@ -250,6 +388,18 @@
             视图元数据
             </summary>
         </member>
+        <member name="P:Wings.Base.Common.DTO.View.dvo">
+            <summary>
+            数据视图对象名称
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.Common.DTO.View.fullName">
+            <summary>
+            完全限定名
+            </summary>
+            <value></value>
+        </member>
         <member name="P:Wings.Base.Common.DTO.View.viewType">
             <summary>
             视图类型
@@ -271,6 +421,24 @@
         <member name="P:Wings.Base.Common.DTO.View.items">
             <summary>
             表单字段
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.Common.DTO.View.keyExpr">
+            <summary>
+            主键表达式
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.Common.DTO.View.parentIdExpr">
+            <summary>
+            上级id表达式
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Base.Common.DTO.View.dataSource">
+            <summary>
+            数据源
             </summary>
             <value></value>
         </member>
@@ -383,6 +551,37 @@
             </summary>
             <param name="cipherText"></param>
             <param name="keyString"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Wings.Base.Common.Services.IDVOService">
+            <summary>
+            DVO服务
+            </summary>
+        </member>
+        <member name="M:Wings.Base.Common.Services.IDVOService.listViewByNamespace(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="_namespace_"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Wings.Base.Common.Services.DVOService">
+            <summary>
+            根据命名空间列出视图列表
+            </summary>
+        </member>
+        <member name="M:Wings.Base.Common.Services.DVOService.listViewByNamespace(System.String)">
+            <summary>
+            根据命名空间列出旗下的所有dvo
+            </summary>
+            <param name="_namespace_"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Base.Common.Services.DVOService.getViewByName(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="dvo"></param>
             <returns></returns>
         </member>
         <member name="T:Wings.Base.Common.Services.OSSService">
@@ -642,6 +841,136 @@
             </summary>
             <param name="args"></param>
             <returns></returns>
+        </member>
+        <member name="P:Wings.Projects.Hk.Controllers.LoginInput.username">
+            <summary>
+            用户名
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Hk.Controllers.LoginInput.password">
+            <summary>
+            密码
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Wings.Projects.Hk.Controllers.AuthController">
+            <summary>
+            自动化管理控制器
+            </summary>
+        </member>
+        <member name="M:Wings.Projects.Hk.Controllers.AuthController.#ctor(Wings.Projects.Hk.HkContext)">
+            <summary>
+            
+            </summary>
+            <param name="_hk"></param>
+        </member>
+        <member name="M:Wings.Projects.Hk.Controllers.AuthController.login(Wings.Projects.Hk.Controllers.LoginInput)">
+            <summary>
+            登录
+            </summary>
+            <param name="input"></param>
+        </member>
+        <member name="T:Wings.Projects.Hk.Controllers.DVOController">
+            <summary>
+            自动化管理控制器
+            </summary>
+        </member>
+        <member name="M:Wings.Projects.Hk.Controllers.DVOController.#ctor(Wings.Projects.Hk.HkContext)">
+            <summary>
+            
+            </summary>
+            <param name="_hk"></param>
+        </member>
+        <member name="M:Wings.Projects.Hk.Controllers.DVOController.load(System.String,DevExtreme.AspNet.Data.DataSourceLoadOptionsBase)">
+            <summary>
+            dvo查询
+            </summary>
+            <param name="dvoFullName"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Projects.Hk.Controllers.DVOController.insert(System.String,Wings.Base.Common.DTO.DevExtremInput)">
+            <summary>
+            插入数据
+            </summary>
+            <param name="dvoFullName"></param>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Projects.Hk.Controllers.DVOController.remove(System.String,Wings.Base.Common.DTO.DevExtremInput)">
+            <summary>
+            删除
+            </summary>
+            <param name="dvoFullName"></param>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Projects.Hk.Controllers.DVOController.listDVO">
+            <summary>
+            列出DVO
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Projects.Hk.Controllers.DVOController.getViewByDVO(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="dvo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Projects.Hk.Controllers.DVOController.getViewByType(System.Type)">
+            <summary>
+            根据类型获取视图
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Wings.Projects.Hk.Controllers.OrgController">
+            <summary>
+            组织管理
+            </summary>
+        </member>
+        <member name="M:Wings.Projects.Hk.Controllers.OrgController.#ctor(Wings.Projects.Hk.HkContext)">
+            <summary>
+            
+            </summary>
+            <param name="_hk"></param>
+        </member>
+        <member name="T:Wings.Projects.Hk.DVO.Rbac.OrgManage">
+            <summary>
+            组织管理
+            </summary>
+        </member>
+        <member name="P:Wings.Projects.Hk.DVO.Rbac.OrgManage.orgId">
+            <summary>
+            组织id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Hk.DVO.Rbac.OrgManage.orgName">
+            <summary>
+            组织名称
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Hk.DVO.Rbac.OrgManage.parentId">
+            <summary>
+            组织id
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Wings.Projects.Hk.HkContext">
+            <summary>
+            航空数据环境
+            </summary>
+        </member>
+        <member name="M:Wings.Projects.Hk.HkContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            数据库实体创建时
+            1.null 扫描Wings.Hk 命名空间下的所有表
+            </summary>
+            <param name="modelBuilder"></param>
         </member>
         <member name="T:Wings.Startup">
             <summary>

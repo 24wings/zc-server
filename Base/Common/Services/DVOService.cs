@@ -1,42 +1,44 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Wings.Base.Common.Attrivute;
 using Wings.Base.Common.DTO;
-using Wings.DataAccess;
 
-namespace Wings.Base.RBAC.Controllers {
-    [Route ("/api/RBAC/Demo")]
-    public class DemoController {
-        private WingsContext rbac { get; set; }
-        public DemoController (WingsContext _rbac) { rbac = _rbac; }
-
-        [HttpGet]
-
-        public object list () {
-            var type = Assembly.GetEntryAssembly ().GetType ("Wings.Base.RBAC.DVO.UserDVO");
-            Console.WriteLine (type.IsClass);
-            var query = type.GetMethod ("query");
-            if (query != null) {
-                var data = query.Invoke (null, new object[] { this.rbac });
-                Console.WriteLine (data);
-                return data;
-            } else {
-                return null;
-            }
-
-        }
+namespace Wings.Base.Common.Services {
+    /// <summary>
+    /// DVO服务
+    /// </summary>
+    public interface IDVOService {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="_namespace_"></param>
+        /// <returns></returns>
+        List<View> listViewByNamespace (string _namespace_);
+    }
+    /// <summary>
+    /// 根据命名空间列出视图列表
+    /// </summary>
+    public class DVOService : IDVOService {
 
         /// <summary>
-        /// dvo视图
+        /// 根据命名空间列出旗下的所有dvo
+        /// </summary>
+        /// <param name="_namespace_"></param>
+        /// <returns></returns>
+        public List<View> listViewByNamespace (string _namespace_) {
+            var nsp = Assembly.GetEntryAssembly ().GetType (_namespace_);
+            Console.WriteLine (nsp.Namespace);
+
+            return null;
+
+        }
+        /// <summary>
+        /// 
         /// </summary>
         /// <param name="dvo"></param>
         /// <returns></returns>
-        [HttpGet ("[action]")]
-        public View dvoView (string dvo) {
+        public View getViewByName (string dvo) {
             var type = Assembly.GetEntryAssembly ().GetType (dvo);
             if (type != null) {
                 var viewAttr = (ViewAttribute) type.GetCustomAttribute (typeof (ViewAttribute));
@@ -65,6 +67,8 @@ namespace Wings.Base.RBAC.Controllers {
                 }
 
                 var view = new View ();
+                view.viewType = viewAttr.viewType.ToString ();
+                view.title = viewAttr.title;
                 view.cols = cols;
                 view.items = items;
                 return view;

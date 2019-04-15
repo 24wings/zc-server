@@ -11,12 +11,19 @@ namespace Wings.Base.Common.Attrivute {
         /// 标签
         /// </summary>
         /// <value></value>
-        public string label { get; set; }
+        public string caption { get; set; }
 
-        public ColType colType { get; set; }
+        public ColDataType dataType { get; set; }
+        /// <summary>
+        /// 属性
+        /// </summary>
+        /// <value></value>
+        public string dataField { get; set; }
     }
-
-    public enum ColType {
+    /// <summary>
+    /// 列的数据类型
+    /// </summary>
+    public enum ColDataType {
         String,
         Number
     }

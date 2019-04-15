@@ -18,7 +18,7 @@ namespace Wings.Base.RBAC.DVO {
         /// 姓名
         /// </summary>
         /// <value></value>
-        [Col (label = "姓名")]
+        [Col (caption = "姓名")]
         [Item (label = "用户名", editorType = EditorType.dxTextBox)]
         public string name { get; set; }
         /// <summary>
@@ -26,7 +26,7 @@ namespace Wings.Base.RBAC.DVO {
         /// </summary>
         /// <value></value>
         [Item (label = "登录名")]
-        [Col (label = "登录名")]
+        [Col (caption = "登录名")]
         public string userName { get; set; }
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace Wings.Base.RBAC.DVO {
         /// </summary>
         /// <value></value>
         [Item (label = "密码")]
-        [Col (label = "密码")]
+        [Col (caption = "密码")]
         public string password { get; set; }
 
         public static IQueryable<UserDVO> query (WingsContext ctx) {
